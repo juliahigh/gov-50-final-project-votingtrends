@@ -12,6 +12,10 @@ output:
 ## Project thoughts
 
 I am interested in exploring data related to...
+select columns i need and rename them
+
+Research question: Do Democrat and Republican views on 5 major social issues differ by racial group?
+
 
 ```{r}
 library(tidyverse)
@@ -23,8 +27,70 @@ voting_trends_2020 <- read_csv("anes_timeseries_2020_csv_20220210.csv")
 voting_trends_2020
 ```
 
+Race: V201549x
+Abortion: V201336
+LGBTQ+ Rights: V201416
+Immigration: V201417
+Environment: V201321
+Economy: V201324
+Party: V201018 (filter to include democrat and republican)
+**maybe I could just do narm = true instead of filtering for the issues. so just filter for race and party!
 
+```{r}
+voting_trends_2020 <- voting_trends_2020 |>
+  select(V201549x, V201336, V201416, V201417, V201321, V201324, V201018) |>
+  filter(
+    V201549x >= 1,
+    V201018 == 1 | V201018 == 2,
+  )
+voting_trends_2020
+```
+```{r}
+voting_trends <- voting_trends_2020 |>
+  rename(
+    race_num = V201549x,
+    abortion_views = V201336,
+    lgbtq_views = V201416,
+    immigration_views = V201417,
+    environment_views = V201321,
+    economy_views = V201324,
+    party = V201018
+  ) |>
+  mutate(
+    race = case_when(
+      race_num == 1 ~ "White, non-Hispanic",
+      race_num == 2 ~ "Black, non-Hispanic",
+      race_num == 3 ~ "Hispanic",
+      race_num == 4 ~ "Asian or Native Hawaiian/other Pacific Islander, non-Hispanic",
+      race_num == 5 ~ "Native American/Alaska Native or other race, non-Hispanic",
+      race_num == 6 ~ "Multiple races, non-Hispanic"
+    ),
+    party = if_else(party == 1, "Democrat", "Republican")
+  )
+voting_trends
+```
 
+Plot the average views on abortion, lgbtq issues, immigration, environment, and economy BY PARTY each on a different graph.
+will need to group by party
+will need to summarize each issue
+
+```{r}
+voting_tibble <- voting_trends |>
+  group_by(party) |>
+  summarize(
+    avg_abortion = mean(abortion_views),
+    avg_lgbtq = mean(lgbtq_views),
+    avg_immigration = mean(immigration_views),
+    avg_environment = mean(environment_views),
+    avg_economy = mean(economy_views)
+  )
+knitr::kable(voting_tibble,
+             col.names = c("Party Affiliation", "Views on Abortion", "Views on Gay Marriage", "Views on Immigration", "Views on the Environment", "Views on the Economy"))
+```
+```{r}
+voting_tibble |>
+  ggplot(mapping = )
+```
 
 
 
