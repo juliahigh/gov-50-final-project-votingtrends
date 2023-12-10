@@ -90,7 +90,6 @@ knitr::kable(voting_tibble,
 ```
 
 
-
 ```{r}
 abortion_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_abortion, fill = race)) +
@@ -100,12 +99,46 @@ abortion_plot <- voting_tibble |>
 abortion_plot
 ```
 
+```{r}
+lgbtq_plot <- voting_tibble |>
+  ggplot(mapping = aes(x = party, y = avg_lgbtq, fill = race)) +
+  geom_col(position = "dodge") +
+  labs(x = "Party Affiliation",
+       y = "Average Views on Gay Marriage")
+lgbtq_plot
+```
+
+```{r}
+immigration_plot <- voting_tibble |>
+  ggplot(mapping = aes(x = party, y = avg_immigration, fill = race)) +
+  geom_col(position = "dodge") +
+  labs(x = "Party Affiliation",
+       y = "Average Views on Immigration")
+immigration_plot
+```
+
+```{r}
+environment_plot <- voting_tibble |>
+  ggplot(mapping = aes(x = party, y = avg_environment, fill = race)) +
+  geom_col(position = "dodge") +
+  labs(x = "Party Affiliation",
+       y = "Average Views on the Environment")
+environment_plot
+```
 
 
+```{r}
+economy_plot <- voting_tibble |>
+  ggplot(mapping = aes(x = party, y = avg_economy, fill = race)) +
+  geom_col(position = "dodge") +
+  labs(x = "Party Affiliation",
+       y = "Average Views on the Economy")
+economy_plot
+```
 
-
-
-
+```{r}
+lm()
+```
 
 
 
