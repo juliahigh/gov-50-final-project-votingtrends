@@ -7,33 +7,40 @@ output:
     self_contained: false
 ---
 
-INTRODUCTION: 
-- Introduce research question
-- Introduce hypothesis
-- Describe why it is interesting
+##INTRODUCTION: 
 
-DATA: 
-- Describe the data source
-- Describe how the key dependent and independent variables are measured
-- Produces a plot that summarizes the dependent variable
-- note if research design is cross-sectional or another type
-
-RESULTS: 
-- Scatterplot, barplot, or boxplot of the main relationship of interest
-- output for the main regression of interest
-- interpret the main coefficient of interest in regression
-- comment on the statistical significance of the estimated coefficient and whether or not the coefficient represents a causal effect
-
-CONCLUSION: 
-- One paragraph that summarizes results
-- assesses the extent to which you find support for your hypothesis
-- describes limitations of your analysis 
-- describes threats to inference
-- states how your analysis could be improved
+	My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area. 
 
 
-Research question: Do Democrat and Republican views on 5 major social issues differ by racial group?
-Hypothesis: Democrat and Republican views on 5 major social issues will differ by racial group.
+##DATA: 
+
+My data comes from the American National Election Studies 2020 Time Series study. This source is a public opinion survey of over 8,000 Americans in 2020 about a number of different topics. Party affiliation and race are self-reported in the survey.
+
+I am measuring respondents’ views on my five key social issues based on the following survey questions.
+
+Abortion
+Question: There has been some discussion about abortion during recent years. Which one of the opinions on this page best agrees with your view? 
+Response options: 1 (By law, abortion should never be permitted) through 5 (By law, a woman should always be able to obtain an abortion as a matter of personal choice).
+
+LGBTQ+ Rights
+Question: Which comes closest to your view [on gay marriage]? You can just tell me the number of your choice.
+Response options: 1 (Gay and lesbian couples should be allowed to legally marry) through 3 (There should be no legal recognition of gay or lesbian couples’ relationship).
+
+Immigration
+Question: Which comes closest to your view about what government policy should be toward unauthorized immigrants now living in the United States?
+Response options: 1 (Make all unauthorized immigrants felons and send them back to their home country) through 4 (Allow unauthorized immigrants to remain in US & eventually qualify for citizenship without penalties).
+
+Environment
+Question: Where would you place yourself on this scale, or haven’t you thought much about this?
+Response options: 1 (Tougher regulations on business needed to protect environment) through 7 (Regulations to protect environment already too much a burden on business).
+
+Economy
+Question: What do you think about the state of the economy these days in the United States? Would you say the state of the economy is very good,good, neither good nor bad, bad, or very bad?
+Response options: 1(Very good) through 5 (Very bad).
+
+While these categories may not entirely reflect of respondents’ views on a given issue, they offer a solid foundation to reveal potential differences by race and party.
+
+The research design for this study is BLANK.
 
 
 ```{r}
@@ -45,18 +52,6 @@ library(dplyr)
 voting_trends_2020 <- read_csv("anes_timeseries_2020_csv_20220210.csv")
 voting_trends_2020
 ```
-
-Race: V201549x
-Abortion: V201336
-LGBTQ+ Rights: V201416
-Immigration: V201417
-Environment: V201262
-Economy: V201324
-Party: V201018 (filter to include democrat and republican)
-**maybe I could just do narm = true instead of filtering for the issues. so just filter for race and party!
-
-## I did %in% below to make abortion be 1, 2, 3 or 4
-##DO I need to make otehr values lik e that?
 
 ```{r}
 voting_trends_2020 <- voting_trends_2020 |>
@@ -97,12 +92,6 @@ voting_trends <- voting_trends_2020 |>
 voting_trends
 ```
 
-IF IT'S DEPENDENT ALONE:
-
-using abortoin_views as the variable
-i just need to show the variable and the count
-maybe histogram or barplot
-
 ```{r}
 voting_trends_dependent_abortion <- voting_trends |>
   ggplot(mapping = aes(x = abortion_views)) +
@@ -113,7 +102,6 @@ voting_trends_dependent_abortion <- voting_trends |>
   )
 voting_trends_dependent_abortion
 ```
-**NEED TO MAKE SURE I DEFINE LABELS AND SCALES
 
 ```{r}
 voting_trends_dependent_lgbtq <- voting_trends |>
@@ -125,6 +113,7 @@ voting_trends_dependent_lgbtq <- voting_trends |>
   )
 voting_trends_dependent_lgbtq
 ```
+
 ```{r}
 voting_trends_dependent_immigration <- voting_trends |>
   ggplot(mapping = aes(x = immigration_views)) +
@@ -135,6 +124,7 @@ voting_trends_dependent_immigration <- voting_trends |>
   )
 voting_trends_dependent_immigration
 ```
+
 ```{r}
 voting_trends_dependent_environment <- voting_trends |>
   ggplot(mapping = aes(x = environment_views)) +
@@ -145,8 +135,6 @@ voting_trends_dependent_environment <- voting_trends |>
   ) 
 voting_trends_dependent_environment
 ```
-
-**CONTEXTUALIZE survey questions in introduction and write ups
 
 ```{r}
 voting_trends_dependent_economy <- voting_trends |>
@@ -159,9 +147,7 @@ voting_trends_dependent_economy <- voting_trends |>
 voting_trends_dependent_economy
 ```
 
-**is the count here how many people answered with each number? 
-or do I summarize them just not group
-
+##RESULTS: 
 
 ```{r}
 voting_trends_dependent_tibble <- voting_trends |>
@@ -175,9 +161,6 @@ voting_trends_dependent_tibble <- voting_trends |>
 knitr::kable(voting_trends_dependent_tibble,
              col.names = c("Average Views on Abortion", "Average Views on Gay Marriage", "Average Views on Immigration", "Average Views on the Environment", "Average Views on the Economy"))
 ```
-
-**To do this, I would have to make a different plot for each issue since 1-5 means different things
-
 
 
 ```{r}
@@ -213,8 +196,6 @@ lgbtq_plot <- voting_tibble |>
 lgbtq_plot
 ```
 
-**MAYBE ADD IN A ROW FOR THE AVERAGE DEM AND AVERAGE REP FOR EACH AS A COMPARISON
-
 ```{r}
 immigration_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_immigration, fill = race)) +
@@ -233,7 +214,6 @@ environment_plot <- voting_tibble |>
 environment_plot
 ```
 
-
 ```{r}
 economy_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_economy, fill = race)) +
@@ -247,22 +227,11 @@ economy_plot
 abortion_regression <- lm(avg_abortion ~ race + party, data = voting_tibble)
 summary(abortion_regression)
 ```
-*8Note: These values under RaceBlack, non-Hispanic etc have nothing to do with statistical significance. They mean something else. They are the slope.
-slope goes down as compared to what?
-since i'm just looking at abortion, the intercept could still be valuable. no results will be valuable if I do an analysis of all the key issues because 1-5 means different things.
-
-
 
 ```{r}
 lgbtq_regression <- lm(avg_lgbtq ~ race + party, data = voting_tibble)
 summary(lgbtq_regression)
 ```
-
-modelsummary::modelsummary(immigration_regression,
-statistic = c("s.e. = {std.error}",
-"p = {p.value}"),
-coef_map = var_labels,
-gof_map = c("nobs", "r.squared", "adj.r.squared"))
 
 ```{r}
 immigration_regression <- lm(avg_immigration ~ race + party, data = voting_tibble)
@@ -279,20 +248,7 @@ economy_regression <- lm(avg_economy ~ race + party, data = voting_tibble)
 summary(economy_regression)
 ```
 
+CONCLUSION: 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+***MAKE SURE TO CITE SOURCES
 
