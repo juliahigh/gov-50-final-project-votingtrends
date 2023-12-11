@@ -8,12 +8,28 @@ output:
 ---
 
 INTRODUCTION: 
+- Introduce research question
+- Introduce hypothesis
+- Describe why it is interesting
 
 DATA: 
+- Describe the data source
+- Describe how the key dependent and independent variables are measured
+- Produces a plot that summarizes the dependent variable
+- note if research design is cross-sectional or another type
 
 RESULTS: 
+- Scatterplot, barplot, or boxplot of the main relationship of interest
+- output for the main regression of interest
+- interpret the main coefficient of interest in regression
+- comment on the statistical significance of the estimated coefficient and whether or not the coefficient represents a causal effect
 
 CONCLUSION: 
+- One paragraph that summarizes results
+- assesses the extent to which you find support for your hypothesis
+- describes limitations of your analysis 
+- describes threats to inference
+- states how your analysis could be improved
 
 
 Research question: Do Democrat and Republican views on 5 major social issues differ by racial group?
@@ -87,6 +103,14 @@ voting_trends_dependent <- voting_trends |>
 knitr::kable(voting_trends_dependent,
              col.names = c("Average Views on Abortion", "Average Views on Gay Marriage", "Average Views on Immigration", "Average Views on the Environment", "Average Views on the Economy"))
 ```
+
+**To do this, I would have to make a different plot for each issue since 1-5 means different things
+```{r}
+voting_trends_dependent_plot <- voting_trends_dependent |>
+  ggplot(mapping = aes(x = ))
+  
+```
+
 
 IF IT'S DEPENDENT AND PARTY: 
 ```{r}
