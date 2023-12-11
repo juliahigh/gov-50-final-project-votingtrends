@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["anes_timeseries_2020_csv_20220210.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-10-1.png","index_files/figure-html5/unnamed-chunk-11-1.png","index_files/figure-html5/unnamed-chunk-12-1.png","index_files/figure-html5/unnamed-chunk-13-1.png","index_files/figure-html5/unnamed-chunk-9-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["anes_timeseries_2020_csv_20220210.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-10-1.png","index_files/figure-html5/unnamed-chunk-11-1.png","index_files/figure-html5/unnamed-chunk-12-1.png","index_files/figure-html5/unnamed-chunk-13-1.png","index_files/figure-html5/unnamed-chunk-14-1.png","index_files/figure-html5/unnamed-chunk-15-1.png","index_files/figure-html5/unnamed-chunk-16-1.png","index_files/figure-html5/unnamed-chunk-5-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/figure-html5/unnamed-chunk-9-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1543,12 +1543,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>INTRODUCTION:</p>
-<p>DATA:</p>
-<p>RESULTS:</p>
-<p>CONCLUSION:</p>
-<p>Research question: Do Democrat and Republican views on 5 major social issues differ by racial group?
-Hypothesis: Democrat and Republican views on 5 major social issues will differ by racial group.</p>
+<p>##INTRODUCTION:</p>
+<pre><code>My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area. </code></pre>
+<p>##DATA:</p>
+<p>My data comes from the American National Election Studies 2020 Time Series study. This source is a public opinion survey of over 8,000 Americans in 2020 about a number of different topics. Party affiliation and race are self-reported in the survey.</p>
+<p>I am measuring respondents’ views on my five key social issues based on the following survey questions.</p>
+<p>Abortion
+Question: There has been some discussion about abortion during recent years. Which one of the opinions on this page best agrees with your view?
+Response options: 1 (By law, abortion should never be permitted) through 5 (By law, a woman should always be able to obtain an abortion as a matter of personal choice).</p>
+<p>LGBTQ+ Rights
+Question: Which comes closest to your view [on gay marriage]? You can just tell me the number of your choice.
+Response options: 1 (Gay and lesbian couples should be allowed to legally marry) through 3 (There should be no legal recognition of gay or lesbian couples’ relationship).</p>
+<p>Immigration
+Question: Which comes closest to your view about what government policy should be toward unauthorized immigrants now living in the United States?
+Response options: 1 (Make all unauthorized immigrants felons and send them back to their home country) through 4 (Allow unauthorized immigrants to remain in US &amp; eventually qualify for citizenship without penalties).</p>
+<p>Environment
+Question: Where would you place yourself on this scale, or haven’t you thought much about this?
+Response options: 1 (Tougher regulations on business needed to protect environment) through 7 (Regulations to protect environment already too much a burden on business).</p>
+<p>Economy
+Question: What do you think about the state of the economy these days in the United States? Would you say the state of the economy is very good,good, neither good nor bad, bad, or very bad?
+Response options: 1(Very good) through 5 (Very bad).</p>
+<p>While these categories may not entirely reflect of respondents’ views on a given issue, they offer a solid foundation to reveal potential differences by race and party.</p>
+<p>The research design for this study is BLANK.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
@@ -1556,10 +1572,6 @@ Hypothesis: Democrat and Republican views on 5 major social issues will differ b
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_2020</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"anes_timeseries_2020_csv_20220210.csv"</span><span class='op'>)</span></span>
-<span><span class='va'>voting_trends_2020</span></span></code></pre>
-</div>
 <pre><code># A tibble: 8,280 × 1,771
    version        V200001 V160001_orig V200002 V200003 V200004 V200005
    &lt;chr&gt;            &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -1581,39 +1593,35 @@ Hypothesis: Democrat and Republican views on 5 major social issues will differ b
 #   V200012c &lt;dbl&gt;, V200012d &lt;dbl&gt;, V200013a &lt;dbl&gt;, V200013b &lt;dbl&gt;,
 #   V200013c &lt;dbl&gt;, V200013d &lt;dbl&gt;, V200014a &lt;dbl&gt;, V200014b &lt;dbl&gt;, …</code></pre>
 </div>
-<p>Race: V201549x
-Abortion: V201336
-LGBTQ+ Rights: V201416
-Immigration: V201417
-Environment: V201321
-Economy: V201324
-Party: V201018 (filter to include democrat and republican)
-**maybe I could just do narm = true instead of filtering for the issues. so just filter for race and party!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_2020</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends_2020</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>V201549x</span>, <span class='va'>V201336</span>, <span class='va'>V201416</span>, <span class='va'>V201417</span>, <span class='va'>V201321</span>, <span class='va'>V201324</span>, <span class='va'>V201018</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>V201549x</span>, <span class='va'>V201336</span>, <span class='va'>V201416</span>, <span class='va'>V201417</span>, <span class='va'>V201262</span>, <span class='va'>V201324</span>, <span class='va'>V201018</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span></span>
 <span>    <span class='va'>V201549x</span> <span class='op'>&gt;=</span> <span class='fl'>1</span>,</span>
 <span>    <span class='va'>V201018</span> <span class='op'>==</span> <span class='fl'>1</span> <span class='op'>|</span> <span class='va'>V201018</span> <span class='op'>==</span> <span class='fl'>2</span>,</span>
-<span>    <span class='va'>V201336</span> <span class='op'>&gt;=</span> <span class='fl'>1</span> <span class='op'>|</span> <span class='va'>V201336</span> <span class='op'>&lt;</span> <span class='fl'>5</span></span>
+<span>    <span class='va'>V201336</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span><span class='op'>)</span>,</span>
+<span>    <span class='va'>V201416</span> <span class='op'>&gt;=</span> <span class='fl'>1</span>,</span>
+<span>    <span class='va'>V201417</span> <span class='op'>&gt;=</span> <span class='fl'>1</span>,</span>
+<span>    <span class='va'>V201262</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>7</span><span class='op'>)</span>,</span>
+<span>    <span class='va'>V201324</span> <span class='op'>&gt;=</span> <span class='fl'>1</span></span>
 <span>  <span class='op'>)</span></span>
 <span><span class='va'>voting_trends_2020</span></span></code></pre>
 </div>
-<pre><code># A tibble: 3,161 × 7
-   V201549x V201336 V201416 V201417 V201321 V201324 V201018
+<pre><code># A tibble: 2,654 × 7
+   V201549x V201336 V201416 V201417 V201262 V201324 V201018
       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
- 1        3       2       3       1       2       2       2
- 2        4       1       1       1       3       4       2
+ 1        3       2       3       1       7       2       2
+ 2        4       1       1       1       1       4       2
  3        3       1       3       3       1       4       1
- 4        1       4       1       3       1       3       1
- 5        3       4       1       3       1       4       2
- 6        3       3       1       3       1       5       1
+ 4        1       4       1       3       3       3       1
+ 5        3       4       1       3       3       4       2
+ 6        3       3       1       3       2       5       1
  7        1       4       1       3       1       4       1
- 8        1       2       3       3       1       2       1
+ 8        1       2       3       3       6       2       1
  9        1       4       1       3       1       4       2
-10        3       4       1       3       1       4       1
-# ℹ 3,151 more rows</code></pre>
+10        3       4       1       3       4       4       1
+# ℹ 2,644 more rows</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1623,7 +1631,7 @@ Party: V201018 (filter to include democrat and republican)
 <span>    abortion_views <span class='op'>=</span> <span class='va'>V201336</span>,</span>
 <span>    lgbtq_views <span class='op'>=</span> <span class='va'>V201416</span>,</span>
 <span>    immigration_views <span class='op'>=</span> <span class='va'>V201417</span>,</span>
-<span>    environment_views <span class='op'>=</span> <span class='va'>V201321</span>,</span>
+<span>    environment_views <span class='op'>=</span> <span class='va'>V201262</span>,</span>
 <span>    economy_views <span class='op'>=</span> <span class='va'>V201324</span>,</span>
 <span>    party <span class='op'>=</span> <span class='va'>V201018</span></span>
 <span>  <span class='op'>)</span> <span class='op'>|&gt;</span></span>
@@ -1640,7 +1648,7 @@ Party: V201018 (filter to include democrat and republican)
 <span>  <span class='op'>)</span></span>
 <span><span class='va'>voting_trends</span></span></code></pre>
 </div>
-<pre><code># A tibble: 3,161 × 8
+<pre><code># A tibble: 2,654 × 8
    race_num abortion_views lgbtq_views immigration_views
       &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt;             &lt;dbl&gt;
  1        3              2           3                 1
@@ -1653,14 +1661,79 @@ Party: V201018 (filter to include democrat and republican)
  8        1              2           3                 3
  9        1              4           1                 3
 10        3              4           1                 3
-# ℹ 3,151 more rows
+# ℹ 2,644 more rows
 # ℹ 4 more variables: environment_views &lt;dbl&gt;, economy_views &lt;dbl&gt;,
 #   party &lt;chr&gt;, race &lt;chr&gt;</code></pre>
 </div>
-IF IT’S DEPENDENT ALONE:
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_abortion</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>abortion_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Views on Abortion on a Scale of 1-4"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='va'>voting_trends_dependent_abortion</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_lgbtq</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>lgbtq_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Views on Gay Marriage on a Scale of 1-3"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='va'>voting_trends_dependent_lgbtq</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_immigration</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>immigration_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Views on Immigration on a Scale of 1-4"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='va'>voting_trends_dependent_immigration</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_environment</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>environment_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Views on the Environment on a Scale of 1-7"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>  <span class='op'>)</span> </span>
+<span><span class='va'>voting_trends_dependent_environment</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_economy</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>economy_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Views on the Economy on a Scale of 1-5"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='va'>voting_trends_dependent_economy</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
+<p>##RESULTS:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_tibble</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span></span>
 <span>    avg_abortion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>abortion_views</span><span class='op'>)</span>,</span>
 <span>    avg_lgbtq <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>lgbtq_views</span><span class='op'>)</span>,</span>
@@ -1668,7 +1741,7 @@ IF IT’S DEPENDENT ALONE:
 <span>    avg_environment <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>environment_views</span><span class='op'>)</span>,</span>
 <span>    avg_economy <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>economy_views</span><span class='op'>)</span></span>
 <span>  <span class='op'>)</span></span>
-<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>voting_trends_dependent</span>,</span>
+<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>voting_trends_dependent_tibble</span>,</span>
 <span>             col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Average Views on Abortion"</span>, <span class='st'>"Average Views on Gay Marriage"</span>, <span class='st'>"Average Views on Immigration"</span>, <span class='st'>"Average Views on the Environment"</span>, <span class='st'>"Average Views on the Economy"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <table>
@@ -1690,72 +1763,11 @@ IF IT’S DEPENDENT ALONE:
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">3.132553</td>
-<td style="text-align: right;">1.361594</td>
-<td style="text-align: right;">2.71876</td>
-<td style="text-align: right;">1.683961</td>
-<td style="text-align: right;">3.252135</td>
-</tr>
-</tbody>
-</table>
-</div>
-**To do this, I would have to make a different plot for each issue since 1-5 means different things
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_plot</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends_dependent</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='op'>)</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-IF IT’S DEPENDENT AND PARTY:
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_party</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>party</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span></span>
-<span>    avg_abortion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>abortion_views</span><span class='op'>)</span>,</span>
-<span>    avg_lgbtq <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>lgbtq_views</span><span class='op'>)</span>,</span>
-<span>    avg_immigration <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>immigration_views</span><span class='op'>)</span>,</span>
-<span>    avg_environment <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>environment_views</span><span class='op'>)</span>,</span>
-<span>    avg_economy <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>economy_views</span><span class='op'>)</span></span>
-<span>  <span class='op'>)</span></span>
-<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>voting_trends_dependent_party</span>,</span>
-<span>             col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Party"</span>, <span class='st'>"Average Views on Abortion"</span>, <span class='st'>"Average Views on Gay Marriage"</span>, <span class='st'>"Average Views on Immigration"</span>, <span class='st'>"Average Views on the Environment"</span>, <span class='st'>"Average Views on the Economy"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
-</div>
-<table>
-<colgroup>
-<col style="width: 6%" />
-<col style="width: 16%" />
-<col style="width: 18%" />
-<col style="width: 18%" />
-<col style="width: 20%" />
-<col style="width: 18%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Party</th>
-<th style="text-align: right;">Average Views on Abortion</th>
-<th style="text-align: right;">Average Views on Gay Marriage</th>
-<th style="text-align: right;">Average Views on Immigration</th>
-<th style="text-align: right;">Average Views on the Environment</th>
-<th style="text-align: right;">Average Views on the Economy</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Democrat</td>
-<td style="text-align: right;">3.563587</td>
-<td style="text-align: right;">1.194565</td>
-<td style="text-align: right;">3.018478</td>
-<td style="text-align: right;">1.322826</td>
-<td style="text-align: right;">3.736956</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Republican</td>
-<td style="text-align: right;">2.532173</td>
-<td style="text-align: right;">1.594247</td>
-<td style="text-align: right;">2.301287</td>
-<td style="text-align: right;">2.186980</td>
-<td style="text-align: right;">2.576836</td>
+<td style="text-align: right;">3.163903</td>
+<td style="text-align: right;">1.406179</td>
+<td style="text-align: right;">2.821402</td>
+<td style="text-align: right;">3.023738</td>
+<td style="text-align: right;">3.305953</td>
 </tr>
 </tbody>
 </table>
@@ -1799,110 +1811,110 @@ IF IT’S DEPENDENT AND PARTY:
 <tr class="odd">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Asian or Native Hawaiian/other Pacific Islander, non-Hispanic</td>
-<td style="text-align: right;">3.693333</td>
-<td style="text-align: right;">1.1866667</td>
-<td style="text-align: right;">2.933333</td>
-<td style="text-align: right;">1.480000</td>
-<td style="text-align: right;">3.493333</td>
+<td style="text-align: right;">3.746269</td>
+<td style="text-align: right;">1.149254</td>
+<td style="text-align: right;">2.970149</td>
+<td style="text-align: right;">2.477612</td>
+<td style="text-align: right;">3.492537</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Black, non-Hispanic</td>
-<td style="text-align: right;">3.436090</td>
-<td style="text-align: right;">1.4285714</td>
-<td style="text-align: right;">2.763158</td>
-<td style="text-align: right;">1.447368</td>
-<td style="text-align: right;">3.725564</td>
+<td style="text-align: right;">3.507317</td>
+<td style="text-align: right;">1.463415</td>
+<td style="text-align: right;">2.936585</td>
+<td style="text-align: right;">2.409756</td>
+<td style="text-align: right;">3.800000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Hispanic</td>
-<td style="text-align: right;">3.188073</td>
-<td style="text-align: right;">1.2431193</td>
-<td style="text-align: right;">3.073395</td>
-<td style="text-align: right;">1.279816</td>
-<td style="text-align: right;">3.674312</td>
+<td style="text-align: right;">3.363636</td>
+<td style="text-align: right;">1.296970</td>
+<td style="text-align: right;">3.169697</td>
+<td style="text-align: right;">1.939394</td>
+<td style="text-align: right;">3.818182</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Multiple races, non-Hispanic</td>
-<td style="text-align: right;">3.731343</td>
-<td style="text-align: right;">1.2537313</td>
-<td style="text-align: right;">3.089552</td>
-<td style="text-align: right;">1.238806</td>
-<td style="text-align: right;">3.910448</td>
+<td style="text-align: right;">3.666667</td>
+<td style="text-align: right;">1.150000</td>
+<td style="text-align: right;">3.066667</td>
+<td style="text-align: right;">1.783333</td>
+<td style="text-align: right;">3.900000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Native American/Alaska Native or other race, non-Hispanic</td>
-<td style="text-align: right;">2.967742</td>
-<td style="text-align: right;">1.2580645</td>
-<td style="text-align: right;">2.870968</td>
-<td style="text-align: right;">1.451613</td>
-<td style="text-align: right;">4.129032</td>
+<td style="text-align: right;">3.521739</td>
+<td style="text-align: right;">1.086957</td>
+<td style="text-align: right;">3.347826</td>
+<td style="text-align: right;">1.956522</td>
+<td style="text-align: right;">4.173913</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">White, non-Hispanic</td>
-<td style="text-align: right;">3.659341</td>
-<td style="text-align: right;">1.1284869</td>
-<td style="text-align: right;">3.071006</td>
-<td style="text-align: right;">1.294167</td>
-<td style="text-align: right;">3.746407</td>
+<td style="text-align: right;">3.680608</td>
+<td style="text-align: right;">1.132129</td>
+<td style="text-align: right;">3.184411</td>
+<td style="text-align: right;">1.931559</td>
+<td style="text-align: right;">3.813688</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">Asian or Native Hawaiian/other Pacific Islander, non-Hispanic</td>
-<td style="text-align: right;">2.464286</td>
-<td style="text-align: right;">1.8928571</td>
-<td style="text-align: right;">2.428571</td>
-<td style="text-align: right;">1.857143</td>
-<td style="text-align: right;">3.178571</td>
+<td style="text-align: right;">2.583333</td>
+<td style="text-align: right;">1.916667</td>
+<td style="text-align: right;">2.500000</td>
+<td style="text-align: right;">3.958333</td>
+<td style="text-align: right;">3.291667</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">Black, non-Hispanic</td>
-<td style="text-align: right;">1.750000</td>
-<td style="text-align: right;">2.2500000</td>
-<td style="text-align: right;">2.000000</td>
-<td style="text-align: right;">1.750000</td>
-<td style="text-align: right;">3.000000</td>
+<td style="text-align: right;">1.666667</td>
+<td style="text-align: right;">2.333333</td>
+<td style="text-align: right;">2.333333</td>
+<td style="text-align: right;">4.333333</td>
+<td style="text-align: right;">2.833333</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">Hispanic</td>
-<td style="text-align: right;">2.350649</td>
-<td style="text-align: right;">1.7662338</td>
-<td style="text-align: right;">2.259740</td>
-<td style="text-align: right;">2.181818</td>
-<td style="text-align: right;">2.597403</td>
+<td style="text-align: right;">2.475410</td>
+<td style="text-align: right;">1.721312</td>
+<td style="text-align: right;">2.393443</td>
+<td style="text-align: right;">4.475410</td>
+<td style="text-align: right;">2.590164</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">Multiple races, non-Hispanic</td>
-<td style="text-align: right;">2.533333</td>
-<td style="text-align: right;">0.9666667</td>
-<td style="text-align: right;">1.933333</td>
-<td style="text-align: right;">2.100000</td>
-<td style="text-align: right;">3.000000</td>
+<td style="text-align: right;">2.461539</td>
+<td style="text-align: right;">1.653846</td>
+<td style="text-align: right;">2.192308</td>
+<td style="text-align: right;">4.307692</td>
+<td style="text-align: right;">2.961539</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">Native American/Alaska Native or other race, non-Hispanic</td>
-<td style="text-align: right;">2.466667</td>
-<td style="text-align: right;">1.6333333</td>
-<td style="text-align: right;">2.400000</td>
-<td style="text-align: right;">2.300000</td>
-<td style="text-align: right;">1.933333</td>
+<td style="text-align: right;">2.478261</td>
+<td style="text-align: right;">1.608696</td>
+<td style="text-align: right;">2.391304</td>
+<td style="text-align: right;">4.434783</td>
+<td style="text-align: right;">2.347826</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">White, non-Hispanic</td>
-<td style="text-align: right;">2.553136</td>
-<td style="text-align: right;">1.5862369</td>
-<td style="text-align: right;">2.310105</td>
-<td style="text-align: right;">2.197735</td>
-<td style="text-align: right;">2.563589</td>
+<td style="text-align: right;">2.500000</td>
+<td style="text-align: right;">1.710191</td>
+<td style="text-align: right;">2.357750</td>
+<td style="text-align: right;">4.514862</td>
+<td style="text-align: right;">2.552017</td>
 </tr>
 </tbody>
 </table>
@@ -1916,7 +1928,7 @@ IF IT’S DEPENDENT AND PARTY:
 <span>       y <span class='op'>=</span> <span class='st'>"Average Views on Abortion"</span><span class='op'>)</span></span>
 <span><span class='va'>abortion_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1927,7 +1939,7 @@ IF IT’S DEPENDENT AND PARTY:
 <span>       y <span class='op'>=</span> <span class='st'>"Average Views on Gay Marriage"</span><span class='op'>)</span></span>
 <span><span class='va'>lgbtq_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1938,7 +1950,7 @@ IF IT’S DEPENDENT AND PARTY:
 <span>       y <span class='op'>=</span> <span class='st'>"Average Views on Immigration"</span><span class='op'>)</span></span>
 <span><span class='va'>immigration_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1949,7 +1961,7 @@ IF IT’S DEPENDENT AND PARTY:
 <span>       y <span class='op'>=</span> <span class='st'>"Average Views on the Environment"</span><span class='op'>)</span></span>
 <span><span class='va'>environment_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1960,7 +1972,7 @@ IF IT’S DEPENDENT AND PARTY:
 <span>       y <span class='op'>=</span> <span class='st'>"Average Views on the Economy"</span><span class='op'>)</span></span>
 <span><span class='va'>economy_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1973,57 +1985,57 @@ lm(formula = avg_abortion ~ race + party, data = voting_tibble)
 
 Residuals:
         1         2         3         4         5         6         7 
- 0.068036  0.296557 -0.127776  0.052517 -0.295950  0.006615 -0.068036 
+-0.028618  0.310240 -0.165972 -0.007521 -0.088346 -0.019781  0.028618 
         8         9        10        11        12 
--0.296557  0.127776 -0.052517  0.295950 -0.006615 
+-0.310240  0.165972  0.007521  0.088346  0.019781 
 
 Coefficients:
                                                               Estimate
-(Intercept)                                                    3.62530
-raceBlack, non-Hispanic                                       -0.48576
-raceHispanic                                                  -0.30945
-raceMultiple races, non-Hispanic                               0.05353
-raceNative American/Alaska Native or other race, non-Hispanic -0.36161
-raceWhite, non-Hispanic                                        0.02743
-partyRepublican                                               -1.09298
+(Intercept)                                                     3.7749
+raceBlack, non-Hispanic                                        -0.5778
+raceHispanic                                                   -0.2453
+raceMultiple races, non-Hispanic                               -0.1007
+raceNative American/Alaska Native or other race, non-Hispanic  -0.1648
+raceWhite, non-Hispanic                                        -0.0745
+partyRepublican                                                -1.2202
                                                               Std. Error
-(Intercept)                                                      0.21564
-raceBlack, non-Hispanic                                          0.28234
-raceHispanic                                                     0.28234
-raceMultiple races, non-Hispanic                                 0.28234
-raceNative American/Alaska Native or other race, non-Hispanic    0.28234
-raceWhite, non-Hispanic                                          0.28234
-partyRepublican                                                  0.16301
+(Intercept)                                                       0.1761
+raceBlack, non-Hispanic                                           0.2305
+raceHispanic                                                      0.2305
+raceMultiple races, non-Hispanic                                  0.2305
+raceNative American/Alaska Native or other race, non-Hispanic     0.2305
+raceWhite, non-Hispanic                                           0.2305
+partyRepublican                                                   0.1331
                                                               t value
-(Intercept)                                                    16.812
-raceBlack, non-Hispanic                                        -1.720
-raceHispanic                                                   -1.096
-raceMultiple races, non-Hispanic                                0.190
-raceNative American/Alaska Native or other race, non-Hispanic  -1.281
-raceWhite, non-Hispanic                                         0.097
-partyRepublican                                                -6.705
+(Intercept)                                                    21.439
+raceBlack, non-Hispanic                                        -2.506
+raceHispanic                                                   -1.064
+raceMultiple races, non-Hispanic                               -0.437
+raceNative American/Alaska Native or other race, non-Hispanic  -0.715
+raceWhite, non-Hispanic                                        -0.323
+partyRepublican                                                -9.167
                                                               Pr(&gt;|t|)
-(Intercept)                                                   1.36e-05
-raceBlack, non-Hispanic                                        0.14597
-raceHispanic                                                   0.32303
-raceMultiple races, non-Hispanic                               0.85709
-raceNative American/Alaska Native or other race, non-Hispanic  0.25647
-raceWhite, non-Hispanic                                        0.92638
-partyRepublican                                                0.00112
+(Intercept)                                                   4.09e-06
+raceBlack, non-Hispanic                                       0.054067
+raceHispanic                                                  0.336014
+raceMultiple races, non-Hispanic                              0.680475
+raceNative American/Alaska Native or other race, non-Hispanic 0.506675
+raceWhite, non-Hispanic                                       0.759662
+partyRepublican                                               0.000259
                                                                  
 (Intercept)                                                   ***
-raceBlack, non-Hispanic                                          
+raceBlack, non-Hispanic                                       .  
 raceHispanic                                                     
 raceMultiple races, non-Hispanic                                 
 raceNative American/Alaska Native or other race, non-Hispanic    
 raceWhite, non-Hispanic                                          
-partyRepublican                                               ** 
+partyRepublican                                               ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.2823 on 5 degrees of freedom
-Multiple R-squared:  0.912, Adjusted R-squared:  0.8064 
-F-statistic: 8.635 on 6 and 5 DF,  p-value: 0.0159</code></pre>
+Residual standard error: 0.2305 on 5 degrees of freedom
+Multiple R-squared:  0.9485,    Adjusted R-squared:  0.8866 
+F-statistic: 15.33 on 6 and 5 DF,  p-value: 0.004408</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2036,63 +2048,58 @@ lm(formula = avg_lgbtq ~ race + party, data = voting_tibble)
 
 Residuals:
        1        2        3        4        5        6        7 
--0.13670 -0.19432 -0.04517  0.35992  0.02876 -0.01248  0.13670 
+-0.07826 -0.12952  0.09327  0.05352  0.04457  0.01641  0.07826 
        8        9       10       11       12 
- 0.19432  0.04517 -0.35992 -0.02876  0.01248 
+ 0.12952 -0.09327 -0.05352 -0.04457 -0.01641 
 
 Coefficients:
                                                               Estimate
-(Intercept)                                                    1.32337
-raceBlack, non-Hispanic                                        0.29952
-raceHispanic                                                  -0.03509
-raceMultiple races, non-Hispanic                              -0.42956
-raceNative American/Alaska Native or other race, non-Hispanic -0.09406
-raceWhite, non-Hispanic                                       -0.18240
-partyRepublican                                                0.43278
+(Intercept)                                                    1.22752
+raceBlack, non-Hispanic                                        0.36541
+raceHispanic                                                  -0.02382
+raceMultiple races, non-Hispanic                              -0.13104
+raceNative American/Alaska Native or other race, non-Hispanic -0.18513
+raceWhite, non-Hispanic                                       -0.11180
+partyRepublican                                                0.61089
                                                               Std. Error
-(Intercept)                                                      0.21001
-raceBlack, non-Hispanic                                          0.27497
-raceHispanic                                                     0.27497
-raceMultiple races, non-Hispanic                                 0.27497
-raceNative American/Alaska Native or other race, non-Hispanic    0.27497
-raceWhite, non-Hispanic                                          0.27497
-partyRepublican                                                  0.15875
+(Intercept)                                                      0.09256
+raceBlack, non-Hispanic                                          0.12119
+raceHispanic                                                     0.12119
+raceMultiple races, non-Hispanic                                 0.12119
+raceNative American/Alaska Native or other race, non-Hispanic    0.12119
+raceWhite, non-Hispanic                                          0.12119
+partyRepublican                                                  0.06997
                                                               t value
-(Intercept)                                                     6.301
-raceBlack, non-Hispanic                                         1.089
-raceHispanic                                                   -0.128
-raceMultiple races, non-Hispanic                               -1.562
-raceNative American/Alaska Native or other race, non-Hispanic  -0.342
-raceWhite, non-Hispanic                                        -0.663
-partyRepublican                                                 2.726
+(Intercept)                                                    13.261
+raceBlack, non-Hispanic                                         3.015
+raceHispanic                                                   -0.197
+raceMultiple races, non-Hispanic                               -1.081
+raceNative American/Alaska Native or other race, non-Hispanic  -1.528
+raceWhite, non-Hispanic                                        -0.922
+partyRepublican                                                 8.731
                                                               Pr(&gt;|t|)
-(Intercept)                                                    0.00148
-raceBlack, non-Hispanic                                        0.32571
-raceHispanic                                                   0.90344
-raceMultiple races, non-Hispanic                               0.17899
-raceNative American/Alaska Native or other race, non-Hispanic  0.74619
-raceWhite, non-Hispanic                                        0.53646
-partyRepublican                                                0.04147
-                                                                
-(Intercept)                                                   **
-raceBlack, non-Hispanic                                         
-raceHispanic                                                    
-raceMultiple races, non-Hispanic                                
-raceNative American/Alaska Native or other race, non-Hispanic   
-raceWhite, non-Hispanic                                         
-partyRepublican                                               * 
+(Intercept)                                                   4.36e-05
+raceBlack, non-Hispanic                                       0.029581
+raceHispanic                                                  0.851925
+raceMultiple races, non-Hispanic                              0.328968
+raceNative American/Alaska Native or other race, non-Hispanic 0.187150
+raceWhite, non-Hispanic                                       0.398603
+partyRepublican                                               0.000327
+                                                                 
+(Intercept)                                                   ***
+raceBlack, non-Hispanic                                       *  
+raceHispanic                                                     
+raceMultiple races, non-Hispanic                                 
+raceNative American/Alaska Native or other race, non-Hispanic    
+raceWhite, non-Hispanic                                          
+partyRepublican                                               ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.275 on 5 degrees of freedom
-Multiple R-squared:  0.7497,    Adjusted R-squared:  0.4493 
-F-statistic: 2.496 on 6 and 5 DF,  p-value: 0.1672</code></pre>
+Residual standard error: 0.1212 on 5 degrees of freedom
+Multiple R-squared:  0.9537,    Adjusted R-squared:  0.8982 
+F-statistic: 17.17 on 6 and 5 DF,  p-value: 0.003394</code></pre>
 </div>
-<p>modelsummary::modelsummary(immigration_regression,
-statistic = c(“s.e. = {std.error}”,
-“p = {p.value}”),
-coef_map = var_labels,
-gof_map = c(“nobs”, “r.squared”, “adj.r.squared”))</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>immigration_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>avg_immigration</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span>, data <span class='op'>=</span> <span class='va'>voting_tibble</span><span class='op'>)</span></span>
@@ -2103,44 +2110,44 @@ Call:
 lm(formula = avg_immigration ~ race + party, data = voting_tibble)
 
 Residuals:
-        1         2         3         4         5         6         7 
--0.120091  0.009107  0.034355  0.205638 -0.136988  0.007979  0.120091 
-        8         9        10        11        12 
--0.009107 -0.034355 -0.205638  0.136988 -0.007979 
+       1        2        3        4        5        6        7 
+-0.14053 -0.07397  0.01253  0.06158  0.10266  0.03773  0.14053 
+       8        9       10       11       12 
+ 0.07397 -0.01253 -0.06158 -0.10266 -0.03773 
 
 Coefficients:
-                                                               Estimate
-(Intercept)                                                    3.053424
-raceBlack, non-Hispanic                                       -0.299373
-raceHispanic                                                  -0.014385
-raceMultiple races, non-Hispanic                              -0.169510
-raceNative American/Alaska Native or other race, non-Hispanic -0.045469
-raceWhite, non-Hispanic                                        0.009603
-partyRepublican                                               -0.744944
+                                                              Estimate
+(Intercept)                                                    3.11067
+raceBlack, non-Hispanic                                       -0.10012
+raceHispanic                                                   0.04650
+raceMultiple races, non-Hispanic                              -0.10559
+raceNative American/Alaska Native or other race, non-Hispanic  0.13449
+raceWhite, non-Hispanic                                        0.03601
+partyRepublican                                               -0.75120
                                                               Std. Error
-(Intercept)                                                     0.133867
-raceBlack, non-Hispanic                                         0.175273
-raceHispanic                                                    0.175273
-raceMultiple races, non-Hispanic                                0.175273
-raceNative American/Alaska Native or other race, non-Hispanic   0.175273
-raceWhite, non-Hispanic                                         0.175273
-partyRepublican                                                 0.101194
+(Intercept)                                                      0.09797
+raceBlack, non-Hispanic                                          0.12827
+raceHispanic                                                     0.12827
+raceMultiple races, non-Hispanic                                 0.12827
+raceNative American/Alaska Native or other race, non-Hispanic    0.12827
+raceWhite, non-Hispanic                                          0.12827
+partyRepublican                                                  0.07406
                                                               t value
-(Intercept)                                                    22.809
-raceBlack, non-Hispanic                                        -1.708
-raceHispanic                                                   -0.082
-raceMultiple races, non-Hispanic                               -0.967
-raceNative American/Alaska Native or other race, non-Hispanic  -0.259
-raceWhite, non-Hispanic                                         0.055
-partyRepublican                                                -7.362
+(Intercept)                                                    31.753
+raceBlack, non-Hispanic                                        -0.781
+raceHispanic                                                    0.362
+raceMultiple races, non-Hispanic                               -0.823
+raceNative American/Alaska Native or other race, non-Hispanic   1.049
+raceWhite, non-Hispanic                                         0.281
+partyRepublican                                               -10.144
                                                               Pr(&gt;|t|)
-(Intercept)                                                   3.01e-06
-raceBlack, non-Hispanic                                       0.148331
-raceHispanic                                                  0.937774
-raceMultiple races, non-Hispanic                              0.377902
-raceNative American/Alaska Native or other race, non-Hispanic 0.805657
-raceWhite, non-Hispanic                                       0.958429
-partyRepublican                                               0.000726
+(Intercept)                                                   5.82e-07
+raceBlack, non-Hispanic                                        0.47040
+raceHispanic                                                   0.73181
+raceMultiple races, non-Hispanic                               0.44787
+raceNative American/Alaska Native or other race, non-Hispanic  0.34242
+raceWhite, non-Hispanic                                        0.79018
+partyRepublican                                                0.00016
                                                                  
 (Intercept)                                                   ***
 raceBlack, non-Hispanic                                          
@@ -2152,9 +2159,9 @@ partyRepublican                                               ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.1753 on 5 degrees of freedom
-Multiple R-squared:  0.922, Adjusted R-squared:  0.8285 
-F-statistic: 9.855 on 6 and 5 DF,  p-value: 0.01192</code></pre>
+Residual standard error: 0.1283 on 5 degrees of freedom
+Multiple R-squared:  0.9558,    Adjusted R-squared:  0.9027 
+F-statistic: 18.01 on 6 and 5 DF,  p-value: 0.003036</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2166,44 +2173,44 @@ Call:
 lm(formula = avg_environment ~ race + party, data = voting_tibble)
 
 Residuals:
-       1        2        3        4        5        6        7 
- 0.16101  0.19826 -0.10142 -0.08102 -0.07462 -0.10221 -0.16101 
-       8        9       10       11       12 
--0.19826  0.10142  0.08102  0.07462  0.10221 
+      1       2       3       4       5       6       7       8 
+ 0.3868  0.1654 -0.1408 -0.1350 -0.1119 -0.1645 -0.3868 -0.1654 
+      9      10      11      12 
+ 0.1408  0.1350  0.1119  0.1645 
 
 Coefficients:
-                                                                Estimate
-(Intercept)                                                    1.3189943
-raceBlack, non-Hispanic                                       -0.0698872
-raceHispanic                                                   0.0622459
-raceMultiple races, non-Hispanic                               0.0008316
-raceNative American/Alaska Native or other race, non-Hispanic  0.2072350
-raceWhite, non-Hispanic                                        0.0773799
-partyRepublican                                                0.6991542
+                                                               Estimate
+(Intercept)                                                    2.090786
+raceBlack, non-Hispanic                                        0.153572
+raceHispanic                                                  -0.010571
+raceMultiple races, non-Hispanic                              -0.172460
+raceNative American/Alaska Native or other race, non-Hispanic -0.022320
+raceWhite, non-Hispanic                                        0.005238
+partyRepublican                                                2.254373
                                                               Std. Error
-(Intercept)                                                    0.1512907
-raceBlack, non-Hispanic                                        0.1980861
-raceHispanic                                                   0.1980861
-raceMultiple races, non-Hispanic                               0.1980861
-raceNative American/Alaska Native or other race, non-Hispanic  0.1980861
-raceWhite, non-Hispanic                                        0.1980861
-partyRepublican                                                0.1143650
+(Intercept)                                                     0.243747
+raceBlack, non-Hispanic                                         0.319139
+raceHispanic                                                    0.319139
+raceMultiple races, non-Hispanic                                0.319139
+raceNative American/Alaska Native or other race, non-Hispanic   0.319139
+raceWhite, non-Hispanic                                         0.319139
+partyRepublican                                                 0.184255
                                                               t value
-(Intercept)                                                     8.718
-raceBlack, non-Hispanic                                        -0.353
-raceHispanic                                                    0.314
-raceMultiple races, non-Hispanic                                0.004
-raceNative American/Alaska Native or other race, non-Hispanic   1.046
-raceWhite, non-Hispanic                                         0.391
-partyRepublican                                                 6.113
+(Intercept)                                                     8.578
+raceBlack, non-Hispanic                                         0.481
+raceHispanic                                                   -0.033
+raceMultiple races, non-Hispanic                               -0.540
+raceNative American/Alaska Native or other race, non-Hispanic  -0.070
+raceWhite, non-Hispanic                                         0.016
+partyRepublican                                                12.235
                                                               Pr(&gt;|t|)
-(Intercept)                                                   0.000329
-raceBlack, non-Hispanic                                       0.738615
-raceHispanic                                                  0.766030
-raceMultiple races, non-Hispanic                              0.996813
-raceNative American/Alaska Native or other race, non-Hispanic 0.343391
-raceWhite, non-Hispanic                                       0.712154
-partyRepublican                                               0.001698
+(Intercept)                                                   0.000355
+raceBlack, non-Hispanic                                       0.650690
+raceHispanic                                                  0.974858
+raceMultiple races, non-Hispanic                              0.612120
+raceNative American/Alaska Native or other race, non-Hispanic 0.946953
+raceWhite, non-Hispanic                                       0.987540
+partyRepublican                                               6.45e-05
                                                                  
 (Intercept)                                                   ***
 raceBlack, non-Hispanic                                          
@@ -2211,13 +2218,13 @@ raceHispanic
 raceMultiple races, non-Hispanic                                 
 raceNative American/Alaska Native or other race, non-Hispanic    
 raceWhite, non-Hispanic                                          
-partyRepublican                                               ** 
+partyRepublican                                               ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.1981 on 5 degrees of freedom
-Multiple R-squared:  0.888, Adjusted R-squared:  0.7537 
-F-statistic:  6.61 on 6 and 5 DF,  p-value: 0.02798</code></pre>
+Residual standard error: 0.3191 on 5 degrees of freedom
+Multiple R-squared:  0.9679,    Adjusted R-squared:  0.9294 
+F-statistic: 25.12 on 6 and 5 DF,  p-value: 0.001388</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2229,44 +2236,44 @@ Call:
 lm(formula = avg_economy ~ race + party, data = voting_tibble)
 
 Residuals:
-        1         2         3         4         5         6         7 
--0.376469 -0.171068  0.004605 -0.078626  0.563999  0.057559  0.376469 
-        8         9        10        11        12 
- 0.171068 -0.004605  0.078626 -0.563999 -0.057559 
+       1        2        3        4        5        6        7 
+-0.43471 -0.05181  0.07886 -0.06592  0.37790  0.09569  0.43471 
+       8        9       10       11       12 
+ 0.05181 -0.07886  0.06592 -0.37790 -0.09569 
 
 Coefficients:
                                                               Estimate
-(Intercept)                                                    3.86980
-raceBlack, non-Hispanic                                        0.02683
-raceHispanic                                                  -0.20010
-raceMultiple races, non-Hispanic                               0.11927
-raceNative American/Alaska Native or other race, non-Hispanic -0.30477
-raceWhite, non-Hispanic                                       -0.18095
-partyRepublican                                               -1.06770
+(Intercept)                                                    3.92725
+raceBlack, non-Hispanic                                       -0.07544
+raceHispanic                                                  -0.18793
+raceMultiple races, non-Hispanic                               0.03867
+raceNative American/Alaska Native or other race, non-Hispanic -0.13123
+raceWhite, non-Hispanic                                       -0.20925
+partyRepublican                                               -1.07030
                                                               Std. Error
-(Intercept)                                                      0.34109
-raceBlack, non-Hispanic                                          0.44659
-raceHispanic                                                     0.44659
-raceMultiple races, non-Hispanic                                 0.44659
-raceNative American/Alaska Native or other race, non-Hispanic    0.44659
-raceWhite, non-Hispanic                                          0.44659
-partyRepublican                                                  0.25784
+(Intercept)                                                      0.28748
+raceBlack, non-Hispanic                                          0.37640
+raceHispanic                                                     0.37640
+raceMultiple races, non-Hispanic                                 0.37640
+raceNative American/Alaska Native or other race, non-Hispanic    0.37640
+raceWhite, non-Hispanic                                          0.37640
+partyRepublican                                                  0.21731
                                                               t value
-(Intercept)                                                    11.345
-raceBlack, non-Hispanic                                         0.060
-raceHispanic                                                   -0.448
-raceMultiple races, non-Hispanic                                0.267
-raceNative American/Alaska Native or other race, non-Hispanic  -0.682
-raceWhite, non-Hispanic                                        -0.405
-partyRepublican                                                -4.141
+(Intercept)                                                    13.661
+raceBlack, non-Hispanic                                        -0.200
+raceHispanic                                                   -0.499
+raceMultiple races, non-Hispanic                                0.103
+raceNative American/Alaska Native or other race, non-Hispanic  -0.349
+raceWhite, non-Hispanic                                        -0.556
+partyRepublican                                                -4.925
                                                               Pr(&gt;|t|)
-(Intercept)                                                    9.3e-05
-raceBlack, non-Hispanic                                        0.95442
-raceHispanic                                                   0.67286
-raceMultiple races, non-Hispanic                               0.80008
-raceNative American/Alaska Native or other race, non-Hispanic  0.52529
-raceWhite, non-Hispanic                                        0.70209
-partyRepublican                                                0.00899
+(Intercept)                                                   3.77e-05
+raceBlack, non-Hispanic                                        0.84905
+raceHispanic                                                   0.63877
+raceMultiple races, non-Hispanic                               0.92217
+raceNative American/Alaska Native or other race, non-Hispanic  0.74155
+raceWhite, non-Hispanic                                        0.60222
+partyRepublican                                                0.00438
                                                                  
 (Intercept)                                                   ***
 raceBlack, non-Hispanic                                          
@@ -2278,11 +2285,13 @@ partyRepublican                                               **
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.4466 on 5 degrees of freedom
-Multiple R-squared:  0.787, Adjusted R-squared:  0.5314 
-F-statistic: 3.079 on 6 and 5 DF,  p-value: 0.1189</code></pre>
+Residual standard error: 0.3764 on 5 degrees of freedom
+Multiple R-squared:  0.8331,    Adjusted R-squared:  0.6329 
+F-statistic: 4.161 on 6 and 5 DF,  p-value: 0.06959</code></pre>
 </div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>CONCLUSION:</p>
+<p>***MAKE SURE TO CITE SOURCES</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
