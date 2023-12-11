@@ -232,6 +232,12 @@ summary(abortion_regression)
 lgbtq_regression <- lm(avg_lgbtq ~ race + party, data = voting_tibble)
 summary(lgbtq_regression)
 ```
+```{r}
+unique(voting_tibble$race)
+```
+
+
+
 
 ```{r}
 immigration_regression <- lm(avg_immigration ~ race + party, data = voting_tibble)
