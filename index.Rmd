@@ -7,14 +7,17 @@ output:
     self_contained: false
 ---
 
+INTRODUCTION: 
 
+DATA: 
 
-## Project thoughts
+RESULTS: 
 
-I am interested in exploring data related to...
-select columns i need and rename them
+CONCLUSION: 
+
 
 Research question: Do Democrat and Republican views on 5 major social issues differ by racial group?
+Hypothesis: Democrat and Republican views on 5 major social issues will differ by racial group.
 
 
 ```{r}
@@ -137,8 +140,49 @@ economy_plot
 ```
 
 ```{r}
-lm()
+abortion_regression <- lm(avg_abortion ~ race + party, data = voting_tibble)
+summary(abortion_regression)
 ```
+```{r}
+lgbtq_regression <- lm(avg_lgbtq ~ race + party, data = voting_tibble)
+summary(lgbtq_regression)
+```
+
+modelsummary::modelsummary(immigration_regression,
+statistic = c("s.e. = {std.error}",
+"p = {p.value}"),
+coef_map = var_labels,
+gof_map = c("nobs", "r.squared", "adj.r.squared"))
+
+```{r}
+immigration_regression <- lm(avg_immigration ~ race + party, data = voting_tibble)
+summary(immigration_regression)
+```
+
+```{r}
+environment_regression <- lm(avg_environment ~ race + party, data = voting_tibble)
+summary(environment_regression)
+```
+
+```{r}
+economy_regression <- lm(avg_economy ~ race + party, data = voting_tibble)
+summary(economy_regression)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
