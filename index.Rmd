@@ -7,12 +7,12 @@ output:
     self_contained: false
 ---
 
-##INTRODUCTION: 
+INTRODUCTION: 
 
 	My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area. 
 
 
-##DATA: 
+DATA: 
 
 My data comes from the American National Election Studies 2020 Time Series study. This source is a public opinion survey of over 8,000 Americans in 2020 about a number of different topics. Party affiliation and race are self-reported in the survey.
 
@@ -147,7 +147,7 @@ voting_trends_dependent_economy <- voting_trends |>
 voting_trends_dependent_economy
 ```
 
-##RESULTS: 
+RESULTS: 
 
 ```{r}
 voting_trends_dependent_tibble <- voting_trends |>
