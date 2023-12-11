@@ -50,18 +50,25 @@ Race: V201549x
 Abortion: V201336
 LGBTQ+ Rights: V201416
 Immigration: V201417
-Environment: V201321
+Environment: V201262
 Economy: V201324
 Party: V201018 (filter to include democrat and republican)
 **maybe I could just do narm = true instead of filtering for the issues. so just filter for race and party!
 
+## I did %in% below to make abortion be 1, 2, 3 or 4
+##DO I need to make otehr values lik e that?
+
 ```{r}
 voting_trends_2020 <- voting_trends_2020 |>
-  select(V201549x, V201336, V201416, V201417, V201321, V201324, V201018) |>
+  select(V201549x, V201336, V201416, V201417, V201262, V201324, V201018) |>
   filter(
     V201549x >= 1,
     V201018 == 1 | V201018 == 2,
-    V201336 >= 1 | V201336 < 5
+    V201336 %in% c(1,2,3,4),
+    V201416 >= 1,
+    V201417 >= 1,
+    V201262 %in% c(1, 2, 3, 4, 5, 6, 7),
+    V201324 >= 1
   )
 voting_trends_2020
 ```
@@ -72,7 +79,7 @@ voting_trends <- voting_trends_2020 |>
     abortion_views = V201336,
     lgbtq_views = V201416,
     immigration_views = V201417,
-    environment_views = V201321,
+    environment_views = V201262,
     economy_views = V201324,
     party = V201018
   ) |>
@@ -90,9 +97,74 @@ voting_trends <- voting_trends_2020 |>
 voting_trends
 ```
 
-IF IT'S DEPENDENT ALONE: 
+IF IT'S DEPENDENT ALONE:
+
+using abortoin_views as the variable
+i just need to show the variable and the count
+maybe histogram or barplot
+
 ```{r}
-voting_trends_dependent <- voting_trends |>
+voting_trends_dependent_abortion <- voting_trends |>
+  ggplot(mapping = aes(x = abortion_views)) +
+           geom_bar() +
+  labs(
+    x = "Views on Abortion on a Scale of 1-4",
+    y = "Number of Respondents"
+  )
+voting_trends_dependent_abortion
+```
+**NEED TO MAKE SURE I DEFINE LABELS AND SCALES
+
+```{r}
+voting_trends_dependent_lgbtq <- voting_trends |>
+  ggplot(mapping = aes(x = lgbtq_views)) +
+           geom_bar() +
+  labs(
+    x = "Views on Gay Marriage on a Scale of 1-3",
+    y = "Number of Respondents"
+  )
+voting_trends_dependent_lgbtq
+```
+```{r}
+voting_trends_dependent_immigration <- voting_trends |>
+  ggplot(mapping = aes(x = immigration_views)) +
+           geom_bar() +
+  labs(
+    x = "Views on Immigration on a Scale of 1-4",
+    y = "Number of Respondents"
+  )
+voting_trends_dependent_immigration
+```
+```{r}
+voting_trends_dependent_environment <- voting_trends |>
+  ggplot(mapping = aes(x = environment_views)) +
+           geom_bar() +
+  labs(
+    x = "Views on the Environment on a Scale of 1-7",
+    y = "Number of Respondents"
+  ) 
+voting_trends_dependent_environment
+```
+
+**CONTEXTUALIZE survey questions in introduction and write ups
+
+```{r}
+voting_trends_dependent_economy <- voting_trends |>
+  ggplot(mapping = aes(x = economy_views)) +
+           geom_bar() +
+  labs(
+    x = "Views on the Economy on a Scale of 1-5",
+    y = "Number of Respondents"
+  )
+voting_trends_dependent_economy
+```
+
+**is the count here how many people answered with each number? 
+or do I summarize them just not group
+
+
+```{r}
+voting_trends_dependent_tibble <- voting_trends |>
   summarize(
     avg_abortion = mean(abortion_views),
     avg_lgbtq = mean(lgbtq_views),
@@ -100,32 +172,12 @@ voting_trends_dependent <- voting_trends |>
     avg_environment = mean(environment_views),
     avg_economy = mean(economy_views)
   )
-knitr::kable(voting_trends_dependent,
+knitr::kable(voting_trends_dependent_tibble,
              col.names = c("Average Views on Abortion", "Average Views on Gay Marriage", "Average Views on Immigration", "Average Views on the Environment", "Average Views on the Economy"))
 ```
 
 **To do this, I would have to make a different plot for each issue since 1-5 means different things
-```{r}
-voting_trends_dependent_plot <- voting_trends_dependent |>
-  ggplot(mapping = aes(x = ))
-  
-```
 
-
-IF IT'S DEPENDENT AND PARTY: 
-```{r}
-voting_trends_dependent_party <- voting_trends |>
-  group_by(party) |>
-  summarize(
-    avg_abortion = mean(abortion_views),
-    avg_lgbtq = mean(lgbtq_views),
-    avg_immigration = mean(immigration_views),
-    avg_environment = mean(environment_views),
-    avg_economy = mean(economy_views)
-  )
-knitr::kable(voting_trends_dependent_party,
-             col.names = c("Party", "Average Views on Abortion", "Average Views on Gay Marriage", "Average Views on Immigration", "Average Views on the Environment", "Average Views on the Economy"))
-```
 
 
 ```{r}
@@ -161,6 +213,8 @@ lgbtq_plot <- voting_tibble |>
 lgbtq_plot
 ```
 
+**MAYBE ADD IN A ROW FOR THE AVERAGE DEM AND AVERAGE REP FOR EACH AS A COMPARISON
+
 ```{r}
 immigration_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_immigration, fill = race)) +
@@ -193,6 +247,12 @@ economy_plot
 abortion_regression <- lm(avg_abortion ~ race + party, data = voting_tibble)
 summary(abortion_regression)
 ```
+*8Note: These values under RaceBlack, non-Hispanic etc have nothing to do with statistical significance. They mean something else. They are the slope.
+slope goes down as compared to what?
+since i'm just looking at abortion, the intercept could still be valuable. no results will be valuable if I do an analysis of all the key issues because 1-5 means different things.
+
+
+
 ```{r}
 lgbtq_regression <- lm(avg_lgbtq ~ race + party, data = voting_tibble)
 summary(lgbtq_regression)
