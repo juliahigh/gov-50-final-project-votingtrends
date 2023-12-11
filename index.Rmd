@@ -74,9 +74,35 @@ voting_trends <- voting_trends_2020 |>
 voting_trends
 ```
 
-Plot the average views on abortion, lgbtq issues, immigration, environment, and economy BY PARTY each on a different graph.
-will need to group by party
-will need to summarize each issue
+IF IT'S DEPENDENT ALONE: 
+```{r}
+voting_trends_dependent <- voting_trends |>
+  summarize(
+    avg_abortion = mean(abortion_views),
+    avg_lgbtq = mean(lgbtq_views),
+    avg_immigration = mean(immigration_views),
+    avg_environment = mean(environment_views),
+    avg_economy = mean(economy_views)
+  )
+knitr::kable(voting_trends_dependent,
+             col.names = c("Average Views on Abortion", "Average Views on Gay Marriage", "Average Views on Immigration", "Average Views on the Environment", "Average Views on the Economy"))
+```
+
+IF IT'S DEPENDENT AND PARTY: 
+```{r}
+voting_trends_dependent_party <- voting_trends |>
+  group_by(party) |>
+  summarize(
+    avg_abortion = mean(abortion_views),
+    avg_lgbtq = mean(lgbtq_views),
+    avg_immigration = mean(immigration_views),
+    avg_environment = mean(environment_views),
+    avg_economy = mean(economy_views)
+  )
+knitr::kable(voting_trends_dependent_party,
+             col.names = c("Party", "Average Views on Abortion", "Average Views on Gay Marriage", "Average Views on Immigration", "Average Views on the Environment", "Average Views on the Economy"))
+```
+
 
 ```{r}
 voting_tibble <- voting_trends |>
