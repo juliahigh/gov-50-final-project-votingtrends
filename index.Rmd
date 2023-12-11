@@ -52,10 +52,18 @@ library(dplyr)
 voting_trends_2020 <- read_csv("anes_timeseries_2020_csv_20220210.csv")
 voting_trends_2020
 ```
+```{r}
+voting_trends_2020 |>
+  select(V201601) |>
+  filter(V201601 >= 1)
+```
+
+
+confounders: education, gender, sexuality 
 
 ```{r}
 voting_trends_2020 <- voting_trends_2020 |>
-  select(V201549x, V201336, V201416, V201417, V201262, V201324, V201018) |>
+  select(V201549x, V201336, V201416, V201417, V201262, V201324, V201018, V201510, V201600, V201601) |>
   filter(
     V201549x >= 1,
     V201018 == 1 | V201018 == 2,
@@ -63,10 +71,14 @@ voting_trends_2020 <- voting_trends_2020 |>
     V201416 >= 1,
     V201417 >= 1,
     V201262 %in% c(1, 2, 3, 4, 5, 6, 7),
-    V201324 >= 1
+    V201324 >= 1,
+    V201510 %in% c(1, 2, 3, 4, 5, 6, 7, 8),
+    V201600 >= 1,
+    V201601 %in% c(1, 2, 3)
   )
 voting_trends_2020
 ```
+
 ```{r}
 voting_trends <- voting_trends_2020 |>
   rename(
@@ -76,7 +88,10 @@ voting_trends <- voting_trends_2020 |>
     immigration_views = V201417,
     environment_views = V201262,
     economy_views = V201324,
-    party = V201018
+    party = V201018,
+    education_level = V201510,
+    gender = V201600,
+    sexuality = V201601
   ) |>
   mutate(
     race = case_when(
@@ -87,7 +102,23 @@ voting_trends <- voting_trends_2020 |>
       race_num == 5 ~ "Native American/Alaska Native or other race, non-Hispanic",
       race_num == 6 ~ "Multiple races, non-Hispanic"
     ),
-    party = if_else(party == 1, "Democrat", "Republican")
+    party = if_else(party == 1, "Democrat", "Republican"),
+    gender = if_else(gender == 1, "Male", "Female"),
+    education_level = case_when(
+      education_level == 1 ~ "Less than high school",
+      education_level == 2 ~ "High school graduate",
+      education_level == 3 ~ "Some college but no degree",
+      education_level == 4 ~ "Associate degree in college - vocational",
+      education_level == 5 ~ "Associate degree in college - academic",
+      education_level == 6 ~ "Bachelor's degree",
+      education_level == 7 ~ "Master's degree",
+      education_level == 8 ~ "Professional school degree/doctoral degree"
+    ),
+    sexuality = case_when(
+      sexuality == 1 ~ "Heterosexual or straight",
+      sexuality == 2 ~ "Homosexual or gay (or lesbian)",
+      sexuality == 3 ~ "Bisexual"
+    )
   )
 voting_trends
 ```
@@ -224,12 +255,13 @@ economy_plot
 ```
 
 ```{r}
-abortion_regression <- lm(avg_abortion ~ race + party, data = voting_tibble)
+abortion_regression <- lm(abortion_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
 summary(abortion_regression)
 ```
-
+**intercept represents avg lvl asian american  democrats
+it's showing racial categories among democrats
 ```{r}
-lgbtq_regression <- lm(avg_lgbtq ~ race + party, data = voting_tibble)
+lgbtq_regression <- lm(lgbtq_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
 summary(lgbtq_regression)
 ```
 ```{r}
@@ -238,19 +270,18 @@ unique(voting_tibble$race)
 
 
 
-
 ```{r}
-immigration_regression <- lm(avg_immigration ~ race + party, data = voting_tibble)
+immigration_regression <- lm(immigration_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
 summary(immigration_regression)
 ```
 
 ```{r}
-environment_regression <- lm(avg_environment ~ race + party, data = voting_tibble)
+environment_regression <- lm(environment_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
 summary(environment_regression)
 ```
 
 ```{r}
-economy_regression <- lm(avg_economy ~ race + party, data = voting_tibble)
+economy_regression <- lm(economy_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
 summary(economy_regression)
 ```
 
