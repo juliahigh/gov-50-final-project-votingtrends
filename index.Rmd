@@ -178,6 +178,25 @@ voting_trends_dependent_economy <- voting_trends |>
 voting_trends_dependent_economy
 ```
 
+```{r}
+library(patchwork)
+
+(voting_trends_dependent_abortion)+(voting_trends_dependent_economy)+(voting_trends_dependent_environment)+(voting_trends_dependent_immigration)+(voting_trends_dependent_lgbtq)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 RESULTS: 
 
 ```{r}
@@ -210,11 +229,13 @@ knitr::kable(voting_tibble,
 
 
 ```{r}
+
+
 abortion_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_abortion, fill = race)) +
   geom_col(position = "dodge") +
   labs(x = "Party Affiliation",
-       y = "Average Views on Abortion")
+       y = "Average Views on Abortion") 
 abortion_plot
 ```
 
@@ -255,7 +276,7 @@ economy_plot
 ```
 
 ```{r}
-abortion_regression <- lm(abortion_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
+abortion_regression <- lm(abortion_views ~ race + party + education_level + gender, data = voting_trends)
 summary(abortion_regression)
 ```
 **intercept represents avg lvl asian american  democrats
