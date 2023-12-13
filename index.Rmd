@@ -258,7 +258,7 @@ economy_plot <- voting_tibble |>
 economy_plot
 ```
 
-This regression shows abortion views against the main independent variables race and party, as well as confounders of education level and gender. The intercept coefficient here 3.73723 shows the average view of Asian American Democrats with an academic Associate's degree who are women on the issue of abortion. You can find the other average view values by comparing the coefficient for each racial group to this one. Since I am mainly looking at party and race, I will outline those key outcomes here. 
+This regression shows abortion views against the main independent variables race and party, as well as confounders of education level and gender. The intercept coefficient here 3.73723 shows the average view of Asian American Democrats with an academic Associate's degree who are women on the issue of abortion. You can find the other average view values by comparing the coefficient for each racial group to this one. Since I am mainly looking at party and race, I will outline those key outcomes while controlling for education (bachelor's degree) and gender here. 
 
 The average view of Black Democrats with a bachelor's degree who are women is 3.60258. For men, it's 3.57298.
 Women - sum(3.73723 asian + 0.03998 bachelor + -0.17463 black race)
