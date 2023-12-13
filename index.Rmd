@@ -340,12 +340,44 @@ lgbtq_regression_rep <- lm(lgbtq_views ~ race3 + education_level + gender, data 
 summary(lgbtq_regression)
 ```
 
+immigration regression DEMS
+```{r}
+immigration_regression_dem <- lm(immigration_views ~ race2 + education_level + gender, data = dem_voting_trends)
+summary(immigration_regression_dem)
+```
+
+immigration regression REPUBLICANS
+```{r}
+immigration_regression_rep <- lm(immigration_views ~ race3 + education_level + gender, data = rep_voting_trends)
+summary(immigration_regression_rep)
+```
+
+environment regression DEMS
+```{r}
+environment_regression_dem <- lm(environment_views ~ race2 + education_level + gender, data = dem_voting_trends)
+summary(environment_regression_dem)
+```
 
 
+environment regression REPUBLICANS
 
+```{r}
+environment_regression_rep <- lm(environment_views ~ race3 + education_level + gender, data = rep_voting_trends)
+summary(environment_regression_rep)
+```
 
+economy regression dems
+```{r}
+economy_regression_dems <- lm(economy_views ~ race2 + education_level + gender, data = dem_voting_trends)
+summary(economy_regression_dems)
+```
 
+economy regression republicans
 
+```{r}
+economy_regression_rep <- lm(economy_views ~ race3 + education_level + gender, data = rep_voting_trends)
+summary(economy_regression_rep)
+```
 
 
 
