@@ -53,15 +53,10 @@ library(dplyr)
 voting_trends_2020 <- read_csv("anes_timeseries_2020_csv_20220210.csv")
 voting_trends_2020
 ```
-```{r}
-voting_trends_2020 |>
-  select(V201601) |>
-  filter(V201601 >= 1)
-```
 
 ```{r}
 voting_trends_2020 <- voting_trends_2020 |>
-  select(V201549x, V201336, V201416, V201417, V201262, V201324, V201018, V201510, V201600, V201601) |>
+  select(V201549x, V201336, V201416, V201417, V201262, V201324, V201018, V201510, V201600) |>
   filter(
     V201549x >= 1,
     V201018 == 1 | V201018 == 2,
@@ -71,8 +66,7 @@ voting_trends_2020 <- voting_trends_2020 |>
     V201262 %in% c(1, 2, 3, 4, 5, 6, 7),
     V201324 >= 1,
     V201510 %in% c(1, 2, 3, 4, 5, 6, 7, 8),
-    V201600 >= 1,
-    V201601 %in% c(1, 2, 3)
+    V201600 >= 1
   )
 voting_trends_2020
 ```
@@ -88,8 +82,7 @@ voting_trends <- voting_trends_2020 |>
     economy_views = V201324,
     party = V201018,
     education_level = V201510,
-    gender = V201600,
-    sexuality = V201601
+    gender = V201600
   ) |>
   mutate(
     race = case_when(
@@ -111,15 +104,12 @@ voting_trends <- voting_trends_2020 |>
       education_level == 6 ~ "Bachelor's degree",
       education_level == 7 ~ "Master's degree",
       education_level == 8 ~ "Professional school degree/doctoral degree"
-    ),
-    sexuality = case_when(
-      sexuality == 1 ~ "Heterosexual or straight",
-      sexuality == 2 ~ "Homosexual or gay (or lesbian)",
-      sexuality == 3 ~ "Bisexual"
     )
   )
 voting_trends
 ```
+
+
 
 ```{r}
 voting_trends_dependent_abortion <- voting_trends |>
@@ -127,7 +117,8 @@ voting_trends_dependent_abortion <- voting_trends |>
            geom_bar() +
   labs(
     x = "Abortion Views Scale of 1-4",
-    y = "Number of Respondents"
+    y = "Number of Respondents",
+    title = "Outcome of Interest 1: All Respondents' Views on Abortion"
   )
 voting_trends_dependent_abortion
 ```
@@ -138,7 +129,8 @@ voting_trends_dependent_lgbtq <- voting_trends |>
            geom_bar() +
   labs(
     x = "Gay Marriage Views Scale of 1-3",
-    y = "Number of Respondents"
+    y = "Number of Respondents",
+    title = "Outcome of Interest 2: All Respondents' Views on Gay Marriage"
   )
 voting_trends_dependent_lgbtq
 ```
@@ -149,7 +141,8 @@ voting_trends_dependent_immigration <- voting_trends |>
            geom_bar() +
   labs(
     x = "Immigration Views Scale of 1-4",
-    y = "Number of Respondents"
+    y = "Number of Respondents",
+    title = "Outcome of Interest 3: All Respondents' Views on Immigration"
   )
 voting_trends_dependent_immigration
 ```
@@ -160,7 +153,8 @@ voting_trends_dependent_environment <- voting_trends |>
            geom_bar() +
   labs(
     x = "Environment Views Scale of 1-7",
-    y = "Number of Respondents"
+    y = "Number of Respondents",
+    title = "Outcome of Interest 4: All Respondents' Views on the Environment"
   ) 
 voting_trends_dependent_environment
 ```
@@ -171,7 +165,8 @@ voting_trends_dependent_economy <- voting_trends |>
            geom_bar() +
   labs(
     x = "Economy Views Scale of 1-5",
-    y = "Number of Respondents"
+    y = "Number of Respondents",
+    title = "Outcome of Interest 5: All Respondents' Views on the Economy"
   )
 voting_trends_dependent_economy
 ```
@@ -183,7 +178,7 @@ library(patchwork)
 ```
 
 RESULTS: 
-My results include a table and barplots of respondents' average views on abortion by party and racial group. 
+My results include a table and bar plots of respondents' average views on abortion by party and racial group. 
 
 ```{r}
 voting_tibble <- voting_trends |>
@@ -254,7 +249,7 @@ summary(abortion_regression)
 **intercept represents avg lvl asian american  democrats
 it's showing racial categories among democrats
 ```{r}
-lgbtq_regression <- lm(lgbtq_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
+lgbtq_regression <- lm(lgbtq_views ~ race + party + education_level + gender, data = voting_trends)
 summary(lgbtq_regression)
 ```
 ```{r}
@@ -264,17 +259,17 @@ unique(voting_tibble$race)
 
 
 ```{r}
-immigration_regression <- lm(immigration_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
+immigration_regression <- lm(immigration_views ~ race + party + education_level + gender, data = voting_trends)
 summary(immigration_regression)
 ```
 
 ```{r}
-environment_regression <- lm(environment_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
+environment_regression <- lm(environment_views ~ race + party + education_level + gender, data = voting_trends)
 summary(environment_regression)
 ```
 
 ```{r}
-economy_regression <- lm(economy_views ~ race + party + education_level + gender + sexuality, data = voting_trends)
+economy_regression <- lm(economy_views ~ race + party + education_level + gender, data = voting_trends)
 summary(economy_regression)
 ```
 
