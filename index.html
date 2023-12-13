@@ -1564,7 +1564,8 @@ Response options: 1 (Tougher regulations on business needed to protect environme
 Question: What do you think about the state of the economy these days in the United States? Would you say the state of the economy is very good,good, neither good nor bad, bad, or very bad?
 Response options: 1(Very good) through 5 (Very bad).</p>
 <p>While these categories may not entirely reflect of respondents’ views on a given issue, they offer a solid foundation to reveal potential differences by race and party.</p>
-<p>The research design for this study is BLANK.</p>
+<p>The research design for this study is cross-sectional.</p>
+<p>My dependent variable summaries are below, with barplots with the numbers of participants that responded to the survey in a given way for each social issue.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
@@ -1599,30 +1600,8 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_2020</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>V201601</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>V201601</span> <span class='op'>&gt;=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre>
-</div>
-<pre><code># A tibble: 8,135 × 1
-   V201601
-     &lt;dbl&gt;
- 1       1
- 2       1
- 3       1
- 4       1
- 5       1
- 6       1
- 7       1
- 8       1
- 9       1
-10       1
-# ℹ 8,125 more rows</code></pre>
-</div>
-<p>confounders: education, gender, sexuality</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_2020</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends_2020</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>V201549x</span>, <span class='va'>V201336</span>, <span class='va'>V201416</span>, <span class='va'>V201417</span>, <span class='va'>V201262</span>, <span class='va'>V201324</span>, <span class='va'>V201018</span>, <span class='va'>V201510</span>, <span class='va'>V201600</span>, <span class='va'>V201601</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>V201549x</span>, <span class='va'>V201336</span>, <span class='va'>V201416</span>, <span class='va'>V201417</span>, <span class='va'>V201262</span>, <span class='va'>V201324</span>, <span class='va'>V201018</span>, <span class='va'>V201510</span>, <span class='va'>V201600</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span></span>
 <span>    <span class='va'>V201549x</span> <span class='op'>&gt;=</span> <span class='fl'>1</span>,</span>
 <span>    <span class='va'>V201018</span> <span class='op'>==</span> <span class='fl'>1</span> <span class='op'>|</span> <span class='va'>V201018</span> <span class='op'>==</span> <span class='fl'>2</span>,</span>
@@ -1632,12 +1611,11 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>    <span class='va'>V201262</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>7</span><span class='op'>)</span>,</span>
 <span>    <span class='va'>V201324</span> <span class='op'>&gt;=</span> <span class='fl'>1</span>,</span>
 <span>    <span class='va'>V201510</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>7</span>, <span class='fl'>8</span><span class='op'>)</span>,</span>
-<span>    <span class='va'>V201600</span> <span class='op'>&gt;=</span> <span class='fl'>1</span>,</span>
-<span>    <span class='va'>V201601</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span></span>
+<span>    <span class='va'>V201600</span> <span class='op'>&gt;=</span> <span class='fl'>1</span></span>
 <span>  <span class='op'>)</span></span>
 <span><span class='va'>voting_trends_2020</span></span></code></pre>
 </div>
-<pre><code># A tibble: 2,563 × 10
+<pre><code># A tibble: 2,604 × 9
    V201549x V201336 V201416 V201417 V201262 V201324 V201018 V201510
       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
  1        3       2       3       1       7       2       2       6
@@ -1650,8 +1628,8 @@ Response options: 1(Very good) through 5 (Very bad).</p>
  8        1       2       3       3       6       2       1       1
  9        1       4       1       3       1       4       2       8
 10        3       4       1       3       4       4       1       2
-# ℹ 2,553 more rows
-# ℹ 2 more variables: V201600 &lt;dbl&gt;, V201601 &lt;dbl&gt;</code></pre>
+# ℹ 2,594 more rows
+# ℹ 1 more variable: V201600 &lt;dbl&gt;</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1665,8 +1643,7 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>    economy_views <span class='op'>=</span> <span class='va'>V201324</span>,</span>
 <span>    party <span class='op'>=</span> <span class='va'>V201018</span>,</span>
 <span>    education_level <span class='op'>=</span> <span class='va'>V201510</span>,</span>
-<span>    gender <span class='op'>=</span> <span class='va'>V201600</span>,</span>
-<span>    sexuality <span class='op'>=</span> <span class='va'>V201601</span></span>
+<span>    gender <span class='op'>=</span> <span class='va'>V201600</span></span>
 <span>  <span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
 <span>    race <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span></span>
@@ -1688,16 +1665,11 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>      <span class='va'>education_level</span> <span class='op'>==</span> <span class='fl'>6</span> <span class='op'>~</span> <span class='st'>"Bachelor's degree"</span>,</span>
 <span>      <span class='va'>education_level</span> <span class='op'>==</span> <span class='fl'>7</span> <span class='op'>~</span> <span class='st'>"Master's degree"</span>,</span>
 <span>      <span class='va'>education_level</span> <span class='op'>==</span> <span class='fl'>8</span> <span class='op'>~</span> <span class='st'>"Professional school degree/doctoral degree"</span></span>
-<span>    <span class='op'>)</span>,</span>
-<span>    sexuality <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span></span>
-<span>      <span class='va'>sexuality</span> <span class='op'>==</span> <span class='fl'>1</span> <span class='op'>~</span> <span class='st'>"Heterosexual or straight"</span>,</span>
-<span>      <span class='va'>sexuality</span> <span class='op'>==</span> <span class='fl'>2</span> <span class='op'>~</span> <span class='st'>"Homosexual or gay (or lesbian)"</span>,</span>
-<span>      <span class='va'>sexuality</span> <span class='op'>==</span> <span class='fl'>3</span> <span class='op'>~</span> <span class='st'>"Bisexual"</span></span>
 <span>    <span class='op'>)</span></span>
 <span>  <span class='op'>)</span></span>
 <span><span class='va'>voting_trends</span></span></code></pre>
 </div>
-<pre><code># A tibble: 2,563 × 11
+<pre><code># A tibble: 2,604 × 10
    race_num abortion_views lgbtq_views immigration_views
       &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt;             &lt;dbl&gt;
  1        3              2           3                 1
@@ -1710,10 +1682,9 @@ Response options: 1(Very good) through 5 (Very bad).</p>
  8        1              2           3                 3
  9        1              4           1                 3
 10        3              4           1                 3
-# ℹ 2,553 more rows
-# ℹ 7 more variables: environment_views &lt;dbl&gt;, economy_views &lt;dbl&gt;,
-#   party &lt;chr&gt;, education_level &lt;chr&gt;, gender &lt;chr&gt;,
-#   sexuality &lt;chr&gt;, race &lt;chr&gt;</code></pre>
+# ℹ 2,594 more rows
+# ℹ 6 more variables: environment_views &lt;dbl&gt;, economy_views &lt;dbl&gt;,
+#   party &lt;chr&gt;, education_level &lt;chr&gt;, gender &lt;chr&gt;, race &lt;chr&gt;</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1721,12 +1692,13 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>abortion_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
-<span>    x <span class='op'>=</span> <span class='st'>"Views on Abortion on a Scale of 1-4"</span>,</span>
-<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Abortion Views Scale of 1-4"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span>,</span>
+<span>    title <span class='op'>=</span> <span class='st'>"Outcome of Interest 1: All Respondents' Views on Abortion"</span></span>
 <span>  <span class='op'>)</span></span>
 <span><span class='va'>voting_trends_dependent_abortion</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1734,12 +1706,13 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>lgbtq_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
-<span>    x <span class='op'>=</span> <span class='st'>"Views on Gay Marriage on a Scale of 1-3"</span>,</span>
-<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Gay Marriage Views Scale of 1-3"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span>,</span>
+<span>    title <span class='op'>=</span> <span class='st'>"Outcome of Interest 2: All Respondents' Views on Gay Marriage"</span></span>
 <span>  <span class='op'>)</span></span>
 <span><span class='va'>voting_trends_dependent_lgbtq</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1747,12 +1720,13 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>immigration_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
-<span>    x <span class='op'>=</span> <span class='st'>"Views on Immigration on a Scale of 1-4"</span>,</span>
-<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Immigration Views Scale of 1-4"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span>,</span>
+<span>    title <span class='op'>=</span> <span class='st'>"Outcome of Interest 3: All Respondents' Views on Immigration"</span></span>
 <span>  <span class='op'>)</span></span>
 <span><span class='va'>voting_trends_dependent_immigration</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1760,12 +1734,13 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>environment_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
-<span>    x <span class='op'>=</span> <span class='st'>"Views on the Environment on a Scale of 1-7"</span>,</span>
-<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Environment Views Scale of 1-7"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span>,</span>
+<span>    title <span class='op'>=</span> <span class='st'>"Outcome of Interest 4: All Respondents' Views on the Environment"</span></span>
 <span>  <span class='op'>)</span> </span>
 <span><span class='va'>voting_trends_dependent_environment</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1773,55 +1748,24 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>economy_views</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
-<span>    x <span class='op'>=</span> <span class='st'>"Views on the Economy on a Scale of 1-5"</span>,</span>
-<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Economy Views Scale of 1-5"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Number of Respondents"</span>,</span>
+<span>    title <span class='op'>=</span> <span class='st'>"Outcome of Interest 5: All Respondents' Views on the Economy"</span></span>
 <span>  <span class='op'>)</span></span>
 <span><span class='va'>voting_trends_dependent_economy</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
-<p>RESULTS:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_tibble</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span></span>
-<span>    avg_abortion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>abortion_views</span><span class='op'>)</span>,</span>
-<span>    avg_lgbtq <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>lgbtq_views</span><span class='op'>)</span>,</span>
-<span>    avg_immigration <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>immigration_views</span><span class='op'>)</span>,</span>
-<span>    avg_environment <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>environment_views</span><span class='op'>)</span>,</span>
-<span>    avg_economy <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>economy_views</span><span class='op'>)</span></span>
-<span>  <span class='op'>)</span></span>
-<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>voting_trends_dependent_tibble</span>,</span>
-<span>             col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Average Views on Abortion"</span>, <span class='st'>"Average Views on Gay Marriage"</span>, <span class='st'>"Average Views on Immigration"</span>, <span class='st'>"Average Views on the Environment"</span>, <span class='st'>"Average Views on the Economy"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://patchwork.data-imaginist.com'>patchwork</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='op'>(</span><span class='va'>voting_trends_dependent_abortion</span><span class='op'>)</span><span class='op'>+</span><span class='op'>(</span><span class='va'>voting_trends_dependent_economy</span><span class='op'>)</span><span class='op'>+</span><span class='op'>(</span><span class='va'>voting_trends_dependent_environment</span><span class='op'>)</span><span class='op'>+</span><span class='op'>(</span><span class='va'>voting_trends_dependent_immigration</span><span class='op'>)</span><span class='op'>+</span><span class='op'>(</span><span class='va'>voting_trends_dependent_lgbtq</span><span class='op'>)</span></span></code></pre>
 </div>
-<table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 20%" />
-<col style="width: 19%" />
-<col style="width: 22%" />
-<col style="width: 19%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Average Views on Abortion</th>
-<th style="text-align: right;">Average Views on Gay Marriage</th>
-<th style="text-align: right;">Average Views on Immigration</th>
-<th style="text-align: right;">Average Views on the Environment</th>
-<th style="text-align: right;">Average Views on the Economy</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">3.159969</td>
-<td style="text-align: right;">1.410066</td>
-<td style="text-align: right;">2.816231</td>
-<td style="text-align: right;">3.035895</td>
-<td style="text-align: right;">3.298088</td>
-</tr>
-</tbody>
-</table>
+<p><img src="index_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
+<p>RESULTS:
+My results include a table and bar plots of respondents’ average views on abortion by party and racial group.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_tibble</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
@@ -1861,56 +1805,56 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <tr class="odd">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Asian or Native Hawaiian/other Pacific Islander, non-Hispanic</td>
-<td style="text-align: right;">3.742424</td>
-<td style="text-align: right;">1.151515</td>
-<td style="text-align: right;">2.969697</td>
-<td style="text-align: right;">2.500000</td>
-<td style="text-align: right;">3.484849</td>
+<td style="text-align: right;">3.746269</td>
+<td style="text-align: right;">1.149254</td>
+<td style="text-align: right;">2.970149</td>
+<td style="text-align: right;">2.477612</td>
+<td style="text-align: right;">3.492537</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Black, non-Hispanic</td>
-<td style="text-align: right;">3.517949</td>
-<td style="text-align: right;">1.461539</td>
-<td style="text-align: right;">2.923077</td>
-<td style="text-align: right;">2.420513</td>
-<td style="text-align: right;">3.820513</td>
+<td style="text-align: right;">3.504951</td>
+<td style="text-align: right;">1.470297</td>
+<td style="text-align: right;">2.930693</td>
+<td style="text-align: right;">2.391089</td>
+<td style="text-align: right;">3.811881</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Hispanic</td>
-<td style="text-align: right;">3.374194</td>
-<td style="text-align: right;">1.296774</td>
-<td style="text-align: right;">3.180645</td>
-<td style="text-align: right;">1.961290</td>
-<td style="text-align: right;">3.832258</td>
+<td style="text-align: right;">3.364197</td>
+<td style="text-align: right;">1.296296</td>
+<td style="text-align: right;">3.179012</td>
+<td style="text-align: right;">1.956790</td>
+<td style="text-align: right;">3.827161</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Multiple races, non-Hispanic</td>
-<td style="text-align: right;">3.648148</td>
-<td style="text-align: right;">1.129630</td>
-<td style="text-align: right;">3.037037</td>
-<td style="text-align: right;">1.814815</td>
-<td style="text-align: right;">3.870370</td>
+<td style="text-align: right;">3.672414</td>
+<td style="text-align: right;">1.120690</td>
+<td style="text-align: right;">3.086207</td>
+<td style="text-align: right;">1.758621</td>
+<td style="text-align: right;">3.913793</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">Native American/Alaska Native or other race, non-Hispanic</td>
-<td style="text-align: right;">3.450000</td>
-<td style="text-align: right;">1.100000</td>
-<td style="text-align: right;">3.300000</td>
-<td style="text-align: right;">2.100000</td>
-<td style="text-align: right;">4.100000</td>
+<td style="text-align: right;">3.476190</td>
+<td style="text-align: right;">1.095238</td>
+<td style="text-align: right;">3.333333</td>
+<td style="text-align: right;">2.047619</td>
+<td style="text-align: right;">4.142857</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Democrat</td>
 <td style="text-align: left;">White, non-Hispanic</td>
-<td style="text-align: right;">3.678397</td>
-<td style="text-align: right;">1.131965</td>
-<td style="text-align: right;">3.180841</td>
-<td style="text-align: right;">1.935484</td>
-<td style="text-align: right;">3.802541</td>
+<td style="text-align: right;">3.680193</td>
+<td style="text-align: right;">1.132367</td>
+<td style="text-align: right;">3.181643</td>
+<td style="text-align: right;">1.938164</td>
+<td style="text-align: right;">3.806763</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Republican</td>
@@ -1933,11 +1877,11 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <tr class="odd">
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">Hispanic</td>
-<td style="text-align: right;">2.423729</td>
-<td style="text-align: right;">1.745763</td>
-<td style="text-align: right;">2.372881</td>
-<td style="text-align: right;">4.474576</td>
-<td style="text-align: right;">2.559322</td>
+<td style="text-align: right;">2.450000</td>
+<td style="text-align: right;">1.733333</td>
+<td style="text-align: right;">2.383333</td>
+<td style="text-align: right;">4.483333</td>
+<td style="text-align: right;">2.583333</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Republican</td>
@@ -1960,25 +1904,27 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <tr class="even">
 <td style="text-align: left;">Republican</td>
 <td style="text-align: left;">White, non-Hispanic</td>
-<td style="text-align: right;">2.496175</td>
-<td style="text-align: right;">1.716940</td>
-<td style="text-align: right;">2.359563</td>
-<td style="text-align: right;">4.516940</td>
-<td style="text-align: right;">2.550820</td>
+<td style="text-align: right;">2.498375</td>
+<td style="text-align: right;">1.713976</td>
+<td style="text-align: right;">2.358613</td>
+<td style="text-align: right;">4.514626</td>
+<td style="text-align: right;">2.553629</td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>This first shows respondents’ average views on abortion for each party by racial group. Views on abortion are measured on a scale of 0-4, with 0 meaning “By law, abortion should never be permitted,” and 4 meaning “By law, a woman should always be able to obtain an abortion
+as a matter of personal choice.”</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>abortion_plot</span> <span class='op'>&lt;-</span> <span class='va'>voting_tibble</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>party</span>, y <span class='op'>=</span> <span class='va'>avg_abortion</span>, fill <span class='op'>=</span> <span class='va'>race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Party Affiliation"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Average Views on Abortion"</span><span class='op'>)</span></span>
+<span>       y <span class='op'>=</span> <span class='st'>"Average Views on Abortion"</span><span class='op'>)</span> </span>
 <span><span class='va'>abortion_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1989,7 +1935,7 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>       y <span class='op'>=</span> <span class='st'>"Average Views on Gay Marriage"</span><span class='op'>)</span></span>
 <span><span class='va'>lgbtq_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2000,7 +1946,7 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>       y <span class='op'>=</span> <span class='st'>"Average Views on Immigration"</span><span class='op'>)</span></span>
 <span><span class='va'>immigration_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2011,7 +1957,7 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>       y <span class='op'>=</span> <span class='st'>"Average Views on the Environment"</span><span class='op'>)</span></span>
 <span><span class='va'>environment_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2022,95 +1968,87 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 <span>       y <span class='op'>=</span> <span class='st'>"Average Views on the Economy"</span><span class='op'>)</span></span>
 <span><span class='va'>economy_plot</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>abortion_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>abortion_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span> <span class='op'>+</span> <span class='va'>sexuality</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>abortion_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>abortion_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>abortion_regression</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
 lm(formula = abortion_views ~ race + party + education_level + 
-    gender + sexuality, data = voting_trends)
+    gender, data = voting_trends)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--2.7789 -0.5514  0.2727  0.4486  1.9483 
+-2.8199 -0.5612  0.2720  0.4374  1.9604 
 
 Coefficients:
                                                               Estimate
-(Intercept)                                                    3.90543
-raceBlack, non-Hispanic                                       -0.16176
-raceHispanic                                                  -0.22780
-raceMultiple races, non-Hispanic                              -0.08871
-raceNative American/Alaska Native or other race, non-Hispanic -0.16918
-raceWhite, non-Hispanic                                       -0.05211
-partyRepublican                                               -1.10638
-education_levelAssociate degree in college - vocational       -0.16139
-education_levelBachelor&#39;s degree                               0.03037
-education_levelHigh school graduate                           -0.24945
-education_levelLess than high school                          -0.33824
-education_levelMaster&#39;s degree                                 0.09993
-education_levelProfessional school degree/doctoral degree      0.15149
-education_levelSome college but no degree                     -0.06905
-genderMale                                                    -0.04458
-sexualityHeterosexual or straight                             -0.18135
-sexualityHomosexual or gay (or lesbian)                        0.21016
+(Intercept)                                                    3.73723
+raceBlack, non-Hispanic                                       -0.17463
+raceHispanic                                                  -0.22907
+raceMultiple races, non-Hispanic                              -0.05347
+raceNative American/Alaska Native or other race, non-Hispanic -0.15090
+raceWhite, non-Hispanic                                       -0.04917
+partyRepublican                                               -1.12685
+education_levelAssociate degree in college - vocational       -0.16301
+education_levelBachelor&#39;s degree                               0.03998
+education_levelHigh school graduate                           -0.25394
+education_levelLess than high school                          -0.34167
+education_levelMaster&#39;s degree                                 0.10137
+education_levelProfessional school degree/doctoral degree      0.16145
+education_levelSome college but no degree                     -0.05952
+genderMale                                                    -0.02960
                                                               Std. Error
-(Intercept)                                                      0.15985
-raceBlack, non-Hispanic                                          0.11316
-raceHispanic                                                     0.11158
-raceMultiple races, non-Hispanic                                 0.13608
-raceNative American/Alaska Native or other race, non-Hispanic    0.16492
-raceWhite, non-Hispanic                                          0.09571
-partyRepublican                                                  0.03767
-education_levelAssociate degree in college - vocational          0.09874
-education_levelBachelor&#39;s degree                                 0.07832
-education_levelHigh school graduate                              0.08613
-education_levelLess than high school                             0.11786
-education_levelMaster&#39;s degree                                   0.08331
-education_levelProfessional school degree/doctoral degree        0.09875
-education_levelSome college but no degree                        0.08146
-genderMale                                                       0.03532
-sexualityHeterosexual or straight                                0.10815
-sexualityHomosexual or gay (or lesbian)                          0.14367
+(Intercept)                                                      0.11912
+raceBlack, non-Hispanic                                          0.11246
+raceHispanic                                                     0.11082
+raceMultiple races, non-Hispanic                                 0.13414
+raceNative American/Alaska Native or other race, non-Hispanic    0.16368
+raceWhite, non-Hispanic                                          0.09541
+partyRepublican                                                  0.03715
+education_levelAssociate degree in college - vocational          0.09808
+education_levelBachelor&#39;s degree                                 0.07778
+education_levelHigh school graduate                              0.08558
+education_levelLess than high school                             0.11691
+education_levelMaster&#39;s degree                                   0.08280
+education_levelProfessional school degree/doctoral degree        0.09837
+education_levelSome college but no degree                        0.08093
+genderMale                                                       0.03502
                                                               t value
-(Intercept)                                                    24.431
-raceBlack, non-Hispanic                                        -1.430
-raceHispanic                                                   -2.042
-raceMultiple races, non-Hispanic                               -0.652
-raceNative American/Alaska Native or other race, non-Hispanic  -1.026
-raceWhite, non-Hispanic                                        -0.544
-partyRepublican                                               -29.369
-education_levelAssociate degree in college - vocational        -1.634
-education_levelBachelor&#39;s degree                                0.388
-education_levelHigh school graduate                            -2.896
-education_levelLess than high school                           -2.870
-education_levelMaster&#39;s degree                                  1.199
-education_levelProfessional school degree/doctoral degree       1.534
-education_levelSome college but no degree                      -0.848
-genderMale                                                     -1.262
-sexualityHeterosexual or straight                              -1.677
-sexualityHomosexual or gay (or lesbian)                         1.463
+(Intercept)                                                    31.375
+raceBlack, non-Hispanic                                        -1.553
+raceHispanic                                                   -2.067
+raceMultiple races, non-Hispanic                               -0.399
+raceNative American/Alaska Native or other race, non-Hispanic  -0.922
+raceWhite, non-Hispanic                                        -0.515
+partyRepublican                                               -30.335
+education_levelAssociate degree in college - vocational        -1.662
+education_levelBachelor&#39;s degree                                0.514
+education_levelHigh school graduate                            -2.967
+education_levelLess than high school                           -2.923
+education_levelMaster&#39;s degree                                  1.224
+education_levelProfessional school degree/doctoral degree       1.641
+education_levelSome college but no degree                      -0.736
+genderMale                                                     -0.845
                                                               Pr(&gt;|t|)
 (Intercept)                                                    &lt; 2e-16
-raceBlack, non-Hispanic                                        0.15298
-raceHispanic                                                   0.04129
-raceMultiple races, non-Hispanic                               0.51454
-raceNative American/Alaska Native or other race, non-Hispanic  0.30505
-raceWhite, non-Hispanic                                        0.58619
+raceBlack, non-Hispanic                                        0.12058
+raceHispanic                                                   0.03883
+raceMultiple races, non-Hispanic                               0.69023
+raceNative American/Alaska Native or other race, non-Hispanic  0.35666
+raceWhite, non-Hispanic                                        0.60635
 partyRepublican                                                &lt; 2e-16
-education_levelAssociate degree in college - vocational        0.10228
-education_levelBachelor&#39;s degree                               0.69824
-education_levelHigh school graduate                            0.00381
-education_levelLess than high school                           0.00414
-education_levelMaster&#39;s degree                                 0.23045
-education_levelProfessional school degree/doctoral degree      0.12514
-education_levelSome college but no degree                      0.39672
-genderMale                                                     0.20695
-sexualityHeterosexual or straight                              0.09370
-sexualityHomosexual or gay (or lesbian)                        0.14363
+education_levelAssociate degree in college - vocational        0.09662
+education_levelBachelor&#39;s degree                               0.60727
+education_levelHigh school graduate                            0.00303
+education_levelLess than high school                           0.00350
+education_levelMaster&#39;s degree                                 0.22095
+education_levelProfessional school degree/doctoral degree      0.10086
+education_levelSome college but no degree                      0.46208
+genderMale                                                     0.39804
                                                                  
 (Intercept)                                                   ***
 raceBlack, non-Hispanic                                          
@@ -2119,7 +2057,7 @@ raceMultiple races, non-Hispanic
 raceNative American/Alaska Native or other race, non-Hispanic    
 raceWhite, non-Hispanic                                          
 partyRepublican                                               ***
-education_levelAssociate degree in college - vocational          
+education_levelAssociate degree in college - vocational       .  
 education_levelBachelor&#39;s degree                                 
 education_levelHigh school graduate                           ** 
 education_levelLess than high school                          ** 
@@ -2127,104 +2065,94 @@ education_levelMaster&#39;s degree
 education_levelProfessional school degree/doctoral degree        
 education_levelSome college but no degree                        
 genderMale                                                       
-sexualityHeterosexual or straight                             .  
-sexualityHomosexual or gay (or lesbian)                          
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.8767 on 2546 degrees of freedom
-Multiple R-squared:  0.3086,    Adjusted R-squared:  0.3042 
-F-statistic: 71.01 on 16 and 2546 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.8791 on 2589 degrees of freedom
+Multiple R-squared:  0.3021,    Adjusted R-squared:  0.2983 
+F-statistic: 80.04 on 14 and 2589 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 **intercept represents avg lvl asian american democrats
 it’s showing racial categories among democrats
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>lgbtq_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>lgbtq_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span> <span class='op'>+</span> <span class='va'>sexuality</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>lgbtq_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>lgbtq_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>lgbtq_regression</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
-lm(formula = lgbtq_views ~ race + party + education_level + gender + 
-    sexuality, data = voting_trends)
+lm(formula = lgbtq_views ~ race + party + education_level + gender, 
+    data = voting_trends)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--1.10444 -0.34390 -0.09871  0.26169  1.90684 
+    Min      1Q  Median      3Q     Max 
+-1.0939 -0.3799 -0.1202  0.2715  1.9243 
 
 Coefficients:
                                                               Estimate
-(Intercept)                                                    1.04748
-raceBlack, non-Hispanic                                        0.20329
-raceHispanic                                                  -0.01334
-raceMultiple races, non-Hispanic                              -0.09922
-raceNative American/Alaska Native or other race, non-Hispanic -0.14402
-raceWhite, non-Hispanic                                       -0.09036
-partyRepublican                                                0.54334
-education_levelAssociate degree in college - vocational        0.02226
-education_levelBachelor&#39;s degree                              -0.04229
-education_levelHigh school graduate                            0.13143
-education_levelLess than high school                           0.34863
-education_levelMaster&#39;s degree                                -0.09625
-education_levelProfessional school degree/doctoral degree     -0.03695
-education_levelSome college but no degree                      0.02839
-genderMale                                                     0.05952
-sexualityHeterosexual or straight                              0.17833
-sexualityHomosexual or gay (or lesbian)                       -0.02688
+(Intercept)                                                    1.21249
+raceBlack, non-Hispanic                                        0.21181
+raceHispanic                                                  -0.01518
+raceMultiple races, non-Hispanic                              -0.11834
+raceNative American/Alaska Native or other race, non-Hispanic -0.15016
+raceWhite, non-Hispanic                                       -0.09231
+partyRepublican                                                0.55353
+education_levelAssociate degree in college - vocational        0.03167
+education_levelBachelor&#39;s degree                              -0.04446
+education_levelHigh school graduate                            0.13611
+education_levelLess than high school                           0.34308
+education_levelMaster&#39;s degree                                -0.09501
+education_levelProfessional school degree/doctoral degree     -0.03785
+education_levelSome college but no degree                      0.02992
+genderMale                                                     0.05474
                                                               Std. Error
-(Intercept)                                                      0.11072
-raceBlack, non-Hispanic                                          0.07838
-raceHispanic                                                     0.07728
-raceMultiple races, non-Hispanic                                 0.09425
-raceNative American/Alaska Native or other race, non-Hispanic    0.11423
-raceWhite, non-Hispanic                                          0.06629
-partyRepublican                                                  0.02609
-education_levelAssociate degree in college - vocational          0.06839
-education_levelBachelor&#39;s degree                                 0.05425
-education_levelHigh school graduate                              0.05966
-education_levelLess than high school                             0.08163
-education_levelMaster&#39;s degree                                   0.05771
-education_levelProfessional school degree/doctoral degree        0.06840
-education_levelSome college but no degree                        0.05642
-genderMale                                                       0.02446
-sexualityHeterosexual or straight                                0.07491
-sexualityHomosexual or gay (or lesbian)                          0.09951
+(Intercept)                                                      0.08254
+raceBlack, non-Hispanic                                          0.07792
+raceHispanic                                                     0.07679
+raceMultiple races, non-Hispanic                                 0.09295
+raceNative American/Alaska Native or other race, non-Hispanic    0.11341
+raceWhite, non-Hispanic                                          0.06611
+partyRepublican                                                  0.02574
+education_levelAssociate degree in college - vocational          0.06796
+education_levelBachelor&#39;s degree                                 0.05389
+education_levelHigh school graduate                              0.05930
+education_levelLess than high school                             0.08101
+education_levelMaster&#39;s degree                                   0.05737
+education_levelProfessional school degree/doctoral degree        0.06816
+education_levelSome college but no degree                        0.05607
+genderMale                                                       0.02427
                                                               t value
-(Intercept)                                                     9.461
-raceBlack, non-Hispanic                                         2.594
-raceHispanic                                                   -0.173
-raceMultiple races, non-Hispanic                               -1.053
-raceNative American/Alaska Native or other race, non-Hispanic  -1.261
-raceWhite, non-Hispanic                                        -1.363
-partyRepublican                                                20.824
-education_levelAssociate degree in college - vocational         0.325
-education_levelBachelor&#39;s degree                               -0.780
-education_levelHigh school graduate                             2.203
-education_levelLess than high school                            4.271
-education_levelMaster&#39;s degree                                 -1.668
-education_levelProfessional school degree/doctoral degree      -0.540
-education_levelSome college but no degree                       0.503
-genderMale                                                      2.433
-sexualityHeterosexual or straight                               2.381
-sexualityHomosexual or gay (or lesbian)                        -0.270
+(Intercept)                                                    14.690
+raceBlack, non-Hispanic                                         2.718
+raceHispanic                                                   -0.198
+raceMultiple races, non-Hispanic                               -1.273
+raceNative American/Alaska Native or other race, non-Hispanic  -1.324
+raceWhite, non-Hispanic                                        -1.396
+partyRepublican                                                21.506
+education_levelAssociate degree in college - vocational         0.466
+education_levelBachelor&#39;s degree                               -0.825
+education_levelHigh school graduate                             2.295
+education_levelLess than high school                            4.235
+education_levelMaster&#39;s degree                                 -1.656
+education_levelProfessional school degree/doctoral degree      -0.555
+education_levelSome college but no degree                       0.534
+genderMale                                                      2.256
                                                               Pr(&gt;|t|)
 (Intercept)                                                    &lt; 2e-16
-raceBlack, non-Hispanic                                        0.00955
-raceHispanic                                                   0.86298
-raceMultiple races, non-Hispanic                               0.29257
-raceNative American/Alaska Native or other race, non-Hispanic  0.20747
-raceWhite, non-Hispanic                                        0.17301
+raceBlack, non-Hispanic                                        0.00661
+raceHispanic                                                   0.84333
+raceMultiple races, non-Hispanic                               0.20307
+raceNative American/Alaska Native or other race, non-Hispanic  0.18563
+raceWhite, non-Hispanic                                        0.16277
 partyRepublican                                                &lt; 2e-16
-education_levelAssociate degree in college - vocational        0.74488
-education_levelBachelor&#39;s degree                               0.43572
-education_levelHigh school graduate                            0.02767
-education_levelLess than high school                          2.02e-05
-education_levelMaster&#39;s degree                                 0.09544
-education_levelProfessional school degree/doctoral degree      0.58911
-education_levelSome college but no degree                      0.61488
-genderMale                                                     0.01504
-sexualityHeterosexual or straight                              0.01736
-sexualityHomosexual or gay (or lesbian)                        0.78711
+education_levelAssociate degree in college - vocational        0.64128
+education_levelBachelor&#39;s degree                               0.40952
+education_levelHigh school graduate                            0.02179
+education_levelLess than high school                          2.36e-05
+education_levelMaster&#39;s degree                                 0.09784
+education_levelProfessional school degree/doctoral degree      0.57878
+education_levelSome college but no degree                      0.59369
+genderMale                                                     0.02418
                                                                  
 (Intercept)                                                   ***
 raceBlack, non-Hispanic                                       ** 
@@ -2241,14 +2169,12 @@ education_levelMaster&#39;s degree                                .
 education_levelProfessional school degree/doctoral degree        
 education_levelSome college but no degree                        
 genderMale                                                    *  
-sexualityHeterosexual or straight                             *  
-sexualityHomosexual or gay (or lesbian)                          
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.6073 on 2546 degrees of freedom
-Multiple R-squared:  0.1948,    Adjusted R-squared:  0.1897 
-F-statistic:  38.5 on 16 and 2546 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.6091 on 2589 degrees of freedom
+Multiple R-squared:  0.188, Adjusted R-squared:  0.1836 
+F-statistic: 42.81 on 14 and 2589 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2263,91 +2189,83 @@ F-statistic:  38.5 on 16 and 2546 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>immigration_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>immigration_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span> <span class='op'>+</span> <span class='va'>sexuality</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>immigration_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>immigration_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>immigration_regression</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
 lm(formula = immigration_views ~ race + party + education_level + 
-    gender + sexuality, data = voting_trends)
+    gender, data = voting_trends)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--2.40165 -0.37077 -0.04944  0.63329  2.13973 
+-2.42117 -0.31790 -0.06725  0.65940  2.09262 
 
 Coefficients:
-                                                               Estimate
-(Intercept)                                                    3.199169
-raceBlack, non-Hispanic                                       -0.033238
-raceHispanic                                                   0.216590
-raceMultiple races, non-Hispanic                              -0.018454
-raceNative American/Alaska Native or other race, non-Hispanic  0.184219
-raceWhite, non-Hispanic                                        0.148377
-partyRepublican                                               -0.752954
-education_levelAssociate degree in college - vocational       -0.076239
-education_levelBachelor&#39;s degree                               0.095895
-education_levelHigh school graduate                           -0.183317
-education_levelLess than high school                          -0.269386
-education_levelMaster&#39;s degree                                 0.170456
-education_levelProfessional school degree/doctoral degree      0.269551
-education_levelSome college but no degree                      0.002013
-genderMale                                                    -0.082656
-sexualityHeterosexual or straight                             -0.215447
-sexualityHomosexual or gay (or lesbian)                       -0.032700
+                                                              Estimate
+(Intercept)                                                    2.99694
+raceBlack, non-Hispanic                                       -0.02598
+raceHispanic                                                   0.22240
+raceMultiple races, non-Hispanic                               0.03378
+raceNative American/Alaska Native or other race, non-Hispanic  0.21084
+raceWhite, non-Hispanic                                        0.15323
+partyRepublican                                               -0.77034
+education_levelAssociate degree in college - vocational       -0.07751
+education_levelBachelor&#39;s degree                               0.09630
+education_levelHigh school graduate                           -0.19278
+education_levelLess than high school                          -0.27244
+education_levelMaster&#39;s degree                                 0.16773
+education_levelProfessional school degree/doctoral degree      0.27100
+education_levelSome college but no degree                      0.01044
+genderMale                                                    -0.08057
                                                               Std. Error
-(Intercept)                                                     0.142175
-raceBlack, non-Hispanic                                         0.100642
-raceHispanic                                                    0.099237
-raceMultiple races, non-Hispanic                                0.121031
-raceNative American/Alaska Native or other race, non-Hispanic   0.146678
-raceWhite, non-Hispanic                                         0.085130
-partyRepublican                                                 0.033505
-education_levelAssociate degree in college - vocational         0.087819
-education_levelBachelor&#39;s degree                                0.069661
-education_levelHigh school graduate                             0.076604
-education_levelLess than high school                            0.104822
-education_levelMaster&#39;s degree                                  0.074100
-education_levelProfessional school degree/doctoral degree       0.087829
-education_levelSome college but no degree                       0.072454
-genderMale                                                      0.031410
-sexualityHeterosexual or straight                               0.096189
-sexualityHomosexual or gay (or lesbian)                         0.127778
+(Intercept)                                                      0.10573
+raceBlack, non-Hispanic                                          0.09982
+raceHispanic                                                     0.09837
+raceMultiple races, non-Hispanic                                 0.11906
+raceNative American/Alaska Native or other race, non-Hispanic    0.14528
+raceWhite, non-Hispanic                                          0.08469
+partyRepublican                                                  0.03297
+education_levelAssociate degree in college - vocational          0.08705
+education_levelBachelor&#39;s degree                                 0.06904
+education_levelHigh school graduate                              0.07596
+education_levelLess than high school                             0.10377
+education_levelMaster&#39;s degree                                   0.07349
+education_levelProfessional school degree/doctoral degree        0.08731
+education_levelSome college but no degree                        0.07183
+genderMale                                                       0.03109
                                                               t value
-(Intercept)                                                    22.502
-raceBlack, non-Hispanic                                        -0.330
-raceHispanic                                                    2.183
-raceMultiple races, non-Hispanic                               -0.152
-raceNative American/Alaska Native or other race, non-Hispanic   1.256
-raceWhite, non-Hispanic                                         1.743
-partyRepublican                                               -22.473
-education_levelAssociate degree in college - vocational        -0.868
-education_levelBachelor&#39;s degree                                1.377
-education_levelHigh school graduate                            -2.393
-education_levelLess than high school                           -2.570
-education_levelMaster&#39;s degree                                  2.300
-education_levelProfessional school degree/doctoral degree       3.069
-education_levelSome college but no degree                       0.028
-genderMale                                                     -2.631
-sexualityHeterosexual or straight                              -2.240
-sexualityHomosexual or gay (or lesbian)                        -0.256
+(Intercept)                                                    28.346
+raceBlack, non-Hispanic                                        -0.260
+raceHispanic                                                    2.261
+raceMultiple races, non-Hispanic                                0.284
+raceNative American/Alaska Native or other race, non-Hispanic   1.451
+raceWhite, non-Hispanic                                         1.809
+partyRepublican                                               -23.364
+education_levelAssociate degree in college - vocational        -0.890
+education_levelBachelor&#39;s degree                                1.395
+education_levelHigh school graduate                            -2.538
+education_levelLess than high school                           -2.625
+education_levelMaster&#39;s degree                                  2.282
+education_levelProfessional school degree/doctoral degree       3.104
+education_levelSome college but no degree                       0.145
+genderMale                                                     -2.592
                                                               Pr(&gt;|t|)
 (Intercept)                                                    &lt; 2e-16
-raceBlack, non-Hispanic                                        0.74123
-raceHispanic                                                   0.02916
-raceMultiple races, non-Hispanic                               0.87883
-raceNative American/Alaska Native or other race, non-Hispanic  0.20925
-raceWhite, non-Hispanic                                        0.08146
+raceBlack, non-Hispanic                                        0.79467
+raceHispanic                                                   0.02385
+raceMultiple races, non-Hispanic                               0.77665
+raceNative American/Alaska Native or other race, non-Hispanic  0.14682
+raceWhite, non-Hispanic                                        0.07051
 partyRepublican                                                &lt; 2e-16
-education_levelAssociate degree in college - vocational        0.38540
-education_levelBachelor&#39;s degree                               0.16876
-education_levelHigh school graduate                            0.01678
-education_levelLess than high school                           0.01023
-education_levelMaster&#39;s degree                                 0.02151
-education_levelProfessional school degree/doctoral degree      0.00217
-education_levelSome college but no degree                      0.97783
-genderMale                                                     0.00855
-sexualityHeterosexual or straight                              0.02519
-sexualityHomosexual or gay (or lesbian)                        0.79804
+education_levelAssociate degree in college - vocational        0.37333
+education_levelBachelor&#39;s degree                               0.16316
+education_levelHigh school graduate                            0.01121
+education_levelLess than high school                           0.00871
+education_levelMaster&#39;s degree                                 0.02255
+education_levelProfessional school degree/doctoral degree      0.00193
+education_levelSome college but no degree                      0.88443
+genderMale                                                     0.00961
                                                                  
 (Intercept)                                                   ***
 raceBlack, non-Hispanic                                          
@@ -2359,112 +2277,102 @@ partyRepublican                                               ***
 education_levelAssociate degree in college - vocational          
 education_levelBachelor&#39;s degree                                 
 education_levelHigh school graduate                           *  
-education_levelLess than high school                          *  
+education_levelLess than high school                          ** 
 education_levelMaster&#39;s degree                                *  
 education_levelProfessional school degree/doctoral degree     ** 
 education_levelSome college but no degree                        
 genderMale                                                    ** 
-sexualityHeterosexual or straight                             *  
-sexualityHomosexual or gay (or lesbian)                          
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.7798 on 2546 degrees of freedom
-Multiple R-squared:  0.2222,    Adjusted R-squared:  0.2173 
-F-statistic: 45.46 on 16 and 2546 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.7803 on 2589 degrees of freedom
+Multiple R-squared:  0.2203,    Adjusted R-squared:  0.2161 
+F-statistic: 52.27 on 14 and 2589 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>environment_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>environment_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span> <span class='op'>+</span> <span class='va'>sexuality</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>environment_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>environment_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>environment_regression</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
 lm(formula = environment_views ~ race + party + education_level + 
-    gender + sexuality, data = voting_trends)
+    gender, data = voting_trends)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--4.2467 -1.0050 -0.3237  1.1593  5.5559 
+-4.2525 -0.9862 -0.3395  1.1233  5.2044 
 
 Coefficients:
                                                               Estimate
-(Intercept)                                                    1.89633
-raceBlack, non-Hispanic                                        0.11092
-raceHispanic                                                  -0.33743
-raceMultiple races, non-Hispanic                              -0.40177
-raceNative American/Alaska Native or other race, non-Hispanic -0.21382
-raceWhite, non-Hispanic                                       -0.25684
-partyRepublican                                                2.40293
-education_levelAssociate degree in college - vocational        0.05080
-education_levelBachelor&#39;s degree                              -0.16429
-education_levelHigh school graduate                            0.20682
-education_levelLess than high school                          -0.08238
-education_levelMaster&#39;s degree                                -0.37326
-education_levelProfessional school degree/doctoral degree     -0.46829
-education_levelSome college but no degree                     -0.08420
-genderMale                                                     0.37517
-sexualityHeterosexual or straight                              0.36548
-sexualityHomosexual or gay (or lesbian)                       -0.03108
+(Intercept)                                                    2.21809
+raceBlack, non-Hispanic                                        0.09706
+raceHispanic                                                  -0.33129
+raceMultiple races, non-Hispanic                              -0.45617
+raceNative American/Alaska Native or other race, non-Hispanic -0.24156
+raceWhite, non-Hispanic                                       -0.25061
+partyRepublican                                                2.43132
+education_levelAssociate degree in college - vocational        0.07664
+education_levelBachelor&#39;s degree                              -0.17187
+education_levelHigh school graduate                            0.23106
+education_levelLess than high school                          -0.07726
+education_levelMaster&#39;s degree                                -0.35556
+education_levelProfessional school degree/doctoral degree     -0.45996
+education_levelSome college but no degree                     -0.09073
+genderMale                                                     0.37204
                                                               Std. Error
-(Intercept)                                                      0.29598
-raceBlack, non-Hispanic                                          0.20952
-raceHispanic                                                     0.20659
-raceMultiple races, non-Hispanic                                 0.25196
-raceNative American/Alaska Native or other race, non-Hispanic    0.30535
-raceWhite, non-Hispanic                                          0.17722
-partyRepublican                                                  0.06975
-education_levelAssociate degree in college - vocational          0.18282
-education_levelBachelor&#39;s degree                                 0.14502
-education_levelHigh school graduate                              0.15947
-education_levelLess than high school                             0.21822
-education_levelMaster&#39;s degree                                   0.15426
-education_levelProfessional school degree/doctoral degree        0.18284
-education_levelSome college but no degree                        0.15084
-genderMale                                                       0.06539
-sexualityHeterosexual or straight                                0.20025
-sexualityHomosexual or gay (or lesbian)                          0.26601
+(Intercept)                                                      0.21984
+raceBlack, non-Hispanic                                          0.20755
+raceHispanic                                                     0.20454
+raceMultiple races, non-Hispanic                                 0.24757
+raceNative American/Alaska Native or other race, non-Hispanic    0.30208
+raceWhite, non-Hispanic                                          0.17609
+partyRepublican                                                  0.06856
+education_levelAssociate degree in college - vocational          0.18101
+education_levelBachelor&#39;s degree                                 0.14355
+education_levelHigh school graduate                              0.15794
+education_levelLess than high school                             0.21577
+education_levelMaster&#39;s degree                                   0.15281
+education_levelProfessional school degree/doctoral degree        0.18155
+education_levelSome college but no degree                        0.14936
+genderMale                                                       0.06464
                                                               t value
-(Intercept)                                                     6.407
-raceBlack, non-Hispanic                                         0.529
-raceHispanic                                                   -1.633
-raceMultiple races, non-Hispanic                               -1.595
-raceNative American/Alaska Native or other race, non-Hispanic  -0.700
-raceWhite, non-Hispanic                                        -1.449
-partyRepublican                                                34.450
-education_levelAssociate degree in college - vocational         0.278
-education_levelBachelor&#39;s degree                               -1.133
-education_levelHigh school graduate                             1.297
-education_levelLess than high school                           -0.378
-education_levelMaster&#39;s degree                                 -2.420
-education_levelProfessional school degree/doctoral degree      -2.561
-education_levelSome college but no degree                      -0.558
-genderMale                                                      5.737
-sexualityHeterosexual or straight                               1.825
-sexualityHomosexual or gay (or lesbian)                        -0.117
+(Intercept)                                                    10.090
+raceBlack, non-Hispanic                                         0.468
+raceHispanic                                                   -1.620
+raceMultiple races, non-Hispanic                               -1.843
+raceNative American/Alaska Native or other race, non-Hispanic  -0.800
+raceWhite, non-Hispanic                                        -1.423
+partyRepublican                                                35.464
+education_levelAssociate degree in college - vocational         0.423
+education_levelBachelor&#39;s degree                               -1.197
+education_levelHigh school graduate                             1.463
+education_levelLess than high school                           -0.358
+education_levelMaster&#39;s degree                                 -2.327
+education_levelProfessional school degree/doctoral degree      -2.533
+education_levelSome college but no degree                      -0.607
+genderMale                                                      5.756
                                                               Pr(&gt;|t|)
-(Intercept)                                                   1.76e-10
-raceBlack, non-Hispanic                                         0.5966
-raceHispanic                                                    0.1025
-raceMultiple races, non-Hispanic                                0.1109
-raceNative American/Alaska Native or other race, non-Hispanic   0.4838
-raceWhite, non-Hispanic                                         0.1474
+(Intercept)                                                    &lt; 2e-16
+raceBlack, non-Hispanic                                         0.6401
+raceHispanic                                                    0.1054
+raceMultiple races, non-Hispanic                                0.0655
+raceNative American/Alaska Native or other race, non-Hispanic   0.4240
+raceWhite, non-Hispanic                                         0.1548
 partyRepublican                                                &lt; 2e-16
-education_levelAssociate degree in college - vocational         0.7811
-education_levelBachelor&#39;s degree                                0.2574
-education_levelHigh school graduate                             0.1948
-education_levelLess than high school                            0.7058
-education_levelMaster&#39;s degree                                  0.0156
-education_levelProfessional school degree/doctoral degree       0.0105
-education_levelSome college but no degree                       0.5767
-genderMale                                                    1.07e-08
-sexualityHeterosexual or straight                               0.0681
-sexualityHomosexual or gay (or lesbian)                         0.9070
+education_levelAssociate degree in college - vocational         0.6721
+education_levelBachelor&#39;s degree                                0.2313
+education_levelHigh school graduate                             0.1436
+education_levelLess than high school                            0.7203
+education_levelMaster&#39;s degree                                  0.0201
+education_levelProfessional school degree/doctoral degree       0.0114
+education_levelSome college but no degree                       0.5436
+genderMale                                                    9.64e-09
                                                                  
 (Intercept)                                                   ***
 raceBlack, non-Hispanic                                          
 raceHispanic                                                     
-raceMultiple races, non-Hispanic                                 
+raceMultiple races, non-Hispanic                              .  
 raceNative American/Alaska Native or other race, non-Hispanic    
 raceWhite, non-Hispanic                                          
 partyRepublican                                               ***
@@ -2476,130 +2384,118 @@ education_levelMaster&#39;s degree                                *
 education_levelProfessional school degree/doctoral degree     *  
 education_levelSome college but no degree                        
 genderMale                                                    ***
-sexualityHeterosexual or straight                             .  
-sexualityHomosexual or gay (or lesbian)                          
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 1.623 on 2546 degrees of freedom
-Multiple R-squared:  0.3746,    Adjusted R-squared:  0.3707 
-F-statistic: 95.32 on 16 and 2546 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 1.622 on 2589 degrees of freedom
+Multiple R-squared:  0.3737,    Adjusted R-squared:  0.3703 
+F-statistic: 110.4 on 14 and 2589 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>economy_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>economy_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span> <span class='op'>+</span> <span class='va'>sexuality</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>economy_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>economy_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>economy_regression</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
 lm(formula = economy_views ~ race + party + education_level + 
-    gender + sexuality, data = voting_trends)
+    gender, data = voting_trends)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--3.0922 -0.6503  0.1595  0.5404  2.6335 
+-3.0364 -0.6671  0.1486  0.5244  2.6373 
 
 Coefficients:
                                                                Estimate
-(Intercept)                                                    4.342393
-raceBlack, non-Hispanic                                        0.123383
-raceHispanic                                                   0.106160
-raceMultiple races, non-Hispanic                               0.190846
-raceNative American/Alaska Native or other race, non-Hispanic  0.043681
-raceWhite, non-Hispanic                                        0.033803
-partyRepublican                                               -1.151248
-education_levelAssociate degree in college - vocational       -0.083162
-education_levelBachelor&#39;s degree                              -0.034984
-education_levelHigh school graduate                           -0.225788
-education_levelLess than high school                          -0.211486
-education_levelMaster&#39;s degree                                 0.003931
-education_levelProfessional school degree/doctoral degree      0.172174
-education_levelSome college but no degree                     -0.133878
-genderMale                                                    -0.093057
-sexualityHeterosexual or straight                             -0.539613
-sexualityHomosexual or gay (or lesbian)                       -0.249004
+(Intercept)                                                    3.830490
+raceBlack, non-Hispanic                                        0.111563
+raceHispanic                                                   0.113443
+raceMultiple races, non-Hispanic                               0.255454
+raceNative American/Alaska Native or other race, non-Hispanic  0.084659
+raceWhite, non-Hispanic                                        0.044849
+partyRepublican                                               -1.184365
+education_levelAssociate degree in college - vocational       -0.066996
+education_levelBachelor&#39;s degree                              -0.023916
+education_levelHigh school graduate                           -0.235511
+education_levelLess than high school                          -0.220890
+education_levelMaster&#39;s degree                                -0.005463
+education_levelProfessional school degree/doctoral degree      0.161052
+education_levelSome college but no degree                     -0.122644
+genderMale                                                    -0.092731
                                                               Std. Error
-(Intercept)                                                     0.179234
-raceBlack, non-Hispanic                                         0.126874
-raceHispanic                                                    0.125103
-raceMultiple races, non-Hispanic                                0.152577
-raceNative American/Alaska Native or other race, non-Hispanic   0.184909
-raceWhite, non-Hispanic                                         0.107319
-partyRepublican                                                 0.042238
-education_levelAssociate degree in college - vocational         0.110709
-education_levelBachelor&#39;s degree                                0.087818
-education_levelHigh school graduate                             0.096571
-education_levelLess than high school                            0.132144
-education_levelMaster&#39;s degree                                  0.093415
-education_levelProfessional school degree/doctoral degree       0.110722
-education_levelSome college but no degree                       0.091340
-genderMale                                                      0.039598
-sexualityHeterosexual or straight                               0.121261
-sexualityHomosexual or gay (or lesbian)                         0.161083
+(Intercept)                                                     0.133616
+raceBlack, non-Hispanic                                         0.126147
+raceHispanic                                                    0.124315
+raceMultiple races, non-Hispanic                                0.150470
+raceNative American/Alaska Native or other race, non-Hispanic   0.183601
+raceWhite, non-Hispanic                                         0.107028
+partyRepublican                                                 0.041668
+education_levelAssociate degree in college - vocational         0.110016
+education_levelBachelor&#39;s degree                                0.087248
+education_levelHigh school graduate                             0.095995
+education_levelLess than high school                            0.131142
+education_levelMaster&#39;s degree                                  0.092876
+education_levelProfessional school degree/doctoral degree       0.110345
+education_levelSome college but no degree                       0.090777
+genderMale                                                      0.039287
                                                               t value
-(Intercept)                                                    24.228
-raceBlack, non-Hispanic                                         0.972
-raceHispanic                                                    0.849
-raceMultiple races, non-Hispanic                                1.251
-raceNative American/Alaska Native or other race, non-Hispanic   0.236
-raceWhite, non-Hispanic                                         0.315
-partyRepublican                                               -27.256
-education_levelAssociate degree in college - vocational        -0.751
-education_levelBachelor&#39;s degree                               -0.398
-education_levelHigh school graduate                            -2.338
-education_levelLess than high school                           -1.600
-education_levelMaster&#39;s degree                                  0.042
-education_levelProfessional school degree/doctoral degree       1.555
-education_levelSome college but no degree                      -1.466
-genderMale                                                     -2.350
-sexualityHeterosexual or straight                              -4.450
-sexualityHomosexual or gay (or lesbian)                        -1.546
+(Intercept)                                                    28.668
+raceBlack, non-Hispanic                                         0.884
+raceHispanic                                                    0.913
+raceMultiple races, non-Hispanic                                1.698
+raceNative American/Alaska Native or other race, non-Hispanic   0.461
+raceWhite, non-Hispanic                                         0.419
+partyRepublican                                               -28.424
+education_levelAssociate degree in college - vocational        -0.609
+education_levelBachelor&#39;s degree                               -0.274
+education_levelHigh school graduate                            -2.453
+education_levelLess than high school                           -1.684
+education_levelMaster&#39;s degree                                 -0.059
+education_levelProfessional school degree/doctoral degree       1.460
+education_levelSome college but no degree                      -1.351
+genderMale                                                     -2.360
                                                               Pr(&gt;|t|)
-(Intercept)                                                    &lt; 2e-16
-raceBlack, non-Hispanic                                         0.3309
-raceHispanic                                                    0.3962
-raceMultiple races, non-Hispanic                                0.2111
-raceNative American/Alaska Native or other race, non-Hispanic   0.8133
-raceWhite, non-Hispanic                                         0.7528
-partyRepublican                                                &lt; 2e-16
-education_levelAssociate degree in college - vocational         0.4526
-education_levelBachelor&#39;s degree                                0.6904
-education_levelHigh school graduate                             0.0195
-education_levelLess than high school                            0.1096
-education_levelMaster&#39;s degree                                  0.9664
-education_levelProfessional school degree/doctoral degree       0.1201
-education_levelSome college but no degree                       0.1429
-genderMale                                                      0.0188
-sexualityHeterosexual or straight                             8.96e-06
-sexualityHomosexual or gay (or lesbian)                         0.1223
+(Intercept)                                                     &lt;2e-16
+raceBlack, non-Hispanic                                         0.3766
+raceHispanic                                                    0.3616
+raceMultiple races, non-Hispanic                                0.0897
+raceNative American/Alaska Native or other race, non-Hispanic   0.6448
+raceWhite, non-Hispanic                                         0.6752
+partyRepublican                                                 &lt;2e-16
+education_levelAssociate degree in college - vocational         0.5426
+education_levelBachelor&#39;s degree                                0.7840
+education_levelHigh school graduate                             0.0142
+education_levelLess than high school                            0.0922
+education_levelMaster&#39;s degree                                  0.9531
+education_levelProfessional school degree/doctoral degree       0.1445
+education_levelSome college but no degree                       0.1768
+genderMale                                                      0.0183
                                                                  
 (Intercept)                                                   ***
 raceBlack, non-Hispanic                                          
 raceHispanic                                                     
-raceMultiple races, non-Hispanic                                 
+raceMultiple races, non-Hispanic                              .  
 raceNative American/Alaska Native or other race, non-Hispanic    
 raceWhite, non-Hispanic                                          
 partyRepublican                                               ***
 education_levelAssociate degree in college - vocational          
 education_levelBachelor&#39;s degree                                 
 education_levelHigh school graduate                           *  
-education_levelLess than high school                             
+education_levelLess than high school                          .  
 education_levelMaster&#39;s degree                                   
 education_levelProfessional school degree/doctoral degree        
 education_levelSome college but no degree                        
 genderMale                                                    *  
-sexualityHeterosexual or straight                             ***
-sexualityHomosexual or gay (or lesbian)                          
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Residual standard error: 0.983 on 2546 degrees of freedom
-Multiple R-squared:  0.2869,    Adjusted R-squared:  0.2824 
-F-statistic: 64.02 on 16 and 2546 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.9861 on 2589 degrees of freedom
+Multiple R-squared:   0.28, Adjusted R-squared:  0.2761 
+F-statistic: 71.91 on 14 and 2589 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>CONCLUSION:</p>
 <p>***MAKE SURE TO CITE SOURCES</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

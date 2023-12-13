@@ -20,7 +20,7 @@ I am measuring respondents’ views on my five key social issues based on the fo
 
 Abortion
 Question: There has been some discussion about abortion during recent years. Which one of the opinions on this page best agrees with your view? 
-Response options: 1 (By law, abortion should never be permitted) through 5 (By law, a woman should always be able to obtain an abortion as a matter of personal choice).
+Response options: 1 (By law, abortion should never be permitted) through 4 (By law, a woman should always be able to obtain an abortion as a matter of personal choice).
 
 LGBTQ+ Rights
 Question: Which comes closest to your view [on gay marriage]? You can just tell me the number of your choice.
@@ -109,7 +109,7 @@ voting_trends <- voting_trends_2020 |>
 voting_trends
 ```
 
-
+This Outcome of Interest 1 plot visualizes the counts of respondents who answered 1 - 4 when asked "There has been some discussion about abortion during recent years. Which one of the opinions on this page best agrees with your view?" This plot demonstrates that, regardless of party or race, most respondents chose 4 indicating that they do support a woman's right to bodily autonomy.
 
 ```{r}
 voting_trends_dependent_abortion <- voting_trends |>
@@ -123,6 +123,8 @@ voting_trends_dependent_abortion <- voting_trends |>
 voting_trends_dependent_abortion
 ```
 
+This Outcome of Interest 2 plot visualizes the counts of respondents who answered 1 - 3 when asked "Which comes closest to your view [on gay marriage]?" This plot demonstrates that, regardless of party or race, most respondents chose 1 which suggests that they believe gay and lesbian couples should indeed be allowed to marry.
+
 ```{r}
 voting_trends_dependent_lgbtq <- voting_trends |>
   ggplot(mapping = aes(x = lgbtq_views)) +
@@ -134,6 +136,8 @@ voting_trends_dependent_lgbtq <- voting_trends |>
   )
 voting_trends_dependent_lgbtq
 ```
+This Outcome of Interest 3 plot shows the number of respondents who answered 1 - 4 when asked "Which comes closest to your view about what government policy should be toward unauthorized immigrants now living in the United States?" This plot shows that, without our key independent variables of race and party, most respondents chose 3 which indicates that they believe the US should "Allow unauthorized immigrants to remain in US & eventually
+qualify for citizenship but only if they meet requirements."
 
 ```{r}
 voting_trends_dependent_immigration <- voting_trends |>
@@ -146,6 +150,7 @@ voting_trends_dependent_immigration <- voting_trends |>
   )
 voting_trends_dependent_immigration
 ```
+This Outcome of Interest 4 plot shows the number of respondents who answered 1 - 7 when asked "Where would you place yourself on this scale, or haven’t you thought much about this?" when asked about the tradeoff between supporting the environment and supporting businesses. This plot shows that, without our key independent variables of race and party, most respondents chose 1 which shows they believe that "Tougher regulations on business [are] needed to protect environment."
 
 ```{r}
 voting_trends_dependent_environment <- voting_trends |>
@@ -158,6 +163,7 @@ voting_trends_dependent_environment <- voting_trends |>
   ) 
 voting_trends_dependent_environment
 ```
+Finally, this Outcome of Interest 5 plot depicts the number of respondents who answered 1 - 5 when asked "What do you think about the state of the economy these days in the United States? Would you say the state of the economy is very good,good, neither good nor bad, bad, or very bad?" This plot shows that answers ranged widely, but most respondents chose 4 regardless of race or party, which shows that they believe the current state of economy is "bad." Note that this survey was taken in 2020 during a time of significant social and economic turmoil in the United States (and the world) due to the COVID-19 pandemic and racial tensions.
 
 ```{r}
 voting_trends_dependent_economy <- voting_trends |>
