@@ -40,8 +40,9 @@ Response options: 1(Very good) through 5 (Very bad).
 
 While these categories may not entirely reflect of respondents’ views on a given issue, they offer a solid foundation to reveal potential differences by race and party.
 
-The research design for this study is BLANK.
+The research design for this study is cross-sectional.
 
+My dependent variable summaries are below, with barplots with the numbers of participants that responded to the survey in a given way for each social issue. 
 
 ```{r}
 library(tidyverse)
@@ -57,9 +58,6 @@ voting_trends_2020 |>
   select(V201601) |>
   filter(V201601 >= 1)
 ```
-
-
-confounders: education, gender, sexuality 
 
 ```{r}
 voting_trends_2020 <- voting_trends_2020 |>
@@ -128,7 +126,7 @@ voting_trends_dependent_abortion <- voting_trends |>
   ggplot(mapping = aes(x = abortion_views)) +
            geom_bar() +
   labs(
-    x = "Views on Abortion on a Scale of 1-4",
+    x = "Abortion Views Scale of 1-4",
     y = "Number of Respondents"
   )
 voting_trends_dependent_abortion
@@ -139,7 +137,7 @@ voting_trends_dependent_lgbtq <- voting_trends |>
   ggplot(mapping = aes(x = lgbtq_views)) +
            geom_bar() +
   labs(
-    x = "Views on Gay Marriage on a Scale of 1-3",
+    x = "Gay Marriage Views Scale of 1-3",
     y = "Number of Respondents"
   )
 voting_trends_dependent_lgbtq
@@ -150,7 +148,7 @@ voting_trends_dependent_immigration <- voting_trends |>
   ggplot(mapping = aes(x = immigration_views)) +
            geom_bar() +
   labs(
-    x = "Views on Immigration on a Scale of 1-4",
+    x = "Immigration Views Scale of 1-4",
     y = "Number of Respondents"
   )
 voting_trends_dependent_immigration
@@ -161,7 +159,7 @@ voting_trends_dependent_environment <- voting_trends |>
   ggplot(mapping = aes(x = environment_views)) +
            geom_bar() +
   labs(
-    x = "Views on the Environment on a Scale of 1-7",
+    x = "Environment Views Scale of 1-7",
     y = "Number of Respondents"
   ) 
 voting_trends_dependent_environment
@@ -172,7 +170,7 @@ voting_trends_dependent_economy <- voting_trends |>
   ggplot(mapping = aes(x = economy_views)) +
            geom_bar() +
   labs(
-    x = "Views on the Economy on a Scale of 1-5",
+    x = "Economy Views Scale of 1-5",
     y = "Number of Respondents"
   )
 voting_trends_dependent_economy
@@ -184,34 +182,8 @@ library(patchwork)
 (voting_trends_dependent_abortion)+(voting_trends_dependent_economy)+(voting_trends_dependent_environment)+(voting_trends_dependent_immigration)+(voting_trends_dependent_lgbtq)
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 RESULTS: 
-
-```{r}
-voting_trends_dependent_tibble <- voting_trends |>
-  summarize(
-    avg_abortion = mean(abortion_views),
-    avg_lgbtq = mean(lgbtq_views),
-    avg_immigration = mean(immigration_views),
-    avg_environment = mean(environment_views),
-    avg_economy = mean(economy_views)
-  )
-knitr::kable(voting_trends_dependent_tibble,
-             col.names = c("Average Views on Abortion", "Average Views on Gay Marriage", "Average Views on Immigration", "Average Views on the Environment", "Average Views on the Economy"))
-```
-
+My results include a table and barplots of respondents' average views on abortion by party and racial group. 
 
 ```{r}
 voting_tibble <- voting_trends |>
@@ -227,10 +199,10 @@ knitr::kable(voting_tibble,
              col.names = c("Party Affiliation", "Race", "Views on Abortion", "Views on Gay Marriage", "Views on Immigration", "Views on the Environment", "Views on the Economy"))
 ```
 
+This first shows respondents' average views on abortion for each party by racial group. Views on abortion are measured on a scale of 0-4, with 0 meaning "By law, abortion should never be permitted," and 4 meaning "By law, a woman should always be able to obtain an abortion
+as a matter of personal choice."
 
 ```{r}
-
-
 abortion_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_abortion, fill = race)) +
   geom_col(position = "dodge") +
