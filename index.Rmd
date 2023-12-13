@@ -270,13 +270,6 @@ economy_plot
 
 # Results - Key Regressions
 
-# Filtering each issue to democrats and republicans (separately) to be able to do regressions!
-
-This table is Democrat views on all issues in general without averages! 
-make sure i didn't overwrite anything when renaming variables
-
-will need to rename the race variables
-
 ```{r}
 rep_voting_trends <- voting_trends |>
   filter(
@@ -295,8 +288,6 @@ rep_voting_trends <- voting_trends |>
 rep_voting_trends
 ```
 
-
-INCLUDE a tibble of the averages and name everything 
 ```{r}
 dem_voting_trends <- voting_trends |>
   filter(
@@ -319,10 +310,31 @@ Democrat abortion regression below
 
 ```{r}
 abortion_regression_dem <- lm(abortion_views ~ race2 + education_level + gender, data = dem_voting_trends)
-summary(abortion_regression_dem)
+modelsummary::modelsummary(abortion_regression_dem,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
 
 republican abortion regression
+**make everything look nice with modelsummary after I take note of the statistical significance
 
 ```{r}
 abortion_regression_rep <- lm(abortion_views ~ race3 + education_level + gender, data = rep_voting_trends)
