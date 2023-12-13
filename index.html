@@ -1543,14 +1543,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>INTRODUCTION:</p>
+<p>#INTRODUCTION:</p>
 <pre><code>My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area. </code></pre>
 <p>DATA:</p>
 <p>My data comes from the American National Election Studies 2020 Time Series study. This source is a public opinion survey of over 8,000 Americans in 2020 about a number of different topics. Party affiliation and race are self-reported in the survey.</p>
 <p>I am measuring respondents’ views on my five key social issues based on the following survey questions.</p>
 <p>Abortion
 Question: There has been some discussion about abortion during recent years. Which one of the opinions on this page best agrees with your view?
-Response options: 1 (By law, abortion should never be permitted) through 5 (By law, a woman should always be able to obtain an abortion as a matter of personal choice).</p>
+Response options: 1 (By law, abortion should never be permitted) through 4 (By law, a woman should always be able to obtain an abortion as a matter of personal choice).</p>
 <p>LGBTQ+ Rights
 Question: Which comes closest to your view [on gay marriage]? You can just tell me the number of your choice.
 Response options: 1 (Gay and lesbian couples should be allowed to legally marry) through 3 (There should be no legal recognition of gay or lesbian couples’ relationship).</p>
@@ -1686,6 +1686,7 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 # ℹ 6 more variables: environment_views &lt;dbl&gt;, economy_views &lt;dbl&gt;,
 #   party &lt;chr&gt;, education_level &lt;chr&gt;, gender &lt;chr&gt;, race &lt;chr&gt;</code></pre>
 </div>
+<p>This Outcome of Interest 1 plot visualizes the counts of respondents who answered 1 - 4 when asked “There has been some discussion about abortion during recent years. Which one of the opinions on this page best agrees with your view?” This plot demonstrates that, regardless of party or race, most respondents chose 4 indicating that they do support a woman’s right to bodily autonomy.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_abortion</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
@@ -1700,6 +1701,7 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
+<p>This Outcome of Interest 2 plot visualizes the counts of respondents who answered 1 - 3 when asked “Which comes closest to your view [on gay marriage]?” This plot demonstrates that, regardless of party or race, most respondents chose 1 which suggests that they believe gay and lesbian couples should indeed be allowed to marry.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_lgbtq</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
@@ -1714,6 +1716,8 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
+<p>This Outcome of Interest 3 plot shows the number of respondents who answered 1 - 4 when asked “Which comes closest to your view about what government policy should be toward unauthorized immigrants now living in the United States?” This plot shows that, without our key independent variables of race and party, most respondents chose 3 which indicates that they believe the US should “Allow unauthorized immigrants to remain in US &amp; eventually
+qualify for citizenship but only if they meet requirements.”</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_immigration</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
@@ -1728,6 +1732,7 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
+<p>This Outcome of Interest 4 plot shows the number of respondents who answered 1 - 7 when asked “Where would you place yourself on this scale, or haven’t you thought much about this?” when asked about the tradeoff between supporting the environment and supporting businesses. This plot shows that, without our key independent variables of race and party, most respondents chose 1 which shows they believe that “Tougher regulations on business [are] needed to protect environment.”</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_environment</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
@@ -1742,6 +1747,7 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
+<p>Finally, this Outcome of Interest 5 plot depicts the number of respondents who answered 1 - 5 when asked “What do you think about the state of the economy these days in the United States? Would you say the state of the economy is very good,good, neither good nor bad, bad, or very bad?” This plot shows that answers ranged widely, but most respondents chose 4 regardless of race or party, which shows that they believe the current state of economy is “bad.” Note that this survey was taken in 2020 during a time of significant social and economic turmoil in the United States (and the world) due to the COVID-19 pandemic and racial tensions.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_trends_dependent_economy</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
@@ -1764,8 +1770,8 @@ Response options: 1(Very good) through 5 (Very bad).</p>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
-<p>RESULTS:
-My results include a table and bar plots of respondents’ average views on abortion by party and racial group.</p>
+<p>RESULTS:</p>
+<p>My results include a table and bar plots of respondents’ average views on abortion by party and racial group, as well as regressions of of each social issue with race, party, and the confounders of education level and gender.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>voting_tibble</span> <span class='op'>&lt;-</span> <span class='va'>voting_trends</span> <span class='op'>|&gt;</span></span>
@@ -1913,63 +1919,96 @@ My results include a table and bar plots of respondents’ average views on abor
 </tbody>
 </table>
 </div>
-<p>This first shows respondents’ average views on abortion for each party by racial group. Views on abortion are measured on a scale of 0-4, with 0 meaning “By law, abortion should never be permitted,” and 4 meaning “By law, a woman should always be able to obtain an abortion
-as a matter of personal choice.”</p>
+<p>Analysis Plot 1 shows respondents’ average views on abortion for each party by racial group and party. COME BACK AND EXPLAIN EACH OF THESE.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>abortion_plot</span> <span class='op'>&lt;-</span> <span class='va'>voting_tibble</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>party</span>, y <span class='op'>=</span> <span class='va'>avg_abortion</span>, fill <span class='op'>=</span> <span class='va'>race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Party Affiliation"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Average Views on Abortion"</span><span class='op'>)</span> </span>
+<span>       y <span class='op'>=</span> <span class='st'>"Average Views on Abortion"</span>,</span>
+<span>       title <span class='op'>=</span> <span class='st'>"Analysis Plot 1: Average Views on Abortion by Party Affiliation and Racial Group"</span><span class='op'>)</span> </span>
 <span><span class='va'>abortion_plot</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
 </div>
+<p>Analysis Plot 2 shows respondents’ average views on gay marriage for each party by racial group and party.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>lgbtq_plot</span> <span class='op'>&lt;-</span> <span class='va'>voting_tibble</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>party</span>, y <span class='op'>=</span> <span class='va'>avg_lgbtq</span>, fill <span class='op'>=</span> <span class='va'>race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Party Affiliation"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Average Views on Gay Marriage"</span><span class='op'>)</span></span>
+<span>       y <span class='op'>=</span> <span class='st'>"Average Views on Gay Marriage"</span>,</span>
+<span>       title <span class='op'>=</span> <span class='st'>"Analysis Plot 2: Average Views on Gay Marriage by Party Affiliation and Racial Group"</span><span class='op'>)</span></span>
 <span><span class='va'>lgbtq_plot</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
 </div>
+<p>Analysis Plot 3 shows respondents’ average views on immigration for each party by racial group and party.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>immigration_plot</span> <span class='op'>&lt;-</span> <span class='va'>voting_tibble</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>party</span>, y <span class='op'>=</span> <span class='va'>avg_immigration</span>, fill <span class='op'>=</span> <span class='va'>race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Party Affiliation"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Average Views on Immigration"</span><span class='op'>)</span></span>
+<span>       y <span class='op'>=</span> <span class='st'>"Average Views on Immigration"</span>,</span>
+<span>       title <span class='op'>=</span> <span class='st'>"Analysis Plot 3: Average Views on Immigration by Party Affiliation and Racial Group"</span><span class='op'>)</span></span>
 <span><span class='va'>immigration_plot</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
+<p>Analysis Plot 4 shows respondents’ average views on the environment for each party by racial group and party.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>environment_plot</span> <span class='op'>&lt;-</span> <span class='va'>voting_tibble</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>party</span>, y <span class='op'>=</span> <span class='va'>avg_environment</span>, fill <span class='op'>=</span> <span class='va'>race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Party Affiliation"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Average Views on the Environment"</span><span class='op'>)</span></span>
+<span>       y <span class='op'>=</span> <span class='st'>"Average Views on the Environment"</span>,</span>
+<span>       title <span class='op'>=</span> <span class='st'>"Analysis Plot 4: Average Views on the Environment by Party Affiliation and Racial Group"</span><span class='op'>)</span></span>
 <span><span class='va'>environment_plot</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
+<p>Analysis Plot 5 shows respondents’ average views on the economy for each party by racial group and party.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>economy_plot</span> <span class='op'>&lt;-</span> <span class='va'>voting_tibble</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>mapping <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>party</span>, y <span class='op'>=</span> <span class='va'>avg_economy</span>, fill <span class='op'>=</span> <span class='va'>race</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"dodge"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Party Affiliation"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Average Views on the Economy"</span><span class='op'>)</span></span>
+<span>       y <span class='op'>=</span> <span class='st'>"Average Views on the Economy"</span>,</span>
+<span>       title <span class='op'>=</span> <span class='st'>"Analysis Plot 5: Average Views on the Economy by Party Affiliation and Racial Group"</span><span class='op'>)</span></span>
 <span><span class='va'>economy_plot</span></span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
+<p>This regression shows abortion views against the main independent variables race and party, as well as confounders of education level and gender. The intercept coefficient here 3.73723 shows the average view of Asian American Democrats with an academic Associate’s degree who are women on the issue of abortion. You can find the other average view values by comparing the coefficient for each racial group to this one. Since I am mainly looking at party and race, I will outline those key outcomes while controlling for education (bachelor’s degree) and gender here.</p>
+<p>The average view of Black Democrats with a bachelor’s degree who are women is 3.60258. For men, it’s 3.57298.
+Women - sum(3.73723 asian + 0.03998 bachelor + -0.17463 black race)
+Men - sum((3.73723 asian + 0.03998 bachelor + -0.17463 black race + -0.02960 men)</p>
+<p>The average view of Black Republicans with a bachelor’s degree who are women is 2.47573. For men, it’s
+Women - sum(3.73723 asian + 0.03998 bachelor + -0.17463 black race + -1.12685 republican)</p>
+**not sure if i did education correctly. do i just add in another level of education?
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fl'>3.73723</span> <span class='op'>+</span> <span class='fl'>0.03998</span> <span class='op'>+</span> <span class='op'>-</span><span class='fl'>1.12685</span> <span class='op'>+</span> <span class='op'>-</span><span class='fl'>0.17463</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] 2.47573</code></pre>
+</div>
+<p>The average view of Black Democrats while controlling for education and gender is BLANK. (remove the associates degree and gender, add race)
+- remove gender
+- remove education
+- add black race
+- add democrat party
+if I remove all that, i’ll just have what I did in my chart won’t I? Isn’t the point of doing the regression to include the confounders? i just won’t include all educational levels then. black dems 3.5 on average not controlling for other factors</p>
+<p>Average view of Black Democrats with a bachelor’s degree who are women is blank.
+Average view of bla bla men is blank.</p>
+<p>The average view of Black Republicans is BLANK</p>
+<p>The average view of Hispanic Democrats is BLANK. The average view of Hispanic Republicans is BLANK. The average view of multiracial Democrats is BLANK. The average view of multiracial Republicans is BLANK. The average view of Native American Democrats is BLANK. The average view of Native American Republicans is BLANK. The average view of White Democrats is BLANK. Finally, the average view of white Republicans is BLANK</p>
+<p>this is statistically significant</p>
+<p>look at the prt thing to see if it’s statistically significant</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>abortion_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>abortion_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
@@ -2495,7 +2534,7 @@ F-statistic: 71.91 on 14 and 2589 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>CONCLUSION:</p>
 <p>***MAKE SURE TO CITE SOURCES</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
