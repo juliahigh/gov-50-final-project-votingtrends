@@ -184,7 +184,8 @@ library(patchwork)
 ```
 
 RESULTS: 
-My results include a table and bar plots of respondents' average views on abortion by party and racial group. 
+
+My results include a table and bar plots of respondents' average views on abortion by party and racial group, as well as regressions of of each social issue with race, party, and the confounders of education level and gender.
 
 ```{r}
 voting_tibble <- voting_trends |>
@@ -200,53 +201,94 @@ knitr::kable(voting_tibble,
              col.names = c("Party Affiliation", "Race", "Views on Abortion", "Views on Gay Marriage", "Views on Immigration", "Views on the Environment", "Views on the Economy"))
 ```
 
-This first shows respondents' average views on abortion for each party by racial group. Views on abortion are measured on a scale of 0-4, with 0 meaning "By law, abortion should never be permitted," and 4 meaning "By law, a woman should always be able to obtain an abortion
-as a matter of personal choice."
+Analysis Plot 1 shows respondents' average views on abortion for each party by racial group and party. COME BACK AND EXPLAIN EACH OF THESE. 
 
 ```{r}
 abortion_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_abortion, fill = race)) +
   geom_col(position = "dodge") +
   labs(x = "Party Affiliation",
-       y = "Average Views on Abortion") 
+       y = "Average Views on Abortion",
+       title = "Analysis Plot 1: Average Views on Abortion by Party Affiliation and Racial Group") 
 abortion_plot
 ```
+
+Analysis Plot 2 shows respondents' average views on gay marriage for each party by racial group and party. 
 
 ```{r}
 lgbtq_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_lgbtq, fill = race)) +
   geom_col(position = "dodge") +
   labs(x = "Party Affiliation",
-       y = "Average Views on Gay Marriage")
+       y = "Average Views on Gay Marriage",
+       title = "Analysis Plot 2: Average Views on Gay Marriage by Party Affiliation and Racial Group")
 lgbtq_plot
 ```
+Analysis Plot 3 shows respondents' average views on immigration for each party by racial group and party. 
 
 ```{r}
 immigration_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_immigration, fill = race)) +
   geom_col(position = "dodge") +
   labs(x = "Party Affiliation",
-       y = "Average Views on Immigration")
+       y = "Average Views on Immigration",
+       title = "Analysis Plot 3: Average Views on Immigration by Party Affiliation and Racial Group")
 immigration_plot
 ```
+Analysis Plot 4 shows respondents' average views on the environment for each party by racial group and party. 
 
 ```{r}
 environment_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_environment, fill = race)) +
   geom_col(position = "dodge") +
   labs(x = "Party Affiliation",
-       y = "Average Views on the Environment")
+       y = "Average Views on the Environment",
+       title = "Analysis Plot 4: Average Views on the Environment by Party Affiliation and Racial Group")
 environment_plot
 ```
+Analysis Plot 5 shows respondents' average views on the economy for each party by racial group and party. 
 
 ```{r}
 economy_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_economy, fill = race)) +
   geom_col(position = "dodge") +
   labs(x = "Party Affiliation",
-       y = "Average Views on the Economy")
+       y = "Average Views on the Economy",
+       title = "Analysis Plot 5: Average Views on the Economy by Party Affiliation and Racial Group")
 economy_plot
 ```
+
+This regression shows abortion views against the main independent variables race and party, as well as confounders of education level and gender. The intercept coefficient here 3.73723 shows the average view of Asian American Democrats with an academic Associate's degree who are women on the issue of abortion. You can find the other average view values by comparing the coefficient for each racial group to this one. Since I am mainly looking at party and race, I will outline those key outcomes here. 
+
+The average view of Black Democrats with a bachelor's degree who are women is 3.60258. For men, it's 3.57298.
+Women - sum(3.73723 asian + 0.03998 bachelor + -0.17463 black race)
+Men - sum((3.73723 asian + 0.03998 bachelor + -0.17463 black race + -0.02960 men)
+
+The average view of Black Republicans with a bachelor's degree who are women is 2.47573. For men, it's 
+Women - sum(3.73723 asian + 0.03998 bachelor + -0.17463 black race + -1.12685 republican)
+
+**not sure if i did education correctly. do i just add in another level of education?
+```{r}
+sum(3.73723 + 0.03998 + -1.12685 + -0.17463)
+```
+
+The average view of Black Democrats while controlling for education and gender is BLANK. (remove the associates degree and gender, add race) 
+- remove gender
+- remove education
+- add black race
+- add democrat party
+if I remove all that, i'll just have what I did in my chart won't I? Isn't the point of doing the regression to include the confounders? i just won't include all educational levels then. black dems 3.5 on average not controlling for other factors
+
+Average view of Black Democrats with a bachelor's degree who are women is blank. 
+Average view of bla bla men is blank.
+
+The average view of Black Republicans is BLANK 
+
+The average view of Hispanic Democrats is BLANK. The average view of Hispanic Republicans is BLANK. The average view of multiracial Democrats is BLANK. The average view of multiracial Republicans is BLANK. The average view of Native American Democrats is BLANK. The average view of Native American Republicans is BLANK. The average view of White Democrats is BLANK. Finally, the average view of white Republicans is BLANK 
+
+this is statistically significant
+
+look at the prt thing to see if it's statistically significant
 
 ```{r}
 abortion_regression <- lm(abortion_views ~ race + party + education_level + gender, data = voting_trends)
