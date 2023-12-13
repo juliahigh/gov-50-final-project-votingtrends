@@ -1543,8 +1543,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>#INTRODUCTION:</p>
-<pre><code>My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area. </code></pre>
+<h1 id="introduction">INTRODUCTION:</h1>
+<pre><code>My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area. 
+
+**EXPLAIN THIS AND MY DATASET MORE
+**EXPLAIN THAT DATASET DIDN&#39;T INCLUDE EVERYTHING I WANTED
+add a section called tidying and mutating data
+change colors on dependent graphs
+add lines at the bottom of my sections
+show the main variable regression and multiple regressoins
+add works cited
+learn to bold section titles
+**note that I changed my whole project from the milestones</code></pre>
 <p>DATA:</p>
 <p>My data comes from the American National Election Studies 2020 Time Series study. This source is a public opinion survey of over 8,000 Americans in 2020 about a number of different topics. Party affiliation and race are self-reported in the survey.</p>
 <p>I am measuring respondents’ views on my five key social issues based on the following survey questions.</p>
@@ -2111,8 +2121,10 @@ Residual standard error: 0.8791 on 2589 degrees of freedom
 Multiple R-squared:  0.3021,    Adjusted R-squared:  0.2983 
 F-statistic: 80.04 on 14 and 2589 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-**intercept represents avg lvl asian american democrats
+<strong>intercept represents avg lvl asian american democrats
 it’s showing racial categories among democrats
+</strong>MAKE SURE TO RENAME COEFFICIENTS ON ALL REGRESSIONS
+**MAKE SURE TO CITE DATA SOURCE
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>lgbtq_regression</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>lgbtq_views</span> <span class='op'>~</span> <span class='va'>race</span> <span class='op'>+</span> <span class='va'>party</span> <span class='op'>+</span> <span class='va'>education_level</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>voting_trends</span><span class='op'>)</span></span>
@@ -2533,7 +2545,9 @@ Multiple R-squared:   0.28, Adjusted R-squared:  0.2761
 F-statistic: 71.91 on 14 and 2589 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>CONCLUSION:</p>
-<p>***MAKE SURE TO CITE SOURCES</p>
+<p>American National Election Studies. 2021. ANES 2020 Time Series
+Study Full Release [dataset and documentation]. July 19, 2021
+version. www.electionstudies.org</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
