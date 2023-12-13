@@ -6,7 +6,7 @@ output:
   distill::distill_article:
     self_contained: false
 ---
-## INTRODUCTION: 
+# INTRODUCTION: 
 
 My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area. 
 	
@@ -20,7 +20,7 @@ My research question is: “Do Democrat and Republican views on 5 major social i
 	learn to bold section titles
 	**note that I changed my whole project from the milestones
 
-## Data - Organizing, Mutating, and Labeling 
+# Data - Organizing, Mutating, and Labeling 
 
 My data comes from the American National Election Studies 2020 Time Series study. This source is a public opinion survey of over 8,000 Americans in 2020 about a number of different topics. Party affiliation and race are self-reported in the survey.
 
@@ -116,7 +116,7 @@ voting_trends <- voting_trends_2020 |>
   )
 voting_trends
 ```
-## Data - Outcomes of Interest
+# Data - Outcomes of Interest
 
 This Outcome of Interest 1 plot visualizes the counts of respondents who answered 1 - 4 when asked "There has been some discussion about abortion during recent years. Which one of the opinions on this page best agrees with your view?" This plot demonstrates that, regardless of party or race, most respondents chose 4 indicating that they do support a woman's right to bodily autonomy.
 
@@ -192,7 +192,7 @@ library(patchwork)
 (voting_trends_dependent_abortion)+(voting_trends_dependent_economy)+(voting_trends_dependent_environment)+(voting_trends_dependent_immigration)+(voting_trends_dependent_lgbtq)
 ```
 
-## Results - Key Plots 
+# Results - Key Plots 
 
 My results include a table and bar plots of respondents' average views on abortion by party and racial group, as well as regressions of of each social issue with race, party, and the confounders of education level and gender.
 
@@ -267,7 +267,7 @@ economy_plot <- voting_tibble |>
 economy_plot
 ```
 
-## Results - Key Regressions
+# Results - Key Regressions
 
 This regression shows abortion views against the main independent variables race and party, as well as confounders of education level and gender. The intercept coefficient here 3.73723 shows the average view of Asian American Democrats with an academic Associate's degree who are women on the issue of abortion. You can find the other average view values by comparing the coefficient for each racial group to this one. Since I am mainly looking at party and race, I will outline those key outcomes while controlling for education (bachelor's degree) and gender here. 
 
@@ -335,9 +335,9 @@ economy_regression <- lm(economy_views ~ race + party + education_level + gender
 summary(economy_regression)
 ```
 
-## Conclusion: 
+# Conclusion: 
 
-## Works Cited
+# Works Cited
 
 American National Election Studies. 2021. ANES 2020 Time Series
 Study Full Release [dataset and documentation]. July 19, 2021
