@@ -256,6 +256,8 @@ environment_plot
 ```
 Analysis Plot 5 shows respondents' average views on the economy for each party by racial group and party. 
 
+
+MAKE SURE TO ROUND NUMBERS
 ```{r}
 economy_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_economy, fill = race)) +
@@ -293,6 +295,8 @@ rep_voting_trends <- voting_trends |>
 rep_voting_trends
 ```
 
+
+INCLUDE a tibble of the averages and name everything 
 ```{r}
 dem_voting_trends <- voting_trends |>
   filter(
@@ -337,7 +341,7 @@ LGBTQ  regression republicans
 how do 
 ```{r}
 lgbtq_regression_rep <- lm(lgbtq_views ~ race3 + education_level + gender, data = rep_voting_trends)
-summary(lgbtq_regression)
+summary(lgbtq_regression_rep)
 ```
 
 immigration regression DEMS
@@ -378,6 +382,38 @@ economy regression republicans
 economy_regression_rep <- lm(economy_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(economy_regression_rep)
 ```
+
+
+
+```{r}
+library(stargazer)
+stargazer(abortion_regression_dem, abortion_regression_rep, type = "text")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
