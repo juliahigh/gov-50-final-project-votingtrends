@@ -306,10 +306,55 @@ dem_voting_trends <- voting_trends |>
 dem_voting_trends
 ```
 
-Democrat abortion regression below
+For my regressions, I split my voting_trends data into views on each social issue among Democrats and Replicans, respectively. I then created two separate regressions for respondents' views on abortion, LGBTQ+ rights, immigration, the environment, and the economy for each party. In the regression, I analyzed respondents' views as the dependent variable, race as the independent variable, while controlling for eductaional level and gender. My analysis of each of the regressions is below.
+
+
+#### Democrat Abortion Regression
+
+This regression shows abortion views against the main independent variables race and party, as well as confounders of education level and gender. The intercept coefficient here 3.73723 shows the average view of Asian American Democrats with an academic Associate's degree who are women on the issue of abortion. You can find the other average view values by comparing the coefficient for each racial group to this one. Since I am mainly looking at party and race, I will outline those key outcomes while controlling for education (bachelor's degree) and gender here. 
+
+The average view of Black Democrats with a bachelor's degree who are women is 3.60258. For men, it's 3.57298.
+Women - sum(3.73723 asian + 0.03998 bachelor + -0.17463 black race)
+Men - sum((3.73723 asian + 0.03998 bachelor + -0.17463 black race + -0.02960 men)
+
+The average view of Black Republicans with a bachelor's degree who are women is 2.47573. For men, it's 
+Women - sum(3.73723 asian + 0.03998 bachelor + -0.17463 black race + -1.12685 republican)
+
+**not sure if i did education correctly. do i just add in another level of education?
+```{r}
+sum(3.73723 + 0.03998 + -1.12685 + -0.17463)
+```
+
+get each rergession separately, then compare them! being hispanic and democrat increases view on abortion by 0.5, but being hispanic and republican actually decreases view on abortion by -0.3
+
+
+This first regression[INSERT TITLE] demonstrates Democrats' average views on abortion in the context of repsondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on abortion. As a reminder, a response of 1 means that abortion should never be permitted, and a response of 4 means that a woman should always be able to obtain an abortion. Thus, responses closer to 1 are the more conservative responses while responses closer to 4 are the more liberal ones.
+
+These two regressions show the following outcomes: 
+
+The first regression [INSERT TITLE] shows that being a Black Democrat decreases your opinion on abortion [AS COMPARED TO OTHER DEMOCRATS?] by -0.093479 while controlling for educational level and gender, while the second shows that being a Black Republican decreases your opinion on abortion by -0.961011 [AS COMPARED TO OTHER REPUBLICANS?] while controlling for those factors. The result for Black Republicans was statistically significant with a threshold of 0.01. This suggests that, when it comes to the abortion issue, identifying as Black may impact Republicans' views (making them more conservative) more than Democrats (instead of making views more liberal). Regardless of race, this result is still consistent how Republicans' average views on abortion were lower for every racial category, including Black, non-Hispanic in Analysis Plot 1. 
+**can I say this last sentence? because would I have to say it for the next one? wtf am I comparing to? because technically in the next one republicans are still lower, just decreased less for republicans than decreased for democrats but democrat is still probably higher in general than republican
+
+The first regression shows that being a Hispanic Democrat decreases your opinion on abortion by -0.235807 while controlling for the aforementioned confounders, while the second shows that being a Hispanic Republican decreases your opinion on abortion by -0.147738. This indicates that identifying as Hispanic may impact Democrats' views more than Republicans. The result for Hispanic Democrats was statistically significant with a threshold of 0.01.
+
+**for each, note if statistically significant
+
+The first regression shows that being multiple races and a Democrat may increase your opinion on abortion by 0.006750 while controlling for confounders. The second shows that being multiple races and a Republican may decrease your opinion on abortion by -0.142446 with controls. In this situation, being multiple races may impact Republican views more than Democrat views.
+
+The first regression shows that being a Native American Democrat may decrease your views on abortion by -0.150027 with controls, and being a Native American Republican may decrease your views on the issue by -0.132529. When it comes to the issue of abortion, being Native American may impact Democrat views more than Republican views, but only by a small amount.
+
+The first regression shows that being a White Democrat may decrease your views on abortion by -0.003517 while controlling for confounders, while being a White Republican may decrease your views by -0.109134. This suggests that being White has a greater impact on Republican views than Democrat views.
+
+**make sure I understand causal
+???i'm trying to show the impact of race against the average opinion of that party. the average opinion is the regression that I did the first time.
 
 ```{r}
 abortion_regression_dem <- lm(abortion_views ~ race2 + education_level + gender, data = dem_voting_trends)
+summary(abortion_regression_dem)
+```
+
+MODEL SUMMARY TEMPLATE
+```{r}
 modelsummary::modelsummary(abortion_regression_dem,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -342,6 +387,12 @@ summary(abortion_regression_rep)
 ```
 
 LGBTQ  regression dems
+
+This first regression[INSERT TITLE] demonstrates Democrats' average views on abortion in the context of repsondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on abortion. As a reminder, a response of 1 means that abortion should never be permitted, and a response of 4 means that a woman should always be able to obtain an abortion. Thus, responses closer to 1 are the more conservative responses while responses closer to 4 are the more liberal ones.
+
+These two regressions show the following outcomes: 
+
+The first regression [INSERT TITLE] shows that being a Black Democrat decreases your opinion on abortion
 
 ```{r}
 lgbtq_regression_dem <- lm(lgbtq_views ~ race2 + education_level + gender, data = dem_voting_trends)
