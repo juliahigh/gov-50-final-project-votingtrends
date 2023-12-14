@@ -11,6 +11,7 @@ output:
 
 My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area. 
 
+Note: I ended up changing my entire project from my milestones because I realized my previous dataset would not have nearly enough information to perform interesting analyses. I think my updated project with my new dataset has revealed far more interesting findings, and I hope you agree!
 
 ### Data - Organizing, Mutating, and Labeling 
 
@@ -134,8 +135,7 @@ voting_trends_dependent_lgbtq <- voting_trends |>
   ) +theme(plot.margin = margin(t = 20, b = 5, unit = "pt"))
 voting_trends_dependent_lgbtq
 ```
-This Outcome of Interest 3 plot shows the number of respondents who answered 1 - 4 when asked "Which comes closest to your view about what government policy should be toward unauthorized immigrants now living in the United States?" This plot shows that, without our key independent variables of race and party, most respondents chose 3 which indicates that they believe the US should "Allow unauthorized immigrants to remain in US & eventually
-qualify for citizenship but only if they meet requirements."
+This Outcome of Interest 3 plot shows the number of respondents who answered 1 - 4 when asked "Which comes closest to your view about what government policy should be toward unauthorized immigrants now living in the United States?" This plot shows that, without our key independent variables of race and party, most respondents chose 3 which indicates that they believe the US should "Allow unauthorized immigrants to remain in US & eventually qualify for citizenship but only if they meet requirements."
 
 ```{r}
 voting_trends_dependent_immigration <- voting_trends |>
@@ -175,12 +175,6 @@ voting_trends_dependent_economy <- voting_trends |>
 voting_trends_dependent_economy
 ```
 
-```{r}
-library(patchwork)
-
-(voting_trends_dependent_abortion)+(voting_trends_dependent_lgbtq)+(voting_trends_dependent_immigration)+(voting_trends_dependent_environment)+(voting_trends_dependent_economy)
-```
-
 ### Results - Key Plots 
 
 My results include a table and bar plots of respondents' average views on abortion by party and racial group, as well as regressions of of each social issue with race, party, and the confounders of education level and gender.
@@ -199,7 +193,7 @@ knitr::kable(voting_tibble,
              col.names = c("Party Affiliation", "Racial Group", "Average Views on Abortion", "Average Views on Gay Marriage", "Average Views on Immigration", "Average Views on the Environment", "Average Views on the Economy"))
 ```
 
-Analysis Plot 1 shows respondents' average views on abortion for each party by racial group and party. COME BACK AND EXPLAIN EACH OF THESE. 
+Analysis Plot 1 shows respondents' average views on abortion for each party by racial group and party.  
 
 ```{r}
 abortion_plot <- voting_tibble |>
@@ -246,8 +240,6 @@ environment_plot
 ```
 Analysis Plot 5 shows respondents' average views on the economy for each party by racial group and party. 
 
-
-MAKE SURE TO ROUND NUMBERS
 ```{r}
 economy_plot <- voting_tibble |>
   ggplot(mapping = aes(x = party, y = avg_economy, fill = race)) +
@@ -294,21 +286,21 @@ dem_voting_trends <- voting_trends |>
 
 For my regressions, I split my voting_trends data into views on each social issue among Democrats and Republicans, respectively. I then created two separate regressions for respondents' views on abortion, LGBTQ+ rights, immigration, the environment, and the economy for each party. In the regression, I analyzed respondents' views as the dependent variable, race as the independent variable, while controlling for educational level and gender. My analysis of each of the regressions is below.
 
+Note: For my regressions, I chose not to analyze the coefficients of multiple races. I was unsure whether analyzing multiple races as a whole would offer "interesting" results because there is no indication of which races respondents are, and I did not want to make this population a monolith.
+
 This first regression demonstrates Democrats' average views on abortion in the context of respondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on abortion. As a reminder, a response of 1 means that abortion should never be permitted, and a response of 4 means that a woman should always be able to obtain an abortion. Thus, responses closer to 1 are the more conservative responses while responses closer to 4 are the more liberal ones.
 
 Comparing the regressions reveals the following outcomes: 
 
 Being a Democrat increases the average views of Black respondents on abortion by 1.823 as compared to Black Republicans, keeping educational level and gender constant.
 
-Being a Democrat increases the average views of Hispanic respondents on abortion by 0.867 as compared to Hispanic Republicans, keeping educational level and gender constant.
+Being a Democrat increases the average views of Hispanic respondents on abortion by 0.867 as compared to Hispanic Republicans, keeping educational level and gender constant. The coefficient for Hispanic Democrats was also statistically significant.
 
 Being a Democrat increases the average views of Native American respondents on abortion by 0.938 as compared to Native American Republicans, keeping educational level and gender constant.
 
 Being a Democrat increases the average views of White respondents on abortion by 1.06 as compared to White Republicans, keeping educational level and gender constant.
 
-Being a Democrat increases the average views of Asian American respondents on abortion by 0.955 as compared to Asian American Republicans, keeping educational level and gender constant.
-
-**INCLUDE SIGNIFICANCES
+Being a Democrat increases the average views of Asian American respondents on abortion by 0.955 as compared to Asian American Republicans, keeping educational level and gender constant. The intercept that depicted Asian American Democrats was statistically significant.
 
 #### Abortion Regression - Democrats
 ```{r echo = FALSE}
@@ -345,11 +337,11 @@ modelsummary::modelsummary(abortion_regression_rep,
                            gof_map = c("nobs", "r.squared", "adj.r.squared"),
                            coef_rename = c(
                              "(Intercept)" = "Intercept",
-                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
-                             "race2Hispanic" = "Hispanic",
-                             "race2Multiple races" = "Multiple races, non-Hispanic",
-                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
-                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "race3Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race3Hispanic" = "Hispanic",
+                             "race3Multiple races" = "Multiple races, non-Hispanic",
+                             "race3Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race3White, non-Hispanic" = "White, non-Hispanic",
                              "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
                              "education_levelBachelor's degree" = "Bachelor's degree",
                              "education_levelHigh school graduate" = "High school graduate",
@@ -366,7 +358,7 @@ The first regression shows Democrats' average views on gay marriage in the conte
 
 Comparing the regressions reveals the following outcomes: 
 
-Being a Republican increases the average views of Black respondents on gay marriage by 0.833 as compared to Black Democrats, keeping educational level and gender constant.
+Being a Republican increases the average views of Black respondents on gay marriage by 0.833 as compared to Black Democrats, keeping educational level and gender constant. The coefficient for Black Democrats was also statistically significant.
 
 Being a Republican increases the average views of Hispanic respondents on gay marriage by 0.398 as compared to Hispanic Democrats, keeping educational level and gender constant.
 
@@ -374,7 +366,7 @@ Being a Republican increases the average views of Native American respondents on
 
 Being a Republican increases the average views of White respondents on gay marriage by 0.519 as compared to White Democrats, keeping educational level and gender constant. 
 
-Being a Republican increases the average views of Asian American respondents on gay marriage by 0.712 as compared to Asian American Democrats, keeping educational level and gender constant.
+Being a Republican increases the average views of Asian American respondents on gay marriage by 0.712 as compared to Asian American Democrats, keeping educational level and gender constant. The intercepts that represented Asian American Democrats and Republicans were also statistically significant.
 
 #### LGBTQ Regression - Democrats
 ```{r}
@@ -412,10 +404,10 @@ modelsummary::modelsummary(lgbtq_regression_rep,
                            coef_rename = c(
                              "(Intercept)" = "Intercept",
                              "race2Black, non-Hispanic" = "Black, non-Hispanic",
-                             "race2Hispanic" = "Hispanic",
-                             "race2Multiple races" = "Multiple races, non-Hispanic",
-                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
-                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "race3Hispanic" = "Hispanic",
+                             "race3Multiple races" = "Multiple races, non-Hispanic",
+                             "race3Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race3White, non-Hispanic" = "White, non-Hispanic",
                              "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
                              "education_levelBachelor's degree" = "Bachelor's degree",
                              "education_levelHigh school graduate" = "High school graduate",
@@ -434,15 +426,13 @@ Comparing the regressions reveals the following outcomes:
 
 Being a Democrat increases the average views of Black respondents on immigration by 0.62 as compared to Black Republicans, keeping educational level and gender constant.
 
-Being a Democrat increases the views of Hispanic respondents on immigration by 0.363 as compared to Hispanic Republicans, keeping educational level and gender constant.
+Being a Democrat increases the views of Hispanic respondents on immigration by 0.363 as compared to Hispanic Republicans, keeping educational level and gender constant. The coefficient for Hispanic Democrats was statistically significant.
 
-Being a Democrat increases the views of Native American respondents on immigration by 1.093 as compared to Native American Republicans, keeping educational level and gender constant.
+Being a Democrat increases the views of Native American respondents on immigration by 1.093 as compared to Native American Republicans, keeping educational level and gender constant. The coefficient for Native American Democrats was statistically significant.
 
-Being a Democrat increases views of White respondents on immigration by 0.81 as compared to White Republicans, keeping educational level and gender constant. 
+Being a Democrat increases views of White respondents on immigration by 0.81 as compared to White Republicans, keeping educational level and gender constant. The coefficient for White Democrats was statistically significant.
 
-Being a Democrat increases the views of Asian American respondents on immigration by 0.436 as compared to Asian American Republicans, keeping educational level and gender constant.
-
-[NOTE THAT IM REMOVING MULTIPLE RACES]
+Being a Democrat increases the views of Asian American respondents on immigration by 0.436 as compared to Asian American Republicans, keeping educational level and gender constant. The intercepts for Asian American Democrats and Republicans were statistically significant.
 
 #### Immigration Regression - Democrats
 ```{r}
@@ -479,11 +469,11 @@ modelsummary::modelsummary(immigration_regression_rep,
                            gof_map = c("nobs", "r.squared", "adj.r.squared"),
                            coef_rename = c(
                              "(Intercept)" = "Intercept",
-                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
-                             "race2Hispanic" = "Hispanic",
-                             "race2Multiple races" = "Multiple races, non-Hispanic",
-                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
-                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "race3Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race3Hispanic" = "Hispanic",
+                             "race3Multiple races" = "Multiple races, non-Hispanic",
+                             "race3Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race3White, non-Hispanic" = "White, non-Hispanic",
                              "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
                              "education_levelBachelor's degree" = "Bachelor's degree",
                              "education_levelHigh school graduate" = "High school graduate",
@@ -502,15 +492,13 @@ Comparing the regressions reveals the following outcomes:
 
 Being a Republican increases the average views of Black respondents on the environment by 2.012 as compared to Black Democrats, keeping educational level and gender constant. 
 
-Being a Republican increases the average views of Hispanic respondents on the environment by 2.548 as compared to Hispanic Democrats, keeping educational level and gender constant.
+Being a Republican increases the average views of Hispanic respondents on the environment by 2.548 as compared to Hispanic Democrats, keeping educational level and gender constant. The coefficient for Hispanic Democrats was statistically significant.
 
 Being a Republican increases the average views of Native American respondents on the environment by 2.475 as compared to Native American Democrats, keeping educational level and gender constant.
 
-Being a Republican increases the average views of White respondents on the environment by 2.52 as compared to White Democrats, keeping educational level and gender constant.
+Being a Republican increases the average views of White respondents on the environment by 2.52 as compared to White Democrats, keeping educational level and gender constant. The coefficient for White Democrats was statistically significant.
 
-Being a Republican increases the average views of Asian American respondents on the environment by 1.272 as compared to Asian American Democrats, keeping educational level and gender constant.
-
-***GO BACK THROUGH FOR STATISTICAL SIGNIFICANCE
+Being a Republican increases the average views of Asian American respondents on the environment by 1.272 as compared to Asian American Democrats, keeping educational level and gender constant. The intercepts for Asian American Democrats and Republicans were statistically significant.
 
 #### Environment Regression - Democrats
 ```{r}
@@ -547,11 +535,11 @@ modelsummary::modelsummary(environment_regression_rep,
                            gof_map = c("nobs", "r.squared", "adj.r.squared"),
                            coef_rename = c(
                              "(Intercept)" = "Intercept",
-                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
-                             "race2Hispanic" = "Hispanic",
-                             "race2Multiple races" = "Multiple races, non-Hispanic",
-                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
-                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "race3Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race3Hispanic" = "Hispanic",
+                             "race3Multiple races" = "Multiple races, non-Hispanic",
+                             "race3Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race3White, non-Hispanic" = "White, non-Hispanic",
                              "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
                              "education_levelBachelor's degree" = "Bachelor's degree",
                              "education_levelHigh school graduate" = "High school graduate",
@@ -568,15 +556,15 @@ These two regressions depict survey respondents' average views on the economy in
 
 Comparing the regressions reveals the following outcomes: 
 
-Being a Democrat increases the average views of Black respondents on the economy by 0.949 as compared to Black Republicans, keeping educational level and gender constant.
+Being a Democrat increases the average views of Black respondents on the economy by 0.949 as compared to Black Republicans, keeping educational level and gender constant. The coefficient for Black Democrats was statistically significant.
 
-Being a Democrat increases the average views of Hispanic respondents on the economy by 1.2 as compared to Hispanic Republicans, keeping educational level and gender constant.
+Being a Democrat increases the average views of Hispanic respondents on the economy by 1.2 as compared to Hispanic Republicans, keeping educational level and gender constant. The coefficient for Hispanic Democrats was statistically significant.
 
-Being a Democrat increases the average views of Native American respondents on the economy by 1.766 as compared to Native American Republicans, keeping educational level and gender constant.
+Being a Democrat increases the average views of Native American respondents on the economy by 1.766 as compared to Native American Republicans, keeping educational level and gender constant. The coefficients for Native American Democrats and Republicans were statistically significant.
 
-Being a Democrat increases the average views of White respondents on the economy by 1.125 as compared to White Republicans, holding educational level and gender constant.
+Being a Democrat increases the average views of White respondents on the economy by 1.125 as compared to White Republicans, holding educational level and gender constant. The coefficients for White Democrat and Republicans were statistically significant.
 
-Being a Democrat increases the average views of Asian American respondents on the economy by 0.012 as compared to Asian American Republicans, holding educational level and gender constant. 
+Being a Democrat increases the average views of Asian American respondents on the economy by 0.012 as compared to Asian American Republicans, holding educational level and gender constant. The intercepts for Asian American Democrats and Republicans were statistically significant.
 
 #### Economy Regression - Democrats 
 ```{r}
@@ -613,11 +601,11 @@ modelsummary::modelsummary(economy_regression_rep,
                            gof_map = c("nobs", "r.squared", "adj.r.squared"),
                            coef_rename = c(
                              "(Intercept)" = "Intercept",
-                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
-                             "race2Hispanic" = "Hispanic",
-                             "race2Multiple races" = "Multiple races, non-Hispanic",
-                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
-                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "race3Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race3Hispanic" = "Hispanic",
+                             "race3Multiple races" = "Multiple races, non-Hispanic",
+                             "race3Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race3White, non-Hispanic" = "White, non-Hispanic",
                              "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
                              "education_levelBachelor's degree" = "Bachelor's degree",
                              "education_levelHigh school graduate" = "High school graduate",
@@ -630,22 +618,14 @@ modelsummary::modelsummary(economy_regression_rep,
                            )
 ```
 
-
 ### Conclusion
+
+Overall, my results do show support for my hypothesis, that yes, Democrat and Republican views on 5 major social issues will differ by racial group. All of my regressions shows that responses to key questions on abortion, immigration, gay marriage, the environment, and the economy differed, sometimes significantly between Democrats of a given race and Republicans of that same race.
+
+Despite this, my analysis has multiple limitations and threats to inference. For one, my dataset restricted many of the confounders that would have been useful to consider, like income level, age, and sexuality. Without these factors, and many other possible confounders, I cannot interpret my results causally. Even still, my regressions, some of which were statistically significant, allowed me to definitively recognize that respondents' views on the key issues differed among racial group, at least among the people in this survey. 
+
+A more sophisticated version of this study might include those missing confounding variables, and it might also have a broader sample size. Given that I had to filter my dataset down to include individuals who had responded to my questions of interest, my dataset went from over 8,000 respondents to over 2,000. Perhaps a larger sample size would have afforded more statistical significance and allowed me to generalize my findings into the real world.
 	
-	**EXPLAIN THIS AND MY DATASET MORE
-	**EXPLAIN THAT DATASET DIDN'T INCLUDE EVERYTHING I WANTED
-	add a section called tidying and mutating data
-	change colors on dependent graphs
-	add lines at the bottom of my sections
-	show the main variable regression and multiple regressoins
-	add works cited
-	learn to bold section titles
-	**note that I changed my whole project from the milestones
-
-
-
-
 
 ### Works Cited
 

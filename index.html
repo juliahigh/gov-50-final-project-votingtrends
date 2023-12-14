@@ -1547,6 +1547,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <h3 id="introduction">INTRODUCTION:</h3>
 <p>My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area.</p>
+<p>Note: I ended up changing my entire project from my milestones because I realized my previous dataset would not have nearly enough information to perform interesting analyses. I think my updated project with my new dataset has revealed far more interesting findings, and I hope you agree!</p>
 <h3 id="data---organizing-mutating-and-labeling">Data - Organizing, Mutating, and Labeling</h3>
 <p>My data comes from the American National Election Studies 2020 Time Series study. This source is a public opinion survey of over 8,000 Americans in 2020 about a number of different topics. Party affiliation and race are self-reported in the survey.</p>
 <p>I am measuring respondents’ views on my five key social issues based on the following survey questions.</p>
@@ -1695,8 +1696,7 @@ Show code
 </details>
 <p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
-<p>This Outcome of Interest 3 plot shows the number of respondents who answered 1 - 4 when asked “Which comes closest to your view about what government policy should be toward unauthorized immigrants now living in the United States?” This plot shows that, without our key independent variables of race and party, most respondents chose 3 which indicates that they believe the US should “Allow unauthorized immigrants to remain in US &amp; eventually
-qualify for citizenship but only if they meet requirements.”</p>
+<p>This Outcome of Interest 3 plot shows the number of respondents who answered 1 - 4 when asked “Which comes closest to your view about what government policy should be toward unauthorized immigrants now living in the United States?” This plot shows that, without our key independent variables of race and party, most respondents chose 3 which indicates that they believe the US should “Allow unauthorized immigrants to remain in US &amp; eventually qualify for citizenship but only if they meet requirements.”</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -1755,19 +1755,6 @@ Show code
 </div>
 </details>
 <p><img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://patchwork.data-imaginist.com'>patchwork</a></span><span class='op'>)</span></span>
-<span></span>
-<span><span class='op'>(</span><span class='va'>voting_trends_dependent_abortion</span><span class='op'>)</span><span class='op'>+</span><span class='op'>(</span><span class='va'>voting_trends_dependent_lgbtq</span><span class='op'>)</span><span class='op'>+</span><span class='op'>(</span><span class='va'>voting_trends_dependent_immigration</span><span class='op'>)</span><span class='op'>+</span><span class='op'>(</span><span class='va'>voting_trends_dependent_environment</span><span class='op'>)</span><span class='op'>+</span><span class='op'>(</span><span class='va'>voting_trends_dependent_economy</span><span class='op'>)</span></span></code></pre>
-</div>
-</details>
-<p><img src="index_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
 <h3 id="results---key-plots">Results - Key Plots</h3>
 <p>My results include a table and bar plots of respondents’ average views on abortion by party and racial group, as well as regressions of of each social issue with race, party, and the confounders of education level and gender.</p>
@@ -1923,7 +1910,7 @@ Show code
 </tbody>
 </table>
 </div>
-<p>Analysis Plot 1 shows respondents’ average views on abortion for each party by racial group and party. COME BACK AND EXPLAIN EACH OF THESE.</p>
+<p>Analysis Plot 1 shows respondents’ average views on abortion for each party by racial group and party.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -1939,7 +1926,7 @@ Show code
 <span><span class='va'>abortion_plot</span></span></code></pre>
 </div>
 </details>
-<p><img src="index_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
 </div>
 <p>Analysis Plot 2 shows respondents’ average views on gay marriage for each party by racial group and party.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1957,7 +1944,7 @@ Show code
 <span><span class='va'>lgbtq_plot</span></span></code></pre>
 </div>
 </details>
-<p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
 </div>
 <p>Analysis Plot 3 shows respondents’ average views on immigration for each party by racial group and party.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1975,7 +1962,7 @@ Show code
 <span><span class='va'>immigration_plot</span></span></code></pre>
 </div>
 </details>
-<p><img src="index_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
 </div>
 <p>Analysis Plot 4 shows respondents’ average views on the environment for each party by racial group and party.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1993,10 +1980,9 @@ Show code
 <span><span class='va'>environment_plot</span></span></code></pre>
 </div>
 </details>
-<p><img src="index_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
 <p>Analysis Plot 5 shows respondents’ average views on the economy for each party by racial group and party.</p>
-MAKE SURE TO ROUND NUMBERS
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2012,7 +1998,7 @@ Show code
 <span><span class='va'>economy_plot</span></span></code></pre>
 </div>
 </details>
-<p><img src="index_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
 <h3 id="results---key-regressions">Results - Key Regressions</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2060,14 +2046,14 @@ Show code
 </details>
 </div>
 <p>For my regressions, I split my voting_trends data into views on each social issue among Democrats and Republicans, respectively. I then created two separate regressions for respondents’ views on abortion, LGBTQ+ rights, immigration, the environment, and the economy for each party. In the regression, I analyzed respondents’ views as the dependent variable, race as the independent variable, while controlling for educational level and gender. My analysis of each of the regressions is below.</p>
+<p>Note: For my regressions, I chose not to analyze the coefficients of multiple races. I was unsure whether analyzing multiple races as a whole would offer “interesting” results because there is no indication of which races respondents are, and I did not want to make this population a monolith.</p>
 <p>This first regression demonstrates Democrats’ average views on abortion in the context of respondents’ race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on abortion. As a reminder, a response of 1 means that abortion should never be permitted, and a response of 4 means that a woman should always be able to obtain an abortion. Thus, responses closer to 1 are the more conservative responses while responses closer to 4 are the more liberal ones.</p>
 <p>Comparing the regressions reveals the following outcomes:</p>
 <p>Being a Democrat increases the average views of Black respondents on abortion by 1.823 as compared to Black Republicans, keeping educational level and gender constant.</p>
-<p>Being a Democrat increases the average views of Hispanic respondents on abortion by 0.867 as compared to Hispanic Republicans, keeping educational level and gender constant.</p>
+<p>Being a Democrat increases the average views of Hispanic respondents on abortion by 0.867 as compared to Hispanic Republicans, keeping educational level and gender constant. The coefficient for Hispanic Democrats was also statistically significant.</p>
 <p>Being a Democrat increases the average views of Native American respondents on abortion by 0.938 as compared to Native American Republicans, keeping educational level and gender constant.</p>
 <p>Being a Democrat increases the average views of White respondents on abortion by 1.06 as compared to White Republicans, keeping educational level and gender constant.</p>
-<p>Being a Democrat increases the average views of Asian American respondents on abortion by 0.955 as compared to Asian American Republicans, keeping educational level and gender constant.</p>
-<p>**INCLUDE SIGNIFICANCES</p>
+<p>Being a Democrat increases the average views of Asian American respondents on abortion by 0.955 as compared to Asian American Republicans, keeping educational level and gender constant. The intercept that depicted Asian American Democrats was statistically significant.</p>
 <h4 id="abortion-regression---democrats">Abortion Regression - Democrats</h4>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2459,11 +2445,11 @@ Show code
 <span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>,</span>
 <span>                           coef_rename <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
 <span>                             <span class='st'>"(Intercept)"</span> <span class='op'>=</span> <span class='st'>"Intercept"</span>,</span>
-<span>                             <span class='st'>"race2Black, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"Black, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Black, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"Black, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
 <span>                             <span class='st'>"education_levelAssociate degree in college - vocational"</span> <span class='op'>=</span> <span class='st'>"Associate's degree in college - vocational"</span>,</span>
 <span>                             <span class='st'>"education_levelBachelor's degree"</span> <span class='op'>=</span> <span class='st'>"Bachelor's degree"</span>,</span>
 <span>                             <span class='st'>"education_levelHigh school graduate"</span> <span class='op'>=</span> <span class='st'>"High school graduate"</span>,</span>
@@ -2511,7 +2497,7 @@ p = &lt;0.001
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Black, non-Hispanic
+Black, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.961
@@ -2533,7 +2519,7 @@ p = 0.044
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Hispanic
+Hispanic
 </td>
 <td style="text-align:center;">
 −0.148
@@ -2555,7 +2541,7 @@ p = 0.564
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Multiple races
+Multiple races, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.142
@@ -2577,7 +2563,7 @@ p = 0.636
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Native American
+Native American/Alaska Native or other race, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.133
@@ -2599,7 +2585,7 @@ p = 0.670
 </tr>
 <tr>
 <td style="text-align:left;">
-race3White, non-Hispanic
+White, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.109
@@ -2824,11 +2810,11 @@ R2 Adj.
 </div>
 <p>The first regression shows Democrats’ average views on gay marriage in the context of the respondents’ race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on gay marriage. In this case, a response of 1 means that a respondent supports gay marriage while a response of 3 means that a respondent does not support it. Therefore, as responses decrease and get closer to 1, they are the more liberal view and while responses increase closer to 3 they are more conservative.</p>
 <p>Comparing the regressions reveals the following outcomes:</p>
-<p>Being a Republican increases the average views of Black respondents on gay marriage by 0.833 as compared to Black Democrats, keeping educational level and gender constant.</p>
+<p>Being a Republican increases the average views of Black respondents on gay marriage by 0.833 as compared to Black Democrats, keeping educational level and gender constant. The coefficient for Black Democrats was also statistically significant.</p>
 <p>Being a Republican increases the average views of Hispanic respondents on gay marriage by 0.398 as compared to Hispanic Democrats, keeping educational level and gender constant.</p>
 <p>Being a Republican increases the average views of Native American respondents on gay marriage by 0.527 as compared to Native American Democrats, keeping educational level and gender constant.</p>
 <p>Being a Republican increases the average views of White respondents on gay marriage by 0.519 as compared to White Democrats, keeping educational level and gender constant.</p>
-<p>Being a Republican increases the average views of Asian American respondents on gay marriage by 0.712 as compared to Asian American Democrats, keeping educational level and gender constant.</p>
+<p>Being a Republican increases the average views of Asian American respondents on gay marriage by 0.712 as compared to Asian American Democrats, keeping educational level and gender constant. The intercepts that represented Asian American Democrats and Republicans were also statistically significant.</p>
 <h4 id="lgbtq-regression---democrats">LGBTQ Regression - Democrats</h4>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -3221,10 +3207,10 @@ Show code
 <span>                           coef_rename <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
 <span>                             <span class='st'>"(Intercept)"</span> <span class='op'>=</span> <span class='st'>"Intercept"</span>,</span>
 <span>                             <span class='st'>"race2Black, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"Black, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
 <span>                             <span class='st'>"education_levelAssociate degree in college - vocational"</span> <span class='op'>=</span> <span class='st'>"Associate's degree in college - vocational"</span>,</span>
 <span>                             <span class='st'>"education_levelBachelor's degree"</span> <span class='op'>=</span> <span class='st'>"Bachelor's degree"</span>,</span>
 <span>                             <span class='st'>"education_levelHigh school graduate"</span> <span class='op'>=</span> <span class='st'>"High school graduate"</span>,</span>
@@ -3294,7 +3280,7 @@ p = 0.305
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Hispanic
+Hispanic
 </td>
 <td style="text-align:center;">
 −0.255
@@ -3316,7 +3302,7 @@ p = 0.173
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Multiple races
+Multiple races, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.284
@@ -3338,7 +3324,7 @@ p = 0.198
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Native American
+Native American/Alaska Native or other race, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.304
@@ -3360,7 +3346,7 @@ p = 0.182
 </tr>
 <tr>
 <td style="text-align:left;">
-race3White, non-Hispanic
+White, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.242
@@ -3586,11 +3572,10 @@ R2 Adj.
 <p>The following regressions depict respondents’ average views on immigration in the context of the respondents’ race, while controlling for educational level and gender. The first regression represents the average views of Democrat respondents, while the second represents the views of Republican respondents. In this case, a response of 1 means that the respondent believes the US should make unauthorized immigrants felons and send them back to their home country, and a response of 4 means that respondents believe unauthorized immigrants should be allowed to remain in the US and eventually qualify for citizenship without penalties. This means that responses with lower values that are closer to 1 are more conservative, while responses with higher values that are closer to 4 are more liberal.</p>
 <p>Comparing the regressions reveals the following outcomes:</p>
 <p>Being a Democrat increases the average views of Black respondents on immigration by 0.62 as compared to Black Republicans, keeping educational level and gender constant.</p>
-<p>Being a Democrat increases the views of Hispanic respondents on immigration by 0.363 as compared to Hispanic Republicans, keeping educational level and gender constant.</p>
-<p>Being a Democrat increases the views of Native American respondents on immigration by 1.093 as compared to Native American Republicans, keeping educational level and gender constant.</p>
-<p>Being a Democrat increases views of White respondents on immigration by 0.81 as compared to White Republicans, keeping educational level and gender constant.</p>
-<p>Being a Democrat increases the views of Asian American respondents on immigration by 0.436 as compared to Asian American Republicans, keeping educational level and gender constant.</p>
-<p>[NOTE THAT IM REMOVING MULTIPLE RACES]</p>
+<p>Being a Democrat increases the views of Hispanic respondents on immigration by 0.363 as compared to Hispanic Republicans, keeping educational level and gender constant. The coefficient for Hispanic Democrats was statistically significant.</p>
+<p>Being a Democrat increases the views of Native American respondents on immigration by 1.093 as compared to Native American Republicans, keeping educational level and gender constant. The coefficient for Native American Democrats was statistically significant.</p>
+<p>Being a Democrat increases views of White respondents on immigration by 0.81 as compared to White Republicans, keeping educational level and gender constant. The coefficient for White Democrats was statistically significant.</p>
+<p>Being a Democrat increases the views of Asian American respondents on immigration by 0.436 as compared to Asian American Republicans, keeping educational level and gender constant. The intercepts for Asian American Democrats and Republicans were statistically significant.</p>
 <h4 id="immigration-regression---democrats">Immigration Regression - Democrats</h4>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -3982,11 +3967,11 @@ Show code
 <span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>,</span>
 <span>                           coef_rename <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
 <span>                             <span class='st'>"(Intercept)"</span> <span class='op'>=</span> <span class='st'>"Intercept"</span>,</span>
-<span>                             <span class='st'>"race2Black, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"Black, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Black, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"Black, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
 <span>                             <span class='st'>"education_levelAssociate degree in college - vocational"</span> <span class='op'>=</span> <span class='st'>"Associate's degree in college - vocational"</span>,</span>
 <span>                             <span class='st'>"education_levelBachelor's degree"</span> <span class='op'>=</span> <span class='st'>"Bachelor's degree"</span>,</span>
 <span>                             <span class='st'>"education_levelHigh school graduate"</span> <span class='op'>=</span> <span class='st'>"High school graduate"</span>,</span>
@@ -4034,7 +4019,7 @@ p = &lt;0.001
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Black, non-Hispanic
+Black, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.109
@@ -4056,7 +4041,7 @@ p = 0.789
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Hispanic
+Hispanic
 </td>
 <td style="text-align:center;">
 −0.041
@@ -4078,7 +4063,7 @@ p = 0.850
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Multiple races
+Multiple races, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.321
@@ -4100,7 +4085,7 @@ p = 0.212
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Native American
+Native American/Alaska Native or other race, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.192
@@ -4122,7 +4107,7 @@ p = 0.469
 </tr>
 <tr>
 <td style="text-align:left;">
-race3White, non-Hispanic
+White, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.118
@@ -4348,11 +4333,10 @@ R2 Adj.
 <p>The first regression demonstrates Democrats’ average views on the environment in the context of respondents’ race while also controlling for educational level and gender. The second regression shows the same, but for Republican views on the environment. In regards to the issue of environment, a response that is decreasing or is closer to 1 means that tougher business regulations are needed to protect the environment, and responses that increase closer to 7 mean that regulations to the environment are already too much of a burden on businesses. This means that responses closer to 1 are more liberal, while responses closer to 7 are more conservative.</p>
 <p>Comparing the regressions reveals the following outcomes:</p>
 <p>Being a Republican increases the average views of Black respondents on the environment by 2.012 as compared to Black Democrats, keeping educational level and gender constant.</p>
-<p>Being a Republican increases the average views of Hispanic respondents on the environment by 2.548 as compared to Hispanic Democrats, keeping educational level and gender constant.</p>
+<p>Being a Republican increases the average views of Hispanic respondents on the environment by 2.548 as compared to Hispanic Democrats, keeping educational level and gender constant. The coefficient for Hispanic Democrats was statistically significant.</p>
 <p>Being a Republican increases the average views of Native American respondents on the environment by 2.475 as compared to Native American Democrats, keeping educational level and gender constant.</p>
-<p>Being a Republican increases the average views of White respondents on the environment by 2.52 as compared to White Democrats, keeping educational level and gender constant.</p>
-<p>Being a Republican increases the average views of Asian American respondents on the environment by 1.272 as compared to Asian American Democrats, keeping educational level and gender constant.</p>
-<p>***GO BACK THROUGH FOR STATISTICAL SIGNIFICANCE</p>
+<p>Being a Republican increases the average views of White respondents on the environment by 2.52 as compared to White Democrats, keeping educational level and gender constant. The coefficient for White Democrats was statistically significant.</p>
+<p>Being a Republican increases the average views of Asian American respondents on the environment by 1.272 as compared to Asian American Democrats, keeping educational level and gender constant. The intercepts for Asian American Democrats and Republicans were statistically significant.</p>
 <h4 id="environment-regression---democrats">Environment Regression - Democrats</h4>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -4744,11 +4728,11 @@ Show code
 <span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>,</span>
 <span>                           coef_rename <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
 <span>                             <span class='st'>"(Intercept)"</span> <span class='op'>=</span> <span class='st'>"Intercept"</span>,</span>
-<span>                             <span class='st'>"race2Black, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"Black, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Black, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"Black, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
 <span>                             <span class='st'>"education_levelAssociate degree in college - vocational"</span> <span class='op'>=</span> <span class='st'>"Associate's degree in college - vocational"</span>,</span>
 <span>                             <span class='st'>"education_levelBachelor's degree"</span> <span class='op'>=</span> <span class='st'>"Bachelor's degree"</span>,</span>
 <span>                             <span class='st'>"education_levelHigh school graduate"</span> <span class='op'>=</span> <span class='st'>"High school graduate"</span>,</span>
@@ -4796,7 +4780,7 @@ p = &lt;0.001
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Black, non-Hispanic
+Black, non-Hispanic
 </td>
 <td style="text-align:center;">
 0.481
@@ -4818,7 +4802,7 @@ p = 0.577
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Hispanic
+Hispanic
 </td>
 <td style="text-align:center;">
 0.587
@@ -4840,7 +4824,7 @@ p = 0.205
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Multiple races
+Multiple races, non-Hispanic
 </td>
 <td style="text-align:center;">
 0.372
@@ -4862,7 +4846,7 @@ p = 0.493
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Native American
+Native American/Alaska Native or other race, non-Hispanic
 </td>
 <td style="text-align:center;">
 0.604
@@ -4884,7 +4868,7 @@ p = 0.283
 </tr>
 <tr>
 <td style="text-align:left;">
-race3White, non-Hispanic
+White, non-Hispanic
 </td>
 <td style="text-align:center;">
 0.642
@@ -5109,11 +5093,11 @@ R2 Adj.
 </div>
 <p>These two regressions depict survey respondents’ average views on the economy in the context of respondents’ race while also controlling for educational level and gender. The first regression includes Democrat respondents’ views, while the second includes Republican respondents’ views. When it comes to the economy, a response that is closer to 1 means that respondents believe the economy is doing very well, and a response that is closer to 5 means that respondents believe the economy is doing very badly. Given the survey question, there is no typical “liberal” or “conservative” response to this question. This analysis will simply show the difference in views on the question by party and racial group, not necessarily which direction those views trend on the political spectrum.</p>
 <p>Comparing the regressions reveals the following outcomes:</p>
-<p>Being a Democrat increases the average views of Black respondents on the economy by 0.949 as compared to Black Republicans, keeping educational level and gender constant.</p>
-<p>Being a Democrat increases the average views of Hispanic respondents on the economy by 1.2 as compared to Hispanic Republicans, keeping educational level and gender constant.</p>
-<p>Being a Democrat increases the average views of Native American respondents on the economy by 1.766 as compared to Native American Republicans, keeping educational level and gender constant.</p>
-<p>Being a Democrat increases the average views of White respondents on the economy by 1.125 as compared to White Republicans, holding educational level and gender constant.</p>
-<p>Being a Democrat increases the average views of Asian American respondents on the economy by 0.012 as compared to Asian American Republicans, holding educational level and gender constant.</p>
+<p>Being a Democrat increases the average views of Black respondents on the economy by 0.949 as compared to Black Republicans, keeping educational level and gender constant. The coefficient for Black Democrats was statistically significant.</p>
+<p>Being a Democrat increases the average views of Hispanic respondents on the economy by 1.2 as compared to Hispanic Republicans, keeping educational level and gender constant. The coefficient for Hispanic Democrats was statistically significant.</p>
+<p>Being a Democrat increases the average views of Native American respondents on the economy by 1.766 as compared to Native American Republicans, keeping educational level and gender constant. The coefficients for Native American Democrats and Republicans were statistically significant.</p>
+<p>Being a Democrat increases the average views of White respondents on the economy by 1.125 as compared to White Republicans, holding educational level and gender constant. The coefficients for White Democrat and Republicans were statistically significant.</p>
+<p>Being a Democrat increases the average views of Asian American respondents on the economy by 0.012 as compared to Asian American Republicans, holding educational level and gender constant. The intercepts for Asian American Democrats and Republicans were statistically significant.</p>
 <h4 id="economy-regression---democrats">Economy Regression - Democrats</h4>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -5505,11 +5489,11 @@ Show code
 <span>                           gof_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nobs"</span>, <span class='st'>"r.squared"</span>, <span class='st'>"adj.r.squared"</span><span class='op'>)</span>,</span>
 <span>                           coef_rename <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
 <span>                             <span class='st'>"(Intercept)"</span> <span class='op'>=</span> <span class='st'>"Intercept"</span>,</span>
-<span>                             <span class='st'>"race2Black, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"Black, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
-<span>                             <span class='st'>"race2White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Black, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"Black, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Hispanic"</span> <span class='op'>=</span> <span class='st'>"Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Multiple races"</span> <span class='op'>=</span> <span class='st'>"Multiple races, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3Native American"</span> <span class='op'>=</span> <span class='st'>"Native American/Alaska Native or other race, non-Hispanic"</span>,</span>
+<span>                             <span class='st'>"race3White, non-Hispanic"</span> <span class='op'>=</span> <span class='st'>"White, non-Hispanic"</span>,</span>
 <span>                             <span class='st'>"education_levelAssociate degree in college - vocational"</span> <span class='op'>=</span> <span class='st'>"Associate's degree in college - vocational"</span>,</span>
 <span>                             <span class='st'>"education_levelBachelor's degree"</span> <span class='op'>=</span> <span class='st'>"Bachelor's degree"</span>,</span>
 <span>                             <span class='st'>"education_levelHigh school graduate"</span> <span class='op'>=</span> <span class='st'>"High school graduate"</span>,</span>
@@ -5557,7 +5541,7 @@ p = &lt;0.001
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Black, non-Hispanic
+Black, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.533
@@ -5579,7 +5563,7 @@ p = 0.248
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Hispanic
+Hispanic
 </td>
 <td style="text-align:center;">
 −0.766
@@ -5601,7 +5585,7 @@ p = 0.002
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Multiple races
+Multiple races, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.354
@@ -5623,7 +5607,7 @@ p = 0.223
 </tr>
 <tr>
 <td style="text-align:left;">
-race3Native American
+Native American/Alaska Native or other race, non-Hispanic
 </td>
 <td style="text-align:center;">
 −1.032
@@ -5645,7 +5629,7 @@ p = &lt;0.001
 </tr>
 <tr>
 <td style="text-align:left;">
-race3White, non-Hispanic
+White, non-Hispanic
 </td>
 <td style="text-align:center;">
 −0.780
@@ -5869,20 +5853,14 @@ R2 Adj.
 </table>
 </div>
 <h3 id="conclusion">Conclusion</h3>
-<pre><code>**EXPLAIN THIS AND MY DATASET MORE
-**EXPLAIN THAT DATASET DIDN&#39;T INCLUDE EVERYTHING I WANTED
-add a section called tidying and mutating data
-change colors on dependent graphs
-add lines at the bottom of my sections
-show the main variable regression and multiple regressoins
-add works cited
-learn to bold section titles
-**note that I changed my whole project from the milestones</code></pre>
+<p>Overall, my results do show support for my hypothesis, that yes, Democrat and Republican views on 5 major social issues will differ by racial group. All of my regressions shows that responses to key questions on abortion, immigration, gay marriage, the environment, and the economy differed, sometimes significantly between Democrats of a given race and Republicans of that same race.</p>
+<p>Despite this, my analysis has multiple limitations and threats to inference. For one, my dataset restricted many of the confounders that would have been useful to consider, like income level, age, and sexuality. Without these factors, and many other possible confounders, I cannot interpret my results causally. Even still, my regressions, some of which were statistically significant, allowed me to definitively recognize that respondents’ views on the key issues differed among racial group, at least among the people in this survey.</p>
+<p>A more sophisticated version of this study might include those missing confounding variables, and it might also have a broader sample size. Given that I had to filter my dataset down to include individuals who had responded to my questions of interest, my dataset went from over 8,000 respondents to over 2,000. Perhaps a larger sample size would have afforded more statistical significance and allowed me to generalize my findings into the real world.</p>
 <h3 id="works-cited">Works Cited</h3>
 <p>American National Election Studies. 2021. ANES 2020 Time Series
 Study Full Release [dataset and documentation]. July 19, 2021
 version. www.electionstudies.org</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
