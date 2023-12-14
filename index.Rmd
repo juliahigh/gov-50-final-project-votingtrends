@@ -292,24 +292,23 @@ dem_voting_trends <- voting_trends |>
     ))
 ```
 
-For my regressions, I split my voting_trends data into views on each social issue among Democrats and Republicans, respectively. I then created two separate regressions for respondents' views on abortion, LGBTQ+ rights, immigration, the environment, and the economy for each party. In the regression, I analyzed respondents' views as the dependent variable, race as the independent variable, while controlling for eductaional level and gender. My analysis of each of the regressions is below.
+For my regressions, I split my voting_trends data into views on each social issue among Democrats and Republicans, respectively. I then created two separate regressions for respondents' views on abortion, LGBTQ+ rights, immigration, the environment, and the economy for each party. In the regression, I analyzed respondents' views as the dependent variable, race as the independent variable, while controlling for educational level and gender. My analysis of each of the regressions is below.
 
-This first regression[INSERT TITLE] demonstrates Democrats' average views on abortion in the context of repsondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on abortion. As a reminder, a response of 1 means that abortion should never be permitted, and a response of 4 means that a woman should always be able to obtain an abortion. Thus, responses closer to 1 are the more conservative responses while responses closer to 4 are the more liberal ones.
+This first regression demonstrates Democrats' average views on abortion in the context of respondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on abortion. As a reminder, a response of 1 means that abortion should never be permitted, and a response of 4 means that a woman should always be able to obtain an abortion. Thus, responses closer to 1 are the more conservative responses while responses closer to 4 are the more liberal ones.
 
-These two regressions show the following outcomes: 
+Comparing the regressions reveals the following outcomes: 
 
-The first regression [INSERT TITLE] shows that being a Black Democrat decreases your opinion on abortion [AS COMPARED TO OTHER DEMOCRATS?] by -0.093479 while controlling for educational level and gender, while the second shows that being a Black Republican decreases your opinion on abortion by -0.961011 [AS COMPARED TO OTHER REPUBLICANS?] while controlling for those factors. The result for Black Republicans was statistically significant with a threshold of 0.01. This suggests that, when it comes to the abortion issue, identifying as Black may impact Republicans' views (making them more conservative) more than Democrats (instead of making views more liberal). Regardless of race, this result is still consistent how Republicans' average views on abortion were lower for every racial category, including Black, non-Hispanic in Analysis Plot 1. 
+Being a Democrat increases the average views of Black respondents on abortion by 1.823 as compared to Black Republicans, keeping educational level and gender constant.
 
-**can I say this last sentence? because would I have to say it for the next one? wtf am I comparing to? because technically in the next one republicans are still lower, just decreased less for republicans than decreased for democrats but democrat is still probably higher in general than republican
+Being a Democrat increases the average views of Hispanic respondents on abortion by 0.867 as compared to Hispanic Republicans, keeping educational level and gender constant.
 
-The first regression shows that being a Hispanic Democrat decreases your opinion on abortion by -0.235807 while controlling for the aforementioned confounders, while the second shows that being a Hispanic Republican decreases your opinion on abortion by -0.147738. This indicates that identifying as Hispanic may impact Democrats' views more than Republicans. The result for Hispanic Democrats was statistically significant with a threshold of 0.01.
+Being a Democrat increases the average views of Native American respondents on abortion by 0.938 as compared to Native American Republicans, keeping educational level and gender constant.
 
-The first regression shows that being a Native American Democrat may decrease your views on abortion by -0.150027 with controls, and being a Native American Republican may decrease your views on the issue by -0.132529. When it comes to the issue of abortion, being Native American may impact Democrat views more than Republican views, but only by a small amount.
+Being a Democrat increases the average views of White respondents on abortion by 1.06 as compared to White Republicans, keeping educational level and gender constant.
 
-The first regression shows that being a White Democrat may decrease your views on abortion by -0.003517 while controlling for confounders, while being a White Republican may decrease your views by -0.109134. This suggests that being White has a greater impact on Republican views than Democrat views.
+Being a Democrat increases the average views of Asian American respondents on abortion by 0.955 as compared to Asian American Republicans, keeping educational level and gender constant.
 
-HOW DO I INCLUDE ASIAN AMERICAN IN HERE? do the subtraction i think
-
+**INCLUDE SIGNIFICANCES
 
 #### Abortion Regression - Democrats
 ```{r echo = FALSE}
@@ -365,19 +364,19 @@ modelsummary::modelsummary(abortion_regression_rep,
                            )
 ```
 
-The first regression [INSERT TITLE] shows Democrats' average views on gay marriage in the context of the respondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on gay marriage. In this case, a response of 1 means that a respondent supports gay marriage while a response of 3 means that a respondent does not support it. Therefore, as responses decrease and get closer to 1, they are the more liberal view and while responses increase closer to 3 they are more conservative.
+The first regression shows Democrats' average views on gay marriage in the context of the respondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on gay marriage. In this case, a response of 1 means that a respondent supports gay marriage while a response of 3 means that a respondent does not support it. Therefore, as responses decrease and get closer to 1, they are the more liberal view and while responses increase closer to 3 they are more conservative.
 
-These two regressions show the following outcomes: 
+Comparing the regressions reveals the following outcomes: 
 
-The first regression [INSERT TITLE] shows that being a Black Democrat may increase respondents' opinion on gay marriage by 0.23674 while controlling for educational level and gender. The second shows that being a Black Republican may increase your opinion on gay marriage by 0.357982 with the same controls. This suggests that identifying as Black may have a greater impact on Republican respondents' views on gay marriage than Democrat respondents. 
+Being a Republican increases the average views of Black respondents on gay marriage by 0.833 as compared to Black Democrats, keeping educational level and gender constant.
 
-In terms of respondents who identified as Hispanic, the first regression shows that being a Hispanic Democrat increases respondents' views on gay marriage by 0.05924 while controlling for educational level and gender, while being a Hispanic Republican decreases those views by -0.255243. This suggests that being Hispanic has a larger impact on Republicans than Democrats when it comes to views on gay marriage. 
+Being a Republican increases the average views of Hispanic respondents on gay marriage by 0.398 as compared to Hispanic Democrats, keeping educational level and gender constant.
 
-The first regression shows that being a multiple races and a Democrat may decrease respondents' opinions on gay marriage by -0.06999. Being multiple races and a Republican, on the other hand, may decrease opinions on abortion by -0.283640. This indicates that being multiple races may impact Republican views more than Democrat views on this issue, which aligns with what we observed with the previous two racial groups.
+Being a Republican increases the average views of Native American respondents on gay marriage by 0.527 as compared to Native American Democrats, keeping educational level and gender constant.
 
-The first regression also shows that being a Native American Democrat may decrease respondents' opinions on gay marriage by -0.11899 while controlling for educational level and gender, and the second regression shows that being a Native American Republican may decrease those opinions by -0.304337. This suggests that being Native American may have a greater impact on Republican respondents than Democrats once again when it comes to the issue of gay marriage.
+Being a Republican increases the average views of White respondents on gay marriage by 0.519 as compared to White Democrats, keeping educational level and gender constant. 
 
-Finally, the first regression shows that being a White Democrat may decrease respondents' views on gay marriage by -0.04897 while controlling for the aforementioned factors and being a White Republican may decrease their views on the same issue by -0.241769. This suggests that being White may have more of an impact on Republican respondents' responses in regards to gay marriage.
+Being a Republican increases the average views of Asian American respondents on gay marriage by 0.712 as compared to Asian American Democrats, keeping educational level and gender constant.
 
 #### LGBTQ Regression - Democrats
 ```{r}
@@ -435,17 +434,19 @@ modelsummary::modelsummary(lgbtq_regression_rep,
 
 The following regressions depict respondents' average views on immigration in the context of the respondents' race, while controlling for educational level and gender. The first regression represents the average views of Democrat respondents, while the second represents the views of Republican respondents. In this case, a response of 1 means that the respondent believes the US should make unauthorized immigrants felons and send them back to their home country, and a response of 4 means that respondents believe unauthorized immigrants should be allowed to remain in the US and eventually qualify for citizenship without penalties. This means that responses with lower values that are closer to 1 are more conservative, while responses with higher values that are closer to 4 are more liberal.
 
-The two regressions show the following outcomes: 
+Comparing the regressions reveals the following outcomes: 
 
-The first regression [INSERT TITLE] shows that being a Black Democrat may increase respondents' views on immigration by 0.07495 while controlling for educational level and gender, while the second regression shows that being a Black Republican may decrease respondents' views on immigration by -0.109081 while controlling for the same factors. This suggests that being Black has a greater impact on Republican responses than Democrat responses.
+Being a Democrat increases the average views of Black respondents on immigration by 0.62 as compared to Black Republicans, keeping educational level and gender constant.
 
-The first regression shows that being a Hispanic Democrat may increase respondents' views on immigration by 0.32177 while controlling for confounders. This result was also statistically significant with a threshold of 0.001. The second regression, on the other hand, shows that being a Hispanic Republican may decrease respondents' views on immigration by -0.041310. This indicates that being Hispanic may have a greater impact on Republican views on immigration than Democrats.
+Being a Democrat increases the views of Hispanic respondents on immigration by 0.363 as compared to Hispanic Republicans, keeping educational level and gender constant.
+
+Being a Democrat increases the views of Native American respondents on immigration by 1.093 as compared to Native American Republicans, keeping educational level and gender constant.
+
+Being a Democrat increases views of White respondents on immigration by 0.81 as compared to White Republicans, keeping educational level and gender constant. 
+
+Being a Democrat increases the views of Asian American respondents on immigration by 0.436 as compared to Asian American Republicans, keeping educational level and gender constant.
 
 [NOTE THAT IM REMOVING MULTIPLE RACES]
-
-The first regression depicts that being a Native American Democrat may increase respondents' views on immigration by 0.46549 while controlling for educational level and gender. This result was statistically significant with a threshold of 0.001. The second regression suggests that being a Native American Republican may decrease respondents' views on immigration by -0.192312. In this case, these coefficients suggest that being a Native American may impact Democrats significantly more than Republicans on the issue of immigration.
-
-The first regression indicates that being a White Democrat may increase respondents' views on immigration by 0.25649. This result was statistically significant under a 0.001 threshold. The second regression suggests that being a White Republican may correspond with a decreased view on immigration of -0.118284. When it comes to the issue of immigration, it seems that identifying as White may correspond with a greater impact on Democrats than Republicans.
 
 #### Immigration Regression - Democrats
 ```{r}
@@ -502,6 +503,28 @@ modelsummary::modelsummary(immigration_regression_rep,
 ```
 
 The first regression demonstrates Democrats' average views on the environment in the context of respondents' race while also controlling for educational level and gender. The second regression shows the same, but for Republican views on the environment. In regards to the issue of environment, a response that is decreasing or is closer to 1 means that tougher business regulations are needed to protect the environment, and responses that increase closer to 7 mean that regulations to the environment are already too much of a burden on businesses. This means that responses closer to 1 are more liberal, while responses closer to 7 are more conservative.
+
+Black - dems intercept and coefficient - 
+reps intercept and coefficient - 
+difference - 
+
+
+
+Hispanic - dems intercept and coefficient - 
+reps intercept and coefficient -
+difference - 
+
+Native American - dems intercept and coefficient 3
+reps intercept and coefficient 
+difference - 
+
+White - dems intercept and coefficient - 
+reps intercept and coefficient 
+difference -
+
+Asian American - dems intercept and coefficient - 
+reps intercept and coefficient
+difference - 
 
 The two regressions on the environment show the following outcomes: 
 
