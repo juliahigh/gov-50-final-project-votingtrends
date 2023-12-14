@@ -1,7 +1,7 @@
 ---
-title: "Gov 50 Final Project"
+title: "Gov 50 Final Project: The Interaction Between Partisan and Racial Identities"
 author: "Julia High"
-description: "My final project"
+description: "An exploration of whether Democrat and Republican views on abortion, LGBTQ+ rights (gay marriage), immigration, the environment, and the economy differ by racial group. This project is significant in light of the United States' rapidly diversifying population. Optimally, research like this will inform politicians that their party bases are not monolithic--their constituents' partisan identities are instead shaped by their racial and cultural backgrounds."
 output:
   distill::distill_article:
     code_folding: true
