@@ -6,12 +6,12 @@ output:
   distill::distill_article:
     self_contained: false
 ---
-## INTRODUCTION: 
+### INTRODUCTION: 
 
 My research question is: “Do Democrat and Republican views on 5 major social issues differ by racial group?” My hypothesis is that yes, Democrat and Republican views on 5 major social issues will differ by racial group. For this project, the five key social issues I am investigating are abortion, LGBTQ+ rights, immigration, the environment, and the economy. The racial groups I am investigating are “White, non-Hispanic,” “Black, non-Hispanic,” “Hispanic,” “Asian or Native Hawaiian/other Pacific Islander, non-Hispanic,” and “Multiple races, non-Hispanic.” Additionally, I will use the two major parties, Democrats and Republicans, for my analysis. A lot of public opinion research collects respondents’ race, and responses are often analyzed through that lens. Given the history of racial polarization in the United States, analyzing different racial groups’ opinions can reveal interesting contrasts. However, I have not observed many analyses on racial differences within party groups. This is nonetheless significant, given that politicians spend considerable time targeting key racial demographics in elections. This analysis is particularly relevant given the upcoming presidential election in 2024. Additionally, the United States population is rapidly diversifying, so politicians will have no choice but to identify the needs and values of key racial demographic groups. Party players will no longer be able to take advantage of the fact that certain racial groups have historically voted for their party. I hope that my analysis will reveal nuances within party lines and across racial groups that may inspire more comprehensive research in this area. 
 
 
-## Data - Organizing, Mutating, and Labeling 
+### Data - Organizing, Mutating, and Labeling 
 
 My data comes from the American National Election Studies 2020 Time Series study. This source is a public opinion survey of over 8,000 Americans in 2020 about a number of different topics. Party affiliation and race are self-reported in the survey.
 
@@ -104,7 +104,7 @@ voting_trends <- voting_trends_2020 |>
     )
   )
 ```
-## Data - Outcomes of Interest
+### Data - Outcomes of Interest
 
 This Outcome of Interest 1 plot visualizes the counts of respondents who answered 1 - 4 when asked "There has been some discussion about abortion during recent years. Which one of the opinions on this page best agrees with your view?" This plot demonstrates that, regardless of party or race, most respondents chose 4 indicating that they do support a woman's right to bodily autonomy.
 
@@ -180,7 +180,7 @@ library(patchwork)
 (voting_trends_dependent_abortion)+(voting_trends_dependent_economy)+(voting_trends_dependent_environment)+(voting_trends_dependent_immigration)+(voting_trends_dependent_lgbtq)
 ```
 
-## Results - Key Plots 
+### Results - Key Plots 
 
 My results include a table and bar plots of respondents' average views on abortion by party and racial group, as well as regressions of of each social issue with race, party, and the confounders of education level and gender.
 
@@ -257,7 +257,7 @@ economy_plot <- voting_tibble |>
 economy_plot
 ```
 
-## Results - Key Regressions
+### Results - Key Regressions
 
 ```{r}
 rep_voting_trends <- voting_trends |>
@@ -273,7 +273,6 @@ rep_voting_trends <- voting_trends |>
     race_num == 5 ~ "Native American",
     race_num == 6 ~ "Multiple races"
     ))
-
 ```
 
 ```{r}
@@ -290,7 +289,6 @@ dem_voting_trends <- voting_trends |>
     race_num == 5 ~ "Native American",
     race_num == 6 ~ "Multiple races"
     ))
-
 ```
 
 For my regressions, I split my voting_trends data into views on each social issue among Democrats and Republicans, respectively. I then created two separate regressions for respondents' views on abortion, LGBTQ+ rights, immigration, the environment, and the economy for each party. In the regression, I analyzed respondents' views as the dependent variable, race as the independent variable, while controlling for eductaional level and gender. My analysis of each of the regressions is below.
@@ -313,7 +311,8 @@ HOW DO I INCLUDE ASIAN AMERICAN IN HERE? do the subtraction i think
 
 **make sure I understand causal
 ???i'm trying to show the impact of race against the average opinion of that party. the average opinion is the regression that I did the first time.
-### Abortion Regression - Democrats
+
+#### Abortion Regression - Democrats
 ```{r}
 abortion_regression_dem <- lm(abortion_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(abortion_regression_dem)
@@ -340,7 +339,7 @@ modelsummary::modelsummary(abortion_regression_dem,
                            )
 ```
 
-### Abortion Regression - Republicans
+#### Abortion Regression - Republicans
 ```{r}
 abortion_regression_rep <- lm(abortion_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(abortion_regression_rep)
@@ -381,7 +380,7 @@ The first regression also shows that being a Native American Democrat may decrea
 
 Finally, the first regression shows that being a White Democrat may decrease respondents' views on gay marriage by -0.04897 while controlling for the aforementioned factors and being a White Republican may decrease their views on the same issue by -0.241769. This suggests that being White may have more of an impact on Republican respondents' responses in regards to gay marriage.
 
-### LGBTQ Regression - Democrats
+#### LGBTQ Regression - Democrats
 ```{r}
 lgbtq_regression_dem <- lm(lgbtq_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(lgbtq_regression_dem)
@@ -408,7 +407,7 @@ modelsummary::modelsummary(lgbtq_regression_dem,
                            )
 ```
 
-### LGBTQ Regression - Republicans
+#### LGBTQ Regression - Republicans
 ```{r}
 lgbtq_regression_rep <- lm(lgbtq_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(lgbtq_regression_rep)
@@ -449,7 +448,7 @@ The first regression depicts that being a Native American Democrat may increase 
 
 The first regression indicates that being a White Democrat may increase respondents' views on immigration by 0.25649. This result was statistically significant under a 0.001 threshold. The second regression suggests that being a White Republican may correspond with a decreased view on immigration of -0.118284. When it comes to the issue of immigration, it seems that identifying as White may correspond with a greater impact on Democrats than Republicans.
 
-### Immigration Regression - Democrats
+#### Immigration Regression - Democrats
 ```{r}
 immigration_regression_dem <- lm(immigration_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(immigration_regression_dem)
@@ -476,7 +475,7 @@ modelsummary::modelsummary(immigration_regression_dem,
                            )
 ```
 
-### Immigration Regression - Republicans
+#### Immigration Regression - Republicans
 ```{r}
 immigration_regression_rep <- lm(immigration_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(immigration_regression_rep)
@@ -519,7 +518,7 @@ The first regression suggests that being a White Democrat decreases your views o
 ***GO BACK THROUGH FOR STATISTICAL SIGNIFICANCE
 **CHANGE ALL SHOWS TO SUGGESTS
 
-### Environment Regression - Democrats
+#### Environment Regression - Democrats
 ```{r}
 environment_regression_dem <- lm(environment_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(environment_regression_dem)
@@ -546,7 +545,7 @@ modelsummary::modelsummary(environment_regression_dem,
                            )
 ```
 
-### Environment Regression - Republicans
+#### Environment Regression - Republicans
 ```{r}
 environment_regression_rep <- lm(environment_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(environment_regression_rep)
@@ -586,7 +585,7 @@ The first regression illustrates that being a Native American Democrat may incre
 
 The first regression shows that being a White Democrat may increase respondent views on the economy by 0.35694. This coefficient is statistically significant with a 0.001 threshold. The second regression indicates that being a White Republican may decrease respondent opinions on the economy by -0.77982, and this coefficient is statistically significant with 0 as a threshold. Comparing these coefficients indicates that being White has a greater impact on Republican respondents than Democrats.
 
-### Economy Regression - Democrats 
+#### Economy Regression - Democrats 
 ```{r}
 economy_regression_dems <- lm(economy_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(economy_regression_dems)
@@ -613,7 +612,7 @@ modelsummary::modelsummary(economy_regression_dems,
                            )
 ```
 
-### Economy Regression - Republicans
+#### Economy Regression - Republicans
 ```{r}
 economy_regression_rep <- lm(economy_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(economy_regression_rep)
@@ -641,7 +640,7 @@ modelsummary::modelsummary(economy_regression_rep,
 ```
 
 
-## Conclusion
+### Conclusion
 	
 	**EXPLAIN THIS AND MY DATASET MORE
 	**EXPLAIN THAT DATASET DIDN'T INCLUDE EVERYTHING I WANTED
@@ -657,7 +656,7 @@ modelsummary::modelsummary(economy_regression_rep,
 
 
 
-## Works Cited
+### Works Cited
 
 American National Election Studies. 2021. ANES 2020 Time Series
 Study Full Release [dataset and documentation]. July 19, 2021
