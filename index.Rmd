@@ -309,21 +309,15 @@ dem_voting_trends
 For my regressions, I split my voting_trends data into views on each social issue among Democrats and Replicans, respectively. I then created two separate regressions for respondents' views on abortion, LGBTQ+ rights, immigration, the environment, and the economy for each party. In the regression, I analyzed respondents' views as the dependent variable, race as the independent variable, while controlling for eductaional level and gender. My analysis of each of the regressions is below.
 
 
-#### Democrat Abortion Regression
-
-
 This first regression[INSERT TITLE] demonstrates Democrats' average views on abortion in the context of repsondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on abortion. As a reminder, a response of 1 means that abortion should never be permitted, and a response of 4 means that a woman should always be able to obtain an abortion. Thus, responses closer to 1 are the more conservative responses while responses closer to 4 are the more liberal ones.
 
 These two regressions show the following outcomes: 
 
 The first regression [INSERT TITLE] shows that being a Black Democrat decreases your opinion on abortion [AS COMPARED TO OTHER DEMOCRATS?] by -0.093479 while controlling for educational level and gender, while the second shows that being a Black Republican decreases your opinion on abortion by -0.961011 [AS COMPARED TO OTHER REPUBLICANS?] while controlling for those factors. The result for Black Republicans was statistically significant with a threshold of 0.01. This suggests that, when it comes to the abortion issue, identifying as Black may impact Republicans' views (making them more conservative) more than Democrats (instead of making views more liberal). Regardless of race, this result is still consistent how Republicans' average views on abortion were lower for every racial category, including Black, non-Hispanic in Analysis Plot 1. 
+
 **can I say this last sentence? because would I have to say it for the next one? wtf am I comparing to? because technically in the next one republicans are still lower, just decreased less for republicans than decreased for democrats but democrat is still probably higher in general than republican
 
 The first regression shows that being a Hispanic Democrat decreases your opinion on abortion by -0.235807 while controlling for the aforementioned confounders, while the second shows that being a Hispanic Republican decreases your opinion on abortion by -0.147738. This indicates that identifying as Hispanic may impact Democrats' views more than Republicans. The result for Hispanic Democrats was statistically significant with a threshold of 0.01.
-
-**for each, note if statistically significant
-
-The first regression shows that being multiple races and a Democrat may increase your opinion on abortion by 0.006750 while controlling for confounders. The second shows that being multiple races and a Republican may decrease your opinion on abortion by -0.142446 with controls. In this situation, being multiple races may impact Republican views more than Democrat views.
 
 The first regression shows that being a Native American Democrat may decrease your views on abortion by -0.150027 with controls, and being a Native American Republican may decrease your views on the issue by -0.132529. When it comes to the issue of abortion, being Native American may impact Democrat views more than Republican views, but only by a small amount.
 
@@ -331,17 +325,12 @@ The first regression shows that being a White Democrat may decrease your views o
 
 HOW DO I INCLUDE ASIAN AMERICAN IN HERE? do the subtraction i think
 
-
 **make sure I understand causal
 ???i'm trying to show the impact of race against the average opinion of that party. the average opinion is the regression that I did the first time.
-
+### Abortion Regression - Democrats
 ```{r}
 abortion_regression_dem <- lm(abortion_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(abortion_regression_dem)
-```
-
-MODEL SUMMARY TEMPLATE
-```{r}
 modelsummary::modelsummary(abortion_regression_dem,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -365,15 +354,32 @@ modelsummary::modelsummary(abortion_regression_dem,
                            )
 ```
 
-republican abortion regression
-**make everything look nice with modelsummary after I take note of the statistical significance
-
+### Abortion Regression - Republicans
 ```{r}
 abortion_regression_rep <- lm(abortion_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(abortion_regression_rep)
+modelsummary::modelsummary(abortion_regression_rep,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
-
-LGBTQ  regression dems
 
 The first regression [INSERT TITLE] shows Democrats' average views on gay marriage in the context of the respondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on gay marriage. In this case, a response of 1 means that a respondent supports gay marriage while a response of 3 means that a respondent does not support it. Therefore, as responses decrease and get closer to 1, they are the more liberal view and while responses increase closer to 3 they are more conservative.
 
@@ -389,17 +395,58 @@ The first regression also shows that being a Native American Democrat may decrea
 
 Finally, the first regression shows that being a White Democrat may decrease respondents' views on gay marriage by -0.04897 while controlling for the aforementioned factors and being a White Republican may decrease their views on the same issue by -0.241769. This suggests that being White may have more of an impact on Republican respondents' responses in regards to gay marriage.
 
+### LGBTQ Regression - Democrats
 ```{r}
 lgbtq_regression_dem <- lm(lgbtq_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(lgbtq_regression_dem)
+modelsummary::modelsummary(lgbtq_regression_dem,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
 
-LGBTQ  regression republicans
-*can't add party because it's just the one party in here
-how do 
+### LGBTQ Regression - Republicans
 ```{r}
 lgbtq_regression_rep <- lm(lgbtq_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(lgbtq_regression_rep)
+modelsummary::modelsummary(lgbtq_regression_rep,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
 
 The following regressions depict respondents' average views on immigration in the context of the respondents' race, while controlling for educational level and gender. The first regression represents the average views of Democrat respondents, while the second represents the views of Republican respondents. In this case, a response of 1 means that the respondent believes the US should make unauthorized immigrants felons and send them back to their home country, and a response of 4 means that respondents believe unauthorized immigrants should be allowed to remain in the US and eventually qualify for citizenship without penalties. This means that responses with lower values that are closer to 1 are more conservative, while responses with higher values that are closer to 4 are more liberal.
@@ -416,17 +463,58 @@ The first regression depicts that being a Native American Democrat may increase 
 
 The first regression indicates that being a White Democrat may increase respondents' views on immigration by 0.25649. This result was statistically significant under a 0.001 threshold. The second regression suggests that being a White Republican may correspond with a decreased view on immigration of -0.118284. When it comes to the issue of immigration, it seems that identifying as White may correspond with a greater impact on Democrats than Republicans.
 
-
-immigration regression DEMS
+### Immigration Regression - Democrats
 ```{r}
 immigration_regression_dem <- lm(immigration_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(immigration_regression_dem)
+modelsummary::modelsummary(immigration_regression_dem,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
 
-immigration regression REPUBLICANS
+### Immigration Regression - Republicans
 ```{r}
 immigration_regression_rep <- lm(immigration_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(immigration_regression_rep)
+modelsummary::modelsummary(immigration_regression_rep,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
 
 The first regression demonstrates Democrats' average views on the environment in the context of respondents' race while also controlling for educational level and gender. The second regression shows the same, but for Republican views on the environment. In regards to the issue of environment, a response that is decreasing or is closer to 1 means that tougher business regulations are needed to protect the environment, and responses that increase closer to 7 mean that regulations to the environment are already too much of a burden on businesses. This means that responses closer to 1 are more liberal, while responses closer to 7 are more conservative.
@@ -442,26 +530,61 @@ The first regression depicts that being a Native American Democrat decreases you
 The first regression suggests that being a White Democrat decreases your views on the environment by -0.60597, and this result is statistically significant with a threshold of 0. The second regression indicates that being a White Republican may increase your views on the environment by 0.64241. These coefficients indicate that identifying as White may have a slightly greater impact on Democrat than Republican respondents. 
 
 **round all numbers
-
-
 ***GO BACK THROUGH FOR STATISTICAL SIGNIFICANCE
-
-
 **CHANGE ALL SHOWS TO SUGGESTS
 
-
-environment regression DEMS
+### Environment Regression - Democrats
 ```{r}
 environment_regression_dem <- lm(environment_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(environment_regression_dem)
+modelsummary::modelsummary(environment_regression_dem,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
 
-
-environment regression REPUBLICANS
-
+### Environment Regression - Republicans
 ```{r}
 environment_regression_rep <- lm(environment_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(environment_regression_rep)
+modelsummary::modelsummary(environment_regression_rep,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
 
 
@@ -477,119 +600,60 @@ The first regression illustrates that being a Native American Democrat may incre
 
 The first regression shows that being a White Democrat may increase respondent views on the economy by 0.35694. This coefficient is statistically significant with a 0.001 threshold. The second regression indicates that being a White Republican may decrease respondent opinions on the economy by -0.77982, and this coefficient is statistically significant with 0 as a threshold. Comparing these coefficients indicates that being White has a greater impact on Republican respondents than Democrats.
 
-economy regression dems
+### Economy Regression - Democrats 
 ```{r}
 economy_regression_dems <- lm(economy_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(economy_regression_dems)
+modelsummary::modelsummary(economy_regression_dems,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
 
-economy regression republicans
-
+### Economy Regression - Republicans
 ```{r}
 economy_regression_rep <- lm(economy_views ~ race3 + education_level + gender, data = rep_voting_trends)
 summary(economy_regression_rep)
+modelsummary::modelsummary(economy_regression_rep,
+                           statistic = c("s.e. = {std.error}",
+                                         "p = {p.value}"),
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_rename = c(
+                             "(Intercept)" = "Intercept",
+                             "race2Black, non-Hispanic" = "Black, non-Hispanic",
+                             "race2Hispanic" = "Hispanic",
+                             "race2Multiple races" = "Multiple races, non-Hispanic",
+                             "race2Native American" = "Native American/Alaska Native or other race, non-Hispanic",
+                             "race2White, non-Hispanic" = "White, non-Hispanic",
+                             "education_levelAssociate degree in college - vocational" = "Associate's degree in college - vocational",
+                             "education_levelBachelor's degree" = "Bachelor's degree",
+                             "education_levelHigh school graduate" = "High school graduate",
+                             "education_levelLess than high school" = "Less than high school",
+                             "education_levelMaster's degree" = "Master's degree",
+                             "education_levelProfessional school degree/doctoral degree" = "Professional school/doctoral degree",
+                             "education_levelSome college but no degree" = "Some college, but no degree",
+                             "genderMale" = "Male"
+                             )
+                           )
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-get each rergession separately, then compare them! being hispanic and democrat increases view on abortion by 0.5, but being hispanic and republican actually decreases view on abortion by -0.3
-
-
-This regression shows abortion views against the main independent variables race and party, as well as confounders of education level and gender. The intercept coefficient here 3.73723 shows the average view of Asian American Democrats with an academic Associate's degree who are women on the issue of abortion. You can find the other average view values by comparing the coefficient for each racial group to this one. Since I am mainly looking at party and race, I will outline those key outcomes while controlling for education (bachelor's degree) and gender here. 
-
-The average view of Black Democrats with a bachelor's degree who are women is 3.60258. For men, it's 3.57298.
-Women - sum(3.73723 asian + 0.03998 bachelor + -0.17463 black race)
-Men - sum((3.73723 asian + 0.03998 bachelor + -0.17463 black race + -0.02960 men)
-
-The average view of Black Republicans with a bachelor's degree who are women is 2.47573. For men, it's 
-Women - sum(3.73723 asian + 0.03998 bachelor + -0.17463 black race + -1.12685 republican)
-
-**not sure if i did education correctly. do i just add in another level of education?
-```{r}
-sum(3.73723 + 0.03998 + -1.12685 + -0.17463)
-```
-
-The average view of Black Democrats while controlling for education and gender is BLANK. (remove the associates degree and gender, add race) 
-- remove gender
-- remove education
-- add black race
-- add democrat party
-if I remove all that, i'll just have what I did in my chart won't I? Isn't the point of doing the regression to include the confounders? i just won't include all educational levels then. black dems 3.5 on average not controlling for other factors
-
-Average view of Black Democrats with a bachelor's degree who are women is blank. 
-Average view of bla bla men is blank.
-
-The average view of Black Republicans is BLANK 
-
-The average view of Hispanic Democrats is BLANK. The average view of Hispanic Republicans is BLANK. The average view of multiracial Democrats is BLANK. The average view of multiracial Republicans is BLANK. The average view of Native American Democrats is BLANK. The average view of Native American Republicans is BLANK. The average view of White Democrats is BLANK. Finally, the average view of white Republicans is BLANK 
-
-this is statistically significant
-
-look at the prt thing to see if it's statistically significant
-** do model summary
-
-```{r}
-abortion_regression <- lm(abortion_views ~ race + party + education_level + gender, data = voting_trends)
-summary(abortion_regression)
-```
-**intercept represents avg lvl asian american  democrats
-it's showing racial categories among democrats
-**MAKE SURE TO RENAME COEFFICIENTS ON ALL REGRESSIONS
-**MAKE SURE TO CITE DATA SOURCE
-
-
-
-could filter one regression on dems and one on republicans
-how hispanic affects dems, how affects reps
-
-
-
-```{r}
-lgbtq_regression <- lm(lgbtq_views ~ race + party + education_level + gender, data = voting_trends)
-summary(lgbtq_regression)
-```
-
-
-```{r}
-immigration_regression <- lm(immigration_views ~ race + party + education_level + gender, data = voting_trends)
-summary(immigration_regression)
-```
-
-```{r}
-environment_regression <- lm(environment_views ~ race + party + education_level + gender, data = voting_trends)
-summary(environment_regression)
-```
-
-```{r}
-economy_regression <- lm(economy_views ~ race + party + education_level + gender, data = voting_trends)
-summary(economy_regression)
-```
 
 ## Conclusion: 
 
