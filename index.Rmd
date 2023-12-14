@@ -117,7 +117,7 @@ voting_trends_dependent_abortion <- voting_trends |>
     x = "Abortion Views Scale of 1-4",
     y = "Number of Respondents",
     title = "Outcome of Interest 1: All Respondents' Views on Abortion"
-  )
+  ) +theme(plot.margin = margin(t = 20, b = 5, unit = "pt"))
 voting_trends_dependent_abortion
 ```
 
@@ -131,7 +131,7 @@ voting_trends_dependent_lgbtq <- voting_trends |>
     x = "Gay Marriage Views Scale of 1-3",
     y = "Number of Respondents",
     title = "Outcome of Interest 2: All Respondents' Views on Gay Marriage"
-  )
+  ) +theme(plot.margin = margin(t = 20, b = 5, unit = "pt"))
 voting_trends_dependent_lgbtq
 ```
 This Outcome of Interest 3 plot shows the number of respondents who answered 1 - 4 when asked "Which comes closest to your view about what government policy should be toward unauthorized immigrants now living in the United States?" This plot shows that, without our key independent variables of race and party, most respondents chose 3 which indicates that they believe the US should "Allow unauthorized immigrants to remain in US & eventually
@@ -145,7 +145,7 @@ voting_trends_dependent_immigration <- voting_trends |>
     x = "Immigration Views Scale of 1-4",
     y = "Number of Respondents",
     title = "Outcome of Interest 3: All Respondents' Views on Immigration"
-  )
+  ) +theme(plot.margin = margin(t = 20, b = 5, unit = "pt"))
 voting_trends_dependent_immigration
 ```
 This Outcome of Interest 4 plot shows the number of respondents who answered 1 - 7 when asked "Where would you place yourself on this scale, or haven’t you thought much about this?" when asked about the tradeoff between supporting the environment and supporting businesses. This plot shows that, without our key independent variables of race and party, most respondents chose 1 which shows they believe that "Tougher regulations on business [are] needed to protect environment."
@@ -158,7 +158,7 @@ voting_trends_dependent_environment <- voting_trends |>
     x = "Environment Views Scale of 1-7",
     y = "Number of Respondents",
     title = "Outcome of Interest 4: All Respondents' Views on the Environment"
-  ) 
+  ) +theme(plot.margin = margin(t = 20, b = 5, unit = "pt"))
 voting_trends_dependent_environment
 ```
 Finally, this Outcome of Interest 5 plot depicts the number of respondents who answered 1 - 5 when asked "What do you think about the state of the economy these days in the United States? Would you say the state of the economy is very good,good, neither good nor bad, bad, or very bad?" This plot shows that answers ranged widely, but most respondents chose 4 regardless of race or party, which shows that they believe the current state of economy is "bad." Note that this survey was taken in 2020 during a time of significant social and economic turmoil in the United States (and the world) due to the COVID-19 pandemic and racial tensions.
@@ -171,14 +171,14 @@ voting_trends_dependent_economy <- voting_trends |>
     x = "Economy Views Scale of 1-5",
     y = "Number of Respondents",
     title = "Outcome of Interest 5: All Respondents' Views on the Economy"
-  )
+  ) +theme(plot.margin = margin(t = 20, b = 5, unit = "pt"))
 voting_trends_dependent_economy
 ```
 
 ```{r}
 library(patchwork)
 
-(voting_trends_dependent_abortion)+(voting_trends_dependent_economy)+(voting_trends_dependent_environment)+(voting_trends_dependent_immigration)+(voting_trends_dependent_lgbtq)
+(voting_trends_dependent_abortion)+(voting_trends_dependent_lgbtq)+(voting_trends_dependent_immigration)+(voting_trends_dependent_environment)+(voting_trends_dependent_economy)
 ```
 
 ### Results - Key Plots 
@@ -313,7 +313,6 @@ Being a Democrat increases the average views of Asian American respondents on ab
 #### Abortion Regression - Democrats
 ```{r echo = FALSE}
 abortion_regression_dem <- lm(abortion_views ~ race2 + education_level + gender, data = dem_voting_trends)
-summary(abortion_regression_dem)
 modelsummary::modelsummary(abortion_regression_dem,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -340,7 +339,6 @@ modelsummary::modelsummary(abortion_regression_dem,
 #### Abortion Regression - Republicans
 ```{r}
 abortion_regression_rep <- lm(abortion_views ~ race3 + education_level + gender, data = rep_voting_trends)
-summary(abortion_regression_rep)
 modelsummary::modelsummary(abortion_regression_rep,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -381,7 +379,6 @@ Being a Republican increases the average views of Asian American respondents on 
 #### LGBTQ Regression - Democrats
 ```{r}
 lgbtq_regression_dem <- lm(lgbtq_views ~ race2 + education_level + gender, data = dem_voting_trends)
-summary(lgbtq_regression_dem)
 modelsummary::modelsummary(lgbtq_regression_dem,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -408,7 +405,6 @@ modelsummary::modelsummary(lgbtq_regression_dem,
 #### LGBTQ Regression - Republicans
 ```{r}
 lgbtq_regression_rep <- lm(lgbtq_views ~ race3 + education_level + gender, data = rep_voting_trends)
-summary(lgbtq_regression_rep)
 modelsummary::modelsummary(lgbtq_regression_rep,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -451,7 +447,6 @@ Being a Democrat increases the views of Asian American respondents on immigratio
 #### Immigration Regression - Democrats
 ```{r}
 immigration_regression_dem <- lm(immigration_views ~ race2 + education_level + gender, data = dem_voting_trends)
-summary(immigration_regression_dem)
 modelsummary::modelsummary(immigration_regression_dem,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -478,7 +473,6 @@ modelsummary::modelsummary(immigration_regression_dem,
 #### Immigration Regression - Republicans
 ```{r}
 immigration_regression_rep <- lm(immigration_views ~ race3 + education_level + gender, data = rep_voting_trends)
-summary(immigration_regression_rep)
 modelsummary::modelsummary(immigration_regression_rep,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -521,7 +515,6 @@ Being a Republican increases the average views of Asian American respondents on 
 #### Environment Regression - Democrats
 ```{r}
 environment_regression_dem <- lm(environment_views ~ race2 + education_level + gender, data = dem_voting_trends)
-summary(environment_regression_dem)
 modelsummary::modelsummary(environment_regression_dem,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -548,7 +541,6 @@ modelsummary::modelsummary(environment_regression_dem,
 #### Environment Regression - Republicans
 ```{r}
 environment_regression_rep <- lm(environment_views ~ race3 + education_level + gender, data = rep_voting_trends)
-summary(environment_regression_rep)
 modelsummary::modelsummary(environment_regression_rep,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -572,48 +564,23 @@ modelsummary::modelsummary(environment_regression_rep,
                            )
 ```
 
-
 These two regressions depict survey respondents' average views on the economy in the context of respondents' race while also controlling for educational level and gender. The first regression includes Democrat respondents' views, while the second includes Republican respondents' views. When it comes to the economy, a response that is closer to 1 means that respondents believe the economy is doing very well, and a response that is closer to 5 means that respondents believe the economy is doing very badly. Given the survey question, there is no typical "liberal" or "conservative" response to this question. This analysis will simply show the difference in views on the question by party and racial group, not necessarily which direction those views trend on the political spectrum.
 
-The two regressions show the following outcomes:
+Comparing the regressions reveals the following outcomes: 
 
-The first regression [INSERT TITLE] suggests that being a Black Democrat increases respondent views on the economy by 0.42789, and this coefficient is statistically significant with a 0.001 threshold. The second regression suggests that being a Black Republican decreases your views on the economy by -0.53291. Comparing these coefficients shows that when it comes to the economy, being a Black impacts Republican respondents more than Democrat respondents.
+Being a Democrat increases the average views of Black respondents on the economy by 0.949 as compared to Black Republicans, keeping educational level and gender constant.
 
-The first regression shows that being a Hispanic Democrat may increase respondent views on the economy by 0.44569. This coefficient is statistically significant with a 0.001 threshold. The second regression suggests that being a Hispanic Republican may decrease your views on the environment by -0.76620. This coefficient is also statistically significant with a 0.001 threshold. Comparing these coefficients shows that being Hispanic may impact Republican respondents more than Democrat respondents on the economy question.
+Being a Democrat increases the average views of Hispanic respondents on the economy by 1.2 as compared to Hispanic Republicans, keeping educational level and gender constant.
 
-The first regression illustrates that being a Native American Democrat may increase respondent views on the economy by 0.74606. This coefficient is statistically significant with a 0.001 threshold. The second regression illustrates that being a Native American Republican may decrease respondent views on the economy by -1.03236. This result is statistically significant with a threshold of 0. Together, these coefficients indicate that being Native American has a greater impact on Republican responses to the economy question than Democrat responses.
+Being a Democrat increases the average views of Native American respondents on the economy by 1.766 as compared to Native American Republicans, keeping educational level and gender constant.
 
-The first regression shows that being a White Democrat may increase respondent views on the economy by 0.35694. This coefficient is statistically significant with a 0.001 threshold. The second regression indicates that being a White Republican may decrease respondent opinions on the economy by -0.77982, and this coefficient is statistically significant with 0 as a threshold. Comparing these coefficients indicates that being White has a greater impact on Republican respondents than Democrats.
+Being a Democrat increases the average views of White respondents on the economy by 1.125 as compared to White Republicans, holding educational level and gender constant.
 
-
-Being a Republican increases the average views of Hispanic respondents on the environment by 2.548 as compared to Hispanic Democrats, keeping educational level and gender constant.
-
-Hispanic - dems intercept and coefficient - 1.821
-reps intercept and coefficient - 4.369
-difference - 2.548
-
-Being a Republican increases the average views of Native American respondents on the environment by 2.475 as compared to Native American Democrats, keeping educational level and gender constant.
-
-Native American - dems intercept and coefficient - 1.911
-reps intercept and coefficient - 4.386
-difference - 2.475
-
-Being a Republican increases the average views of White respondents on the environment by 2.52 as compared to White Democrats, keeping educational level and gender constant.
-
-White - dems intercept and coefficient - 1.904
-reps intercept and coefficient - 4.424
-difference - 2.52
-
-Being a Republican increases the average views of Asian American respondents on the environment by 1.272 as compared to Asian American Democrats, keeping educational level and gender constant.
-Asian American - dems intercept and coefficient - 
-reps intercept and coefficient
-difference - 1.272
-
+Being a Democrat increases the average views of Asian American respondents on the economy by 0.012 as compared to Asian American Republicans, holding educational level and gender constant. 
 
 #### Economy Regression - Democrats 
 ```{r}
 economy_regression_dems <- lm(economy_views ~ race2 + education_level + gender, data = dem_voting_trends)
-summary(economy_regression_dems)
 modelsummary::modelsummary(economy_regression_dems,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
@@ -640,7 +607,6 @@ modelsummary::modelsummary(economy_regression_dems,
 #### Economy Regression - Republicans
 ```{r}
 economy_regression_rep <- lm(economy_views ~ race3 + education_level + gender, data = rep_voting_trends)
-summary(economy_regression_rep)
 modelsummary::modelsummary(economy_regression_rep,
                            statistic = c("s.e. = {std.error}",
                                          "p = {p.value}"),
