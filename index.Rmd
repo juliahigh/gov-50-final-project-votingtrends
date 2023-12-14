@@ -4,6 +4,7 @@ author: "Julia High"
 description: "My final project"
 output:
   distill::distill_article:
+    code_folding: true
     self_contained: false
 ---
 ### INTRODUCTION: 
@@ -309,11 +310,9 @@ The first regression shows that being a White Democrat may decrease your views o
 
 HOW DO I INCLUDE ASIAN AMERICAN IN HERE? do the subtraction i think
 
-**make sure I understand causal
-???i'm trying to show the impact of race against the average opinion of that party. the average opinion is the regression that I did the first time.
 
 #### Abortion Regression - Democrats
-```{r}
+```{r echo = FALSE}
 abortion_regression_dem <- lm(abortion_views ~ race2 + education_level + gender, data = dem_voting_trends)
 summary(abortion_regression_dem)
 modelsummary::modelsummary(abortion_regression_dem,
