@@ -50,7 +50,6 @@ library(dplyr)
 
 ```{r}
 voting_trends_2020 <- read_csv("anes_timeseries_2020_csv_20220210.csv")
-voting_trends_2020
 ```
 
 ```{r}
@@ -67,7 +66,6 @@ voting_trends_2020 <- voting_trends_2020 |>
     V201510 %in% c(1, 2, 3, 4, 5, 6, 7, 8),
     V201600 >= 1
   )
-voting_trends_2020
 ```
 
 ```{r}
@@ -105,7 +103,6 @@ voting_trends <- voting_trends_2020 |>
       education_level == 8 ~ "Professional school degree/doctoral degree"
     )
   )
-voting_trends
 ```
 ## Data - Outcomes of Interest
 
@@ -197,7 +194,8 @@ voting_tibble <- voting_trends |>
     avg_environment = mean(environment_views),
     avg_economy = mean(economy_views)
   )
-voting_tibble
+knitr::kable(voting_tibble,
+             col.names = c("Party Affiliation", "Racial Group", "Average Views on Abortion", "Average Views on Gay Marriage", "Average Views on Immigration", "Average Views on the Environment", "Average Views on the Economy"))
 ```
 
 Analysis Plot 1 shows respondents' average views on abortion for each party by racial group and party. COME BACK AND EXPLAIN EACH OF THESE. 
@@ -261,8 +259,6 @@ economy_plot
 
 ## Results - Key Regressions
 
-# Filtering the Data for Separate Regressions
-
 ```{r}
 rep_voting_trends <- voting_trends |>
   filter(
@@ -277,8 +273,7 @@ rep_voting_trends <- voting_trends |>
     race_num == 5 ~ "Native American",
     race_num == 6 ~ "Multiple races"
     ))
-  
-rep_voting_trends
+
 ```
 
 ```{r}
@@ -295,11 +290,10 @@ dem_voting_trends <- voting_trends |>
     race_num == 5 ~ "Native American",
     race_num == 6 ~ "Multiple races"
     ))
-  
-dem_voting_trends
+
 ```
 
-For my regressions, I split my voting_trends data into views on each social issue among Democrats and Replicans, respectively. I then created two separate regressions for respondents' views on abortion, LGBTQ+ rights, immigration, the environment, and the economy for each party. In the regression, I analyzed respondents' views as the dependent variable, race as the independent variable, while controlling for eductaional level and gender. My analysis of each of the regressions is below.
+For my regressions, I split my voting_trends data into views on each social issue among Democrats and Republicans, respectively. I then created two separate regressions for respondents' views on abortion, LGBTQ+ rights, immigration, the environment, and the economy for each party. In the regression, I analyzed respondents' views as the dependent variable, race as the independent variable, while controlling for eductaional level and gender. My analysis of each of the regressions is below.
 
 This first regression[INSERT TITLE] demonstrates Democrats' average views on abortion in the context of repsondents' race, while controlling for educational level and gender. The second regression shows the same, but for Republican views on abortion. As a reminder, a response of 1 means that abortion should never be permitted, and a response of 4 means that a woman should always be able to obtain an abortion. Thus, responses closer to 1 are the more conservative responses while responses closer to 4 are the more liberal ones.
 
