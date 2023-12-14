@@ -429,22 +429,25 @@ immigration_regression_rep <- lm(immigration_views ~ race3 + education_level + g
 summary(immigration_regression_rep)
 ```
 
-The first regression demonstrates Democrats' average views on the environment in the context of respondents' race while also controlling for educational level and gender. The second regresson shows the same, but for Republican views on the environment. In regards to the issue of environment, a response that is decreasing or is closer to 1 means that tougher business regulations are needed to protect the environment, and responses that increase closer to 7 mean that regulations to the environment are already too much of a burden on businesses. This means that responses closer to 1 are more liberal, while responss closer to 7 are more conservative .
+The first regression demonstrates Democrats' average views on the environment in the context of respondents' race while also controlling for educational level and gender. The second regression shows the same, but for Republican views on the environment. In regards to the issue of environment, a response that is decreasing or is closer to 1 means that tougher business regulations are needed to protect the environment, and responses that increase closer to 7 mean that regulations to the environment are already too much of a burden on businesses. This means that responses closer to 1 are more liberal, while responses closer to 7 are more conservative.
 
 The two regressions on the environment show the following outcomes: 
 
-The first regression [INSERT TITLE] suggests that 
+The first regression [INSERT TITLE] suggests that being a Black Democrat decreases your views on the environment by -0.25855 while controlling for the confounders of educational level and gender. The second regression depicts that being a Black Republican increases your views on the environment by 0.48109. In this case, the coefficients suggest that being Black impacts Republican respondents' views more than Democrats.
+
+The first regression indicates that being a Hispanic Democrat decreases your views on the environment by -0.68899, and this result is statistically significant with a threshold of 0. The second regression suggests that being a Hispanic Republican increases your views on the environment by 0.58712. In this scenario, the coefficients suggest that being Hispanic has a greater impact on Democrat respondents than Republicans.
+
+The first regression depicts that being a Native American Democrat decreases your views on the environment by -0.59861. The second regression suggests that being a Native American Republican increases your views on the environment by 0.60353. This suggests that being Native American may have a slightly greater impact on Republican respondents than on Democrat respondents.
+
+The first regression suggests that being a White Democrat decreases your views on the environment by -0.60597, and this result is statistically significant with a threshold of 0. The second regression indicates that being a White Republican may increase your views on the environment by 0.64241. These coefficients indicate that identifying as White may have a slightly greater impact on Democrat than Republican respondents. 
+
+**round all numbers
+
+
+***GO BACK THROUGH FOR STATISTICAL SIGNIFICANCE
+
 
 **CHANGE ALL SHOWS TO SUGGESTS
-
-The first regression [INSERT TITLE] shows that being a Black Democrat decreases your opinion on abortion [AS COMPARED TO OTHER DEMOCRATS?] by -0.093479 while controlling for educational level and gender, while the second shows that being a Black Republican decreases your opinion on abortion by -0.961011 [AS COMPARED TO OTHER REPUBLICANS?] while controlling for those factors. The result for Black Republicans was statistically significant with a threshold of 0.01. This suggests that, when it comes to the abortion issue, identifying as Black may impact Republicans' views (making them more conservative) more than Democrats (instead of making views more liberal). Regardless of race, this result is still consistent how Republicans' average views on abortion were lower for every racial category, including Black, non-Hispanic in Analysis Plot 1. 
-**can I say this last sentence? because would I have to say it for the next one? wtf am I comparing to? because technically in the next one republicans are still lower, just decreased less for republicans than decreased for democrats but democrat is still probably higher in general than republican
-
-
-
-
-
-
 
 
 environment regression DEMS
@@ -461,6 +464,19 @@ environment_regression_rep <- lm(environment_views ~ race3 + education_level + g
 summary(environment_regression_rep)
 ```
 
+
+These two regressions depict survey respondents' average views on the economy in the context of respondents' race while also controlling for educational level and gender. The first regression includes Democrat respondents' views, while the second includes Republican respondents' views. When it comes to the economy, a response that is closer to 1 means that respondents believe the economy is doing very well, and a response that is closer to 5 means that respondents believe the economy is doing very badly. Given the survey question, there is no typical "liberal" or "conservative" response to this question. This analysis will simply show the difference in views on the question by party and racial group, not necessarily which direction those views trend on the political spectrum.
+
+The two regressions show the following outcomes:
+
+The first regression [INSERT TITLE] suggests that being a Black Democrat increases respondent views on the economy by 0.42789, and this coefficient is statistically significant with a 0.001 threshold. The second regression suggests that being a Black Republican decreases your views on the economy by -0.53291. Comparing these coefficients shows that when it comes to the economy, being a Black impacts Republican respondents more than Democrat respondents.
+
+The first regression shows that being a Hispanic Democrat may increase respondent views on the economy by 0.44569. This coefficient is statistically significant with a 0.001 threshold. The second regression suggests that being a Hispanic Republican may decrease your views on the environment by -0.76620. This coefficient is also statistically significant with a 0.001 threshold. Comparing these coefficients shows that being Hispanic may impact Republican respondents more than Democrat respondents on the economy question.
+
+The first regression illustrates that being a Native American Democrat may increase respondent views on the economy by 0.74606. This coefficient is statistically significant with a 0.001 threshold. The second regression illustrates that being a Native American Republican may decrease respondent views on the economy by -1.03236. This result is statistically significant with a threshold of 0. Together, these coefficients indicate that being Native American has a greater impact on Republican responses to the economy question than Democrat responses.
+
+The first regression shows that being a White Democrat may increase respondent views on the economy by 0.35694. This coefficient is statistically significant with a 0.001 threshold. The second regression indicates that being a White Republican may decrease respondent opinions on the economy by -0.77982, and this coefficient is statistically significant with 0 as a threshold. Comparing these coefficients indicates that being White has a greater impact on Republican respondents than Democrats.
+
 economy regression dems
 ```{r}
 economy_regression_dems <- lm(economy_views ~ race2 + education_level + gender, data = dem_voting_trends)
@@ -474,12 +490,6 @@ economy_regression_rep <- lm(economy_views ~ race3 + education_level + gender, d
 summary(economy_regression_rep)
 ```
 
-
-
-```{r}
-library(stargazer)
-stargazer(abortion_regression_dem, abortion_regression_rep, type = "text")
-```
 
 
 
